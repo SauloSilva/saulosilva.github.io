@@ -1,0 +1,19 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  {% if page.title == "Home" %}
+    <meta name="description" content="{{ site.description }}">
+  {% else %}
+    <meta name="description" content="{{ page.description }}">
+  {% endif %}
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }} &middot; {{ site.tagline }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+</head>

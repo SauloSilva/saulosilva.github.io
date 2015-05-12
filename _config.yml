@@ -1,0 +1,20 @@
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
+
+highlighter: true
+
+title: 'Saulo da Santiago'
+description: 'Web developer se aventurando em escrever posts sobre tecnologia.'
+tagline: 'Javascript, Ruby, Rails, Java, Backbone, Marionette'
+
+paginate: 1
+paginate_path: '/pagina/:num/'
+permalink: pretty
+url: https://saulosilva.github.io
+
+pages_list:
+  About: '/about'
+  Ruby: '/ruby'
+  JS: '/js'
+  Feed: '/atom.xml'

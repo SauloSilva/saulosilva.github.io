@@ -1,0 +1,13 @@
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="/pagina/{{paginator.next_page}}/">Antigos</a>
+  {% endif %}
+
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="/">Recentes</a>
+    {% else %}
+      <a class="pagination-item newer" href="/pagina/{{paginator.previous_page}}/">Recentes</a>
+    {% endif %}
+  {% endif %}
+</div>
