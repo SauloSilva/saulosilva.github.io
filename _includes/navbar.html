@@ -1,10 +1,31 @@
-<a href="/" title="Home">{{ site.title }}</a>
-
-{% for page in site.pages_list %}
-  &nbsp;&nbsp;&nbsp;
-  <small>
-    <a href="{{ page[1]  }}">
-      {{ page[0] }}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" title="Home" class="brand-logo">
+      {{ site.title }}
     </a>
-  </small>
-{% endfor %}
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse">
+      <i class="mdi-navigation-menu"></i>
+    </a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {% for page in site.pages_list %}
+        <li>
+          <a href="{{ page[1]  }}">
+            {{ page[0] }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      {% for page in site.pages_list %}
+        <li>
+          <a href="{{ page[1]  }}">
+            {{ page[0] }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

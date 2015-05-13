@@ -1,13 +1,60 @@
+<em>{{ include.param }}</em>
 <div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/pagina/{{paginator.next_page}}/">Antigos</a>
-  {% endif %}
-
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Recentes</a>
+  <ul>
+    {% if paginator.previous_page %}
+      {% if paginator.page == 2 %}
+        <li class="waves-effect">
+          <a href="/">
+            <i class="mdi-navigation-chevron-left"></i>
+          </a>
+        </li>
+      {% else %}
+        <li class="waves-effect">
+          <a href="/pagina/{{paginator.previous_page}}/">
+            <i class="mdi-navigation-chevron-left"></i>
+          </a>
+        </li>
+      {% endif %}
     {% else %}
-      <a class="pagination-item newer" href="/pagina/{{paginator.previous_page}}/">Recentes</a>
+       <li class="disabled">
+          <a href="#!">
+            <i class="mdi-navigation-chevron-left"></i>
+          </a>
+        </li>
     {% endif %}
-  {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <li class="active">
+          <em>{{ page }}</em>
+        </li>
+      {% elsif page == 1 %}
+        <li class="waves-effect">
+          <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">
+            {{ page }}
+          </a>
+        </li>
+      {% else %}
+        <li class="waves-effect">
+          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <li class="waves-effect">
+        <a href="/pagina/{{paginator.next_page}}/">
+          <i class="mdi-navigation-chevron-right"></i>
+        </a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a href="#!">
+          <i class="mdi-navigation-chevron-right"></i>
+        </a>
+      </li>
+    {% endif %}
+  </ul>
 </div>

@@ -1,0 +1,37 @@
+<div class="col s12 m4">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      {{ include.post.image | image }}
+
+      <h3 class='card-title grey-text'>
+        {{ include.post.title }}
+      </h3>
+    </div>
+
+    <div class="card-content">
+      <span class="grey-text activator">
+        {{ include.post.date | date_to_string }}
+        <i class="mdi-navigation-more-vert right"></i>
+      </span>
+
+      <p>
+        {{ include.post.description }}
+      </p>
+
+      <p>
+        <a href="{{ include.post.url }}">Ver mais</a>
+      </p>
+    </div>
+
+    <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">
+            {{ include.post.title }}
+            <i class="mdi-navigation-close right"></i>
+          </span>
+          <p>
+            {{ include.post.long_description }}
+            <a href="{{ include.post.url }}">Ver mais</a>
+          </p>
+    </div>
+  </div>
+</div>

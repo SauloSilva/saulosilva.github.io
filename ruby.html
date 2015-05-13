@@ -1,0 +1,12 @@
+---
+layout: page
+title: Ruby
+---
+
+<div class='posts row'>
+  {% for post in site.categories['ruby'] %}
+    {% include post.html post=post %}
+  {% endfor %}
+</div>
+
+{% include pagination.html %}

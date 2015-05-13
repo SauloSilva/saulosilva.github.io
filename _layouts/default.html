@@ -4,12 +4,15 @@
   {% include head.html %}
 
   <body>
-    <main>
-      {{% include navbar.html %}}
+    {% include navbar.html %}
+
+    <main class='container'>
       {{ content }}
       {% include comments.html %}
     </main>
 
     {% include footer.html %}
   </body>
+
+  {% javascript application %}
 </html>

@@ -8,7 +8,7 @@ title: 'Saulo da Santiago'
 description: 'Web developer se aventurando em escrever posts sobre tecnologia.'
 tagline: 'Javascript, Ruby, Rails, Java, Backbone, Marionette'
 
-paginate: 1
+paginate: 10
 paginate_path: '/pagina/:num/'
 permalink: pretty
 url: https://saulosilva.github.io
@@ -20,10 +20,10 @@ pages_list:
   Feed: '/atom.xml'
 
 assets:
+  cache: false
   sources:
     - _assets/images
     - _assets/javascripts
     - _assets/stylesheets
     - _vendor/stylesheets
     - _vendor/javascripts
-    - _vendor/fonts
