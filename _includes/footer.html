@@ -1,5 +1,28 @@
-<footer>
-  <p>
-    &copy; {{ site.time | date: '%Y' }}. All rights reserved.
-  </p>
+<footer class='page-footer'>
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Confira os melhores posts</h5>
+        <p class="grey-text text-lighten-4">Veja os post em destaque. Leia, pratique e comente caso tenha dúvidas, sugestões ou críticas, ambos seram bem vindas :D</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          {% for post in site.categories['highlights'] %}
+            <li>
+              <a class="grey-text text-lighten-3" href={{ post.url }}>
+                {{ post.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <div class="container">
+      &copy; {{ site.time | date: '%Y' }}. All rights reserved for {{ site.title }}.
+    </div>
+  </div>
 </footer>

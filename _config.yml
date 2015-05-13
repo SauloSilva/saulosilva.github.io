@@ -18,3 +18,12 @@ pages_list:
   Ruby: '/ruby'
   JS: '/js'
   Feed: '/atom.xml'
+
+assets:
+  sources:
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _vendor/stylesheets
+    - _vendor/javascripts
+    - _vendor/fonts
