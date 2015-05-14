@@ -1,10 +1,11 @@
 markdown: redcarpet
+
 redcarpet:
-  extensions: ["tables"]
+  extensions: ['tables']
 
-highlighter: true
+highlighter: pygments
 
-title: 'Saulo da Santiago'
+title: 'Saulo Santiago'
 description: 'Web developer se aventurando em escrever posts sobre tecnologia.'
 tagline: 'Javascript, Ruby, Rails, Java, Backbone, Marionette'
 

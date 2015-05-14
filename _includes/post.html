@@ -1,11 +1,15 @@
-<div class="col s12 m4">
+{% if include.column %}
+  {% assign column = include.column %}
+{% else %}
+  {% assign column = 4 %}
+{% endif %}
+
+<div class="col s12 m{{ column }}">
   <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
-      {{ include.post.image | image }}
-
-      <h3 class='card-title grey-text'>
-        {{ include.post.title }}
-      </h3>
+      <a href="{{ include.post.url }}">
+        {{ include.post.image | image }}
+      </a>
     </div>
 
     <div class="card-content">
@@ -14,24 +18,31 @@
         <i class="mdi-navigation-more-vert right"></i>
       </span>
 
-      <p>
-        {{ include.post.description }}
-      </p>
+      <a href="{{ include.post.url }}">
+        <h2 class='card-title grey-text'>
+          {{ include.post.title }}
+        </h2>
 
-      <p>
-        <a href="{{ include.post.url }}">Ver mais</a>
-      </p>
+        <p class='description truncate'>
+          {{ include.post.description }}
+        </p>
+      </a>
     </div>
 
     <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">
-            {{ include.post.title }}
-            <i class="mdi-navigation-close right"></i>
-          </span>
-          <p>
-            {{ include.post.long_description }}
-            <a href="{{ include.post.url }}">Ver mais</a>
-          </p>
+      <span class="card-title grey-text text-darken-4">
+        <a href="{{ include.post.url }}">
+
+          {{ include.post.title }}
+        </a>
+        <i class="mdi-navigation-close right"></i>
+      </span>
+
+      <a href="{{ include.post.url }}">
+        <span class='truncate-clamp-12'>
+          {{ include.post.long_description }}
+        </span>
+      </a>
     </div>
   </div>
 </div>

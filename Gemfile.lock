@@ -151,3 +151,4 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-assets
+  redcarpet
