@@ -1,21 +1,40 @@
 <footer class='page-footer'>
   <div class="container">
+    <h5 class="white-text">Quem sou?</h5>
+
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Confira os melhores posts</h5>
-        <p class="grey-text text-lighten-4">Veja os post em destaque. Leia, pratique e comente caso tenha dúvidas, sugestões ou críticas, ambos seram bem vindas :D</p>
+      <div class="col l2 s12">
+        <div class="octo-wrapper">
+          <div class="octo">
+            {{ 'saulo.png' | image }}
+          </div>
+        </div>
       </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
-        <ul>
-          {% for post in site.categories['highlights'] %}
-            <li>
-              <a class="grey-text text-lighten-3" href={{ post.url }}>
-                {{ post.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
+
+      <div class="col l4 offset-1 s11">
+        <p class="grey-text text-lighten-4">
+          Desenvolvedor Ruby/Javascript.</br>
+          Trabalho há 6 anos com sistemas web.</br>
+          Movido a cafeína e preguiçoso.
+        </p>
+      </div>
+
+      <div class="col l6 s12 center-align tecnologies">
+        <div class='first-column'>
+          {% image ruby.png [resize:50x50] %}
+          {% image node.png [resize:50x50] %}
+          {% image html5.png [resize:50x50] %}
+          {% image js.png [resize:50x50] %}
+          {% image css3.png [resize:50x50] %}
+        </div>
+
+        <div class='second-column'>
+          {% image backbonejs.png [resize:50x50] %}
+          {% image marionettejs.png [resize:50x50] %}
+          {% image emberjs.png [resize:50x50] %}
+          {% image angular.png [resize:50x50] %}
+          {% image nginx.png [resize:50x50] %}
+        </div>
       </div>
     </div>
   </div>
