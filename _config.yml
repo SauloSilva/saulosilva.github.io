@@ -5,20 +5,36 @@ redcarpet:
 
 highlighter: pygments
 
-title: 'Saulo Santiago'
-description: 'Web developer se aventurando em escrever posts sobre tecnologia.'
+title: Saulo Santiago
+description: Web developer se aventurando em escrever posts sobre tecnologia.
 tagline: 'Javascript, Ruby, Rails, Java, Backbone, Marionette'
 
 paginate: 10
-paginate_path: '/pagina/:num/'
+paginate_path: /pagina/:num/
 permalink: pretty
 url: https://saulosilva.github.io
 
 pages_list:
-  About: '/about'
-  Ruby: '/ruby'
-  JS: '/js'
-  Feed: '/atom.xml'
+  About:
+    url: http://saulosantiago.com.br
+    name: About
+    class_name: about
+    ico_name: about-ico
+  Ruby:
+    url: /ruby
+    name: Ruby
+    class_name: ruby
+    ico_name: ruby-ico
+  JS:
+    url: /js
+    name: Js
+    class_name: js
+    ico_name: js-ico
+  Feed:
+    url: /atom.xml
+    name: Feed
+    class_name: feed
+    ico_name: feed-ico
 
 assets:
   cache: false

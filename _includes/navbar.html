@@ -11,8 +11,9 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       {% for page in site.pages_list %}
         <li>
-          <a href="{{ page[1]  }}">
-            {{ page[0] }}
+          <a href="{{ page[1]['url']  }}" class="{{ page[1]['class_name']  }}">
+            <i class='{{ page[1]['ico_name'] }}'></i>
+            {{ page[1]['name'] }}
           </a>
         </li>
       {% endfor %}
@@ -21,8 +22,9 @@
     <ul class="side-nav" id="mobile-demo">
       {% for page in site.pages_list %}
         <li>
-          <a href="{{ page[1]  }}">
-            {{ page[0] }}
+          <a href="{{ page[1]['url'] }}">
+            <i class='{{ page[1]['ico_name'] }}'></i>
+            {{ page[1]['name'] }}
           </a>
         </li>
       {% endfor %}
