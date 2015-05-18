@@ -12,6 +12,7 @@
       {% for page in site.pages_list %}
         <li>
           <a href="{{ page[1]['url']  }}" class="{{ page[1]['class_name'] }}">
+            <i class='{{ page[1]['ico_name'] }}'></i>
             {{ page[1]['name'] }}
           </a>
         </li>
