@@ -1,13 +1,14 @@
 ---
 layout: page
-description: fooo bar
+description: Ruby é uma linguagem que facilita muito a vida de nós programadores. Veja dicas, sugestões ou soluções de problemas que você possa estar enfrentando, aqui.
 title: Ruby
+class_name: ruby
 ico_name: ruby-ico
 ---
 
 <div class='posts row'>
   {% for post in site.categories['ruby'] %}
-    {% include post.html post=post %}
+    {% include post.html post=post column=6 %}
   {% endfor %}
 </div>
 

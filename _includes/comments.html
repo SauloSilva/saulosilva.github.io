@@ -1,21 +1,24 @@
 {% if page.comments %}
-  <span>
-    <i class='mdi-editor-insert-comment'></i>
-    Deixe sua dúvida, sugestão ou crítica, estou ancioso para saber tudo que você achou sobre este post:
-  </span>
+  <div class='comments'>
+    <h2>Comentários:</h2>
+    <span>
+      <i class='mdi-editor-insert-comment'></i>
+      Deixe sua dúvida, sugestão ou crítica, estou ancioso para saber tudo que você achou sobre este post:
+    </span>
 
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      var disqus_shortname = 'saulosantiago';
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'saulosantiago';
 
-      (function() {
-          var dsq = document.createElement('script');
+        (function() {
+            var dsq = document.createElement('script');
 
-          dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
 {% endif %}
