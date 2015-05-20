@@ -14,6 +14,10 @@ paginate_path: /pagina/:num/
 permalink: pretty
 url: https://saulosilva.github.io
 
+social:
+  twitter:
+    username: SSILVASANTIAGO
+
 pages_list:
   About:
     url: http://saulosantiago.com.br

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Active Active Model Serializer no sinatra
+title: ActiveModel Serializer no sinatra
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 8 minutos
@@ -69,11 +69,11 @@ Mas calma que para quase tudo tem solução.
 
 ## Solução para o Sinatra
 
-Meses atras passei por esta dificuldade. Precisei utilizar o `ActiveModel::Serializers` mas tive problemas em deixar tudo automâtico como ocorre no Rails.
+Meses atras passei por esta dificuldade. Precisei utilizar o `ActiveModel::Serializers` mas tive problemas em deixar tudo automatico como ocorre no Rails.
 
 O problema esta que no Sinatra não suporta a classe `ActionController`, sendo assim é lançado um erro `cannot load such file -- action_controller (LoadError)` ao tentar carregar, porém este erro é [tratado](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20) para que nossa aplicação não pare de funcionar.
 
-Isso faz com que o `render` não funcione de forma automâtica, mas não impede a funcionalidade dos serializers, sendo assim devemos utilizar da seguinte forma:
+Isso faz com que o `render` não funcione de forma automatica, mas não impede a funcionalidade dos serializers, sendo assim devemos utilizar da seguinte forma:
 
 ```ruby
 get '/foo/:id' do
@@ -84,7 +84,7 @@ end
 
 Não podemos dizer que isto não seja uma solução, mas se você achou que da pra melhorar, concordo contigo.
 
-Vendo a necessidade de melhoras, criei esta [`gem sinatra-active-model-serializers`](https://github.com/SauloSilva/sinatra-active-model-serializers/) para deixar tudo isso automâtico no Sinatra assim como é no Rails.
+Vendo a necessidade de melhoras, criei esta [`gem sinatra-active-model-serializers`](https://github.com/SauloSilva/sinatra-active-model-serializers/) para deixar tudo isso automatico no Sinatra assim como é no Rails.
 
 E o resultado disto ficou:
 
