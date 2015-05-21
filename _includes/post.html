@@ -15,7 +15,10 @@
     <div class="card-content">
       <span class="grey-text activator">
         {{ include.post.date | date_to_string }}
-        <i class="mdi-navigation-more-vert right"></i>
+
+        {% if include.post.has_preview %}
+          <i class="mdi-navigation-more-vert right"></i>
+        {% endif %}
       </span>
 
       <a href="{{ include.post.url }}">

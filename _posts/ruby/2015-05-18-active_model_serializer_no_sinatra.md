@@ -8,6 +8,7 @@ description: Adaptando o active model serializer para o Sinatra.
 
 long_description: Atualmente o ActiveModelSerializer so fornece suporte para Rails. Neste post irei dar uma dica de como solucionar este problema para quando estiver utilizando o Sinatra. Esta solução é simples e rápida. Basta adicionar ao seu Gemfile a gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a>
 
+has_preview: true
 category: [ruby, highlights]
 tags: [ruby]
 comments: true
