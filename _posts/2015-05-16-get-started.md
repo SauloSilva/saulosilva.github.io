@@ -60,3 +60,7 @@ O mundo web vem se expandindo cada vez mais.
 Hoje em dia a maioria dos disposivos ja possuem uma interação com a web.
  
 #### Conclusão
+
+Espero que este blog vire parte do seus favoritos. Sua visita 
+
+Caso encontre algum erro ortográfico
