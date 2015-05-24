@@ -10,7 +10,7 @@ long_description: Singleton é um padrão de design pattern. Este padrão fica r
 
 has_preview: true
 category: [js]
-tags: [js]
+tags: [js, singleton, design pattern, es5, es6]
 comments: true
 image_big: posts/js/singleton-em-js-big.png
 image_thumb: posts/js/singleton-em-js-thumb.png
