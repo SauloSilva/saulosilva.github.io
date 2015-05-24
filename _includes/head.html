@@ -59,5 +59,16 @@
     {% endif %}
   </title>
 
+  {% if page.title == "Home" %}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+
+  {% else %}
+    {% if page.class_name %}
+      <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.{{ page.class_name }}.xml">
+    {% else %}
+      <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.post.xml">
+    {% endif %}
+  {% endif %}
+
   {% stylesheet application %}
 </head>

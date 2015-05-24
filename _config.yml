@@ -35,7 +35,7 @@ pages_list:
     class_name: js
     ico_name: js-ico
   Feed:
-    url: /atom.xml
+    url: /feed.xml
     name: Feed
     class_name: feed
     ico_name: feed-ico
