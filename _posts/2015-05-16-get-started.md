@@ -2,9 +2,9 @@
 layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
-read_time: 2 minutos
+read_time: 3 minutos
 title: Get started
-description: Ola devs saiba porque criei este blog.
+description: Sejam bem vindos ao meu blog.
 has_preview: false
 category: []
 tags: []
@@ -14,9 +14,9 @@ image_thumb: posts/get-started-thumb.png
 permalink: get-started
 ---
 
-Ola meus amigos desenvolvedores, seja bem vindos, me chamo Saulo e trabalho com web desde de 2009, atualmente sou programador Ruby e Javascript. 
+Ola meus amigos desenvolvedores, seja bem vindos, me chamo Saulo e trabalho com Web desde de 2009, atualmente sou programador Ruby e Javascript. 
 
-A partir de hoje começarei a escrever sobre tecnologias que ja utilizei no meu dia a dia ou sobre algumas coisas que estou aprendendo e que acho importante compartilha-las.
+A partir de hoje começarei a escrever sobre tecnologias que já utilizei no meu dia a dia e sobre algumas coisas que estou aprendendo e que acho importante compartilha-las.
 
 A cada semana pretendo disponibilizar um novo post para vocês.
 
@@ -30,13 +30,13 @@ Ruby é composto por ótimos frameworks e bibliotecas como [`Rails`](https://git
 
 A comunidade Ruby esta cada dia mais forte e maior, sendo assim é muito mais fácil achar soluções e dicas. 
 
-Programadores Ruby geralmente produzem soluções elegantes.
+Os programadores Ruby geralmente produzem soluções elegantes.
 
 Com essas característica Ruby me convence que é a minha linguagem favorita de "back-end".
 
 #### Minha visão sobre Javascript
 
-Javascript é uma linguagem de programação de fácil acesso e que esta se fazendo presente em quase todos lugares.
+Javascript é uma linguagem de programação de fácil acesso e que esta presente em quase todos lugares.
 
 A baixa curva de aprendizado tem aumentado o número de interessados pela linguagem. 
 
@@ -46,25 +46,23 @@ Esse `boom` fez a comunidade se dispertar e implementar a versão 6 para o ECMA.
 
 Javascript não esta presente só no `front`, atualmente temos código Javascript rodando no `server` graças ao `Node`, e isto é maravilhoso pois podemos ter Javascript dos dois lados também.
 
-#### Minha visão sobre o mundo web
+#### Minha visão sobre o mundo Web
 
-Com as melhorias dos dispositivos móveis a web vem se expandindo a cada dia.
+No mundo Web encontramos quase tudo que queremos. Hoje temos a Web presente em vários tipos de dispositivos. 
 
-Com isso temos usuário cada vez mais exigente e com necessidades de novos aplicativos.
+Isso aumentou o número de pessoas conectadas. Essa nova demanda gera uma exigência maior por novos aplicativos ou melhorias nos que já existem.
 
-Acredito que a web irá se expandir mais ainda, fazendo o `off-line` entrar totalmente em extinção.
+A Web irá se expandir ainda mais, acredito que daqui uns anos o `off-line` entre em total extinção.
  
 #### Conclusão
 
-Sou um programador disposto a ajudar com soluções.
+Sou um programador disposto a ajudar outros desenvolvedores com soluções.
 
-Não sou o dono da verdade e ficarei muito feliz em saber a sua opnião nos comentários.
+Não sou o dono da verdade e ficarei muito feliz em saber a sua opnião nos comentários, seja ela qual for.
 
-Caso você queira discutir algo que tende a ser extenso demais e que envolva código, deixo a [`Issue` do meu blog](https://github.com/SauloSilva/saulosilva.github.io/issues/new) convencionada para isto, depois basta referenciar o link no comentário do post.
+Caso você queira abrir uma discussão que tende a ser extensa, deixo a [`Issue` do meu blog](https://github.com/SauloSilva/saulosilva.github.io/issues/new) convencionada para isto, depois basta referenciar o link no comentário do post.
 
-Você tem uma experiência e quer compartilhar no meu blog?
-
-Será uma honra publicar o seu post.
+Caso você tenha uma experiência bacana e queira compartilhar no meu blog, será uma honra publicar o seu post.
 
 Escreva usando o template que esta disponível neste [link](https://github.com/SauloSilva/saulosilva.github.io/blob/master/_template/<date>-<post-name>.md) e depois envie seu pull request. Irei apreciar muito o seu trabalho.
 

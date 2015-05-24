@@ -3,7 +3,7 @@ layout: post
 title: ActiveModel Serializer no sinatra
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
-read_time: 8 minutos
+read_time: 4 minutos
 description: Adaptando o active model serializer para o Sinatra.
 
 long_description: Atualmente o ActiveModelSerializer so fornece suporte para Rails. Neste post irei dar uma dica de como solucionar este problema para quando estiver utilizando o Sinatra. Esta solução é simples e rápida. Basta adicionar ao seu Gemfile a gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a>
@@ -30,7 +30,7 @@ Imagine que seu `controller` recebe um objeto com a seguinte estrutura:
 
 Mas você não esta satisfeito em devolver todos atributos como resposta na `request`. Qual a solução para isto?
 
-A solução é criar um serializer com o nome do objeto adicionando o sufixo `Serializer` no final. No nosso caso irei definir que somente atributo `bar` será retornado. Nosso serializer ficará assim:
+A solução é criar um serializer com o nome do objeto adicionando o sufixo `Serializer` no final. Neste caso irei definir que somente o atributo `bar` será retornado. Nosso serializer ficará assim:
 
 ```ruby
 class FooSerializer < ActiveModel::Serializer
@@ -40,7 +40,7 @@ end
 
 Temos nosso objeto, temos o serializer mas como faremos para que isto funcione?
 
-Pois bem, se estiver utilizando o **framework Rails** basta fazer um retorno do tipo json:
+Pois bem, se estiver utilizando o **framework [Rails](https://github.com/rails/rails)** basta fazer um `render` do tipo json:
 
 ```ruby
 def show
@@ -58,9 +58,10 @@ Que teremos o retorno desejado:
 }
 ```
 
-Perfeito, era isto que queriamos. Mas você pode esta se perguntando como isso funcionou? Mágia? Algum tipo de bruxaria?
+Perfeito, era isto que queriamos. 
+Mas como isso funcionou sem especificar um serializer? Mágia? Algum tipo de bruxaria?
 
-Não, não existe mágia nem mesmo bruxaria para isto. A `gem` define que todos os [renders](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48) do tipo json [procure pelo serializer](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71) que tenha o mesmo nome do objeto e logo após encontrar faz a [instância desta classe](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95).
+Não, não existe mágia. A `gem` define que todos os [renders](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48) do tipo json [procure pelo serializer](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71) que tenha o mesmo nome do objeto e logo após encontrar faz a [instância desta classe](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95).
 
 Genial, não? 
 
@@ -72,9 +73,9 @@ Mas calma que para quase tudo tem solução.
 
 Meses atras passei por esta dificuldade. Precisei utilizar o `ActiveModel::Serializers` mas tive problemas em deixar tudo automatico como ocorre no Rails.
 
-O problema esta que no Sinatra não suporta a classe `ActionController`, sendo assim é lançado um erro `cannot load such file -- action_controller (LoadError)` ao tentar carregar, porém este erro é [tratado](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20) para que nossa aplicação não pare de funcionar.
+O problema é que no Sinatra não existe suporte para a classe `ActionController`, sendo assim a lib lança o seguinte erro `cannot load such file -- action_controller (LoadError)` ao tentar carregar, porém este erro é [tratado](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20) para que nossa aplicação não pare de funcionar.
 
-Isso faz com que o `render` não funcione de forma automatica, mas não impede a funcionalidade dos serializers, sendo assim devemos utilizar da seguinte forma:
+Sendo assim o `render` não irá funcionar pois não conseguiu ser carregado, mas isso não impede a funcionalidade dos serializers, sendo assim devemos utilizar da seguinte forma:
 
 ```ruby
 get '/foo/:id' do
@@ -83,7 +84,7 @@ get '/foo/:id' do
 end
 ```
 
-Não podemos dizer que isto não seja uma solução, mas se você achou que da pra melhorar, concordo contigo.
+Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, concordo contigo.
 
 Vendo a necessidade de melhoras, criei esta [`gem sinatra-active-model-serializers`](https://github.com/SauloSilva/sinatra-active-model-serializers/) para deixar tudo isso automatico no Sinatra assim como é no Rails.
 
@@ -95,7 +96,9 @@ get '/foo/:id' do
 end
 ```
 
-Esta `gem` aplica a lógica de controller feita pro Rails no módulo [`JSON`](https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4) do Sinatra.
+Para que tudo funcione como mencionei acima basta instalar a gem: `gem install sinatra-active-model-serializers` ou adicionar em seu Gemfile: `gem 'sinatra-active-model-serializers'`.
+
+Essa `gem` basicamente aplica quase toda a lógica de controller feita para o Rails no módulo [`JSON`](https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4) do Sinatra.
 
 #### Quer saber mais sobre a `gem`? 
 
