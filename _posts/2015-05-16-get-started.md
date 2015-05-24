@@ -50,14 +50,22 @@ Javascript não esta presente só no `front`, atualmente temos código Javascrip
 
 Com as melhorias dos dispositivos móveis a web vem se expandindo a cada dia.
 
-O usuário esta cada dia mais exigente e com isso existe a necessidade de novos aplicativos para suprir esta necessidade.
+Com isso temos usuário cada vez mais exigente e com necessidades de novos aplicativos.
 
-Acredito que a web irá se expandir mais ainda fazendo o `off-line` entrar totalmente em extinção.
+Acredito que a web irá se expandir mais ainda, fazendo o `off-line` entrar totalmente em extinção.
  
 #### Conclusão
 
 Sou um programador disposto a ajudar com soluções.
 
-Não sou o dono da verdade então ficarei muito feliz em saber a sua opnião nos comentários.
+Não sou o dono da verdade e ficarei muito feliz em saber a sua opnião nos comentários.
 
-Caso você queira discutir algo que tende a ser extenso demais e que envolva código deixo a [`Issue` do meu blog](https://github.com/SauloSilva/saulosilva.github.io/issues/new) convencionada para isto, depois basta referenciar o link no comentário do post.
+Caso você queira discutir algo que tende a ser extenso demais e que envolva código, deixo a [`Issue` do meu blog](https://github.com/SauloSilva/saulosilva.github.io/issues/new) convencionada para isto, depois basta referenciar o link no comentário do post.
+
+Você tem uma experiência e quer compartilhar no meu blog?
+
+Será uma honra publicar o seu post.
+
+Escreva usando o template que esta disponível neste [link](https://github.com/SauloSilva/saulosilva.github.io/blob/master/_template/<date>-<post-name>.md) e depois envie seu pull request. Irei apreciar muito o seu trabalho.
+
+Obrigado e tenham uma boa leitura.
