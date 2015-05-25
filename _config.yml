@@ -7,6 +7,7 @@ highlighter: pygments
 
 title: Saulo Santiago
 description: Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.
+tagline: Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.
 paginate: 10
 paginate_path: /pagina/:num/
 permalink: pretty
