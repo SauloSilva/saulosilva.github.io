@@ -1,0 +1,95 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  {% if page.title == "Home" %}
+    <meta name="description" content="{{ site.description }}">
+  {% else %}
+    <meta name="description" content="{{ page.description }}">
+  {% endif %}
+
+  <meta content="{{ site.title }}" property="og:site_name">
+
+  {% if page.title %}
+    <meta content="{{ page.title }}" property="og:title">
+  {% else %}
+    <meta content="{{ site.title }}" property="og:title">
+  {% endif %}
+
+  {% if page.title %}
+    <meta content="article" property="og:type">
+  {% else %}
+    <meta content="website" property="og:type">
+  {% endif %}
+
+  {% if page.url %}
+    <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  {% endif %}
+
+  {% if page.date %}
+    <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
+
+    <meta content="{{ site.url }}/about/" property="article:author">
+  {% endif %}
+
+  {% if page.image_big %}
+    <meta content="{{ page.image_big | asset_path }}" property="og:image">
+  {% else %}
+    <meta content="{% asset_path logo-bg.png %}" property="og:image">
+  {% endif %}
+
+  {% if page.categories %}
+    {% for category in page.categories limit:1 %}
+      <meta content="{{ category }}" property="article:section">
+    {% endfor %}
+  {% endif %}
+
+  {% if page.tags %}
+    {% for tag in page.tags %}
+      <meta content="{{ tag }}" property="article:tag">
+    {% endfor %}
+  {% endif %}
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+
+  {% if page.title == "Home" %}
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+
+  {% else %}
+    {% if page.class_name %}
+      <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.{{ page.class_name }}.xml">
+    {% else %}
+      <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.post.xml">
+    {% endif %}
+  {% endif %}
+
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/public/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+  <link rel="manifest" href="/public/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/public/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  {% stylesheet application %}
+
+  {% include analytics.html %}
+</head>

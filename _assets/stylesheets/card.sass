@@ -1,0 +1,30 @@
+.card
+  max-width: 410px
+  margin: 10px auto
+  .activator
+    font-weight: 100
+    font-size: 12px
+
+  .card-image img
+    left: 50%
+    height: 100%
+    position: absolute !important
+    text-align: center
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: inherit !important
+
+  h2.card-title
+    color: $primary-color !important
+    font-size: 18px !important
+    margin: 5px 0 0
+
+  .mdi-navigation-more-vert
+    cursor: pointer
+    &:before
+      font-size: 30px
+
+  .card-reveal
+    span.card-title a
+      color: $primary-color !important
+      font-size: 18px !important

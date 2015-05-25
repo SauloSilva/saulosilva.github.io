@@ -1,0 +1,33 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" title="Home" class="brand-logo">
+      {% image 'logo-bg.png' class='circle' [resize:50x50] %}
+      {{ site.title }}
+    </a>
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse">
+      <i class="mdi-navigation-menu"></i>
+    </a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      {% for page in site.pages_list %}
+        <li>
+          <a href="{{ page[1]['url']  }}" class="{{ page[1]['class_name'] }}">
+            {{ page[1]['name'] }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      {% for page in site.pages_list %}
+        <li>
+          <a href="{{ page[1]['url'] }}" class="{{ page[1]['class_name'] }}">
+            <i class='ico {{ page[1]['ico_name'] }}'></i>
+            {{ page[1]['name'] }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

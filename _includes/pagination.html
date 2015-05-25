@@ -1,0 +1,61 @@
+{% if paginator.total_pages > 2 %}
+  <div class="pagination">
+    <ul>
+      {% if paginator.previous_page %}
+        {% if paginator.page == 2 %}
+          <li class="waves-effect">
+            <a href="/">
+              <i class="mdi-navigation-chevron-left"></i>
+            </a>
+          </li>
+        {% else %}
+          <li class="waves-effect">
+            <a href="/pagina/{{paginator.previous_page}}/">
+              <i class="mdi-navigation-chevron-left"></i>
+            </a>
+          </li>
+        {% endif %}
+      {% else %}
+         <li class="disabled">
+            <a href="#!">
+              <i class="mdi-navigation-chevron-left"></i>
+            </a>
+          </li>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li class="active">
+            <em>{{ page }}</em>
+          </li>
+        {% elsif page == 1 %}
+          <li class="waves-effect">
+            <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">
+              {{ page }}
+            </a>
+          </li>
+        {% else %}
+          <li class="waves-effect">
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">
+              {{ page }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <li class="waves-effect">
+          <a href="/pagina/{{paginator.next_page}}/">
+            <i class="mdi-navigation-chevron-right"></i>
+          </a>
+        </li>
+      {% else %}
+        <li class="disabled">
+          <a href="#!">
+            <i class="mdi-navigation-chevron-right"></i>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+{% endif %}

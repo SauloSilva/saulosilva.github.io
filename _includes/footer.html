@@ -1,0 +1,34 @@
+<footer class='page-footer'>
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12 m6">
+        <h5 class="white-text">Quem sou?</h5>
+        <p class="grey-text text-lighten-4">
+          Desenvolvedor Ruby e Javascript.</br>
+          Trabalho há 6 anos com sistemas web.</br>
+          Meu maior combustível é a cafeína.
+        </p>
+      </div>
+
+      <div class="col s12 m6 center-align tecnologies">
+        {% image ruby.png [resize:50x50] %}
+        {% image node.png [resize:50x50] %}
+        {% image html5.png [resize:50x50] %}
+        {% image js.png [resize:50x50] %}
+        {% image css3.png [resize:50x50] %}
+        {% image backbonejs.png [resize:50x50] %}
+        {% image marionettejs.png [resize:50x50] %}
+        {% image emberjs.png [resize:50x50] %}
+        {% image angular.png [resize:50x50] %}
+        {% image nginx.png [resize:50x50] %}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <div class="container">
+      &copy; {{ site.time | date: '%Y' }}. All rights reserved for {{ site.title }}.
+    </div>
+  </div>
+</footer>

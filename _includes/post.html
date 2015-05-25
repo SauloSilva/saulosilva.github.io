@@ -1,0 +1,48 @@
+{% if include.column %}
+  {% assign column = include.column %}
+{% else %}
+  {% assign column = 4 %}
+{% endif %}
+
+<div class="col s12 m{{ column }}">
+  <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <a href="{{ include.post.url }}">
+        {{ include.post.image_thumb | image }}
+      </a>
+    </div>
+
+    <div class="card-content">
+      <span class="grey-text activator">
+        {{ include.post.date | date_to_string }}
+
+        {% if include.post.has_preview %}
+          <i class="mdi-navigation-more-vert right"></i>
+        {% endif %}
+      </span>
+
+      <a href="{{ include.post.url }}">
+        <h2 class='card-title truncate'>
+          {{ include.post.title }}
+        </h2>
+
+        <p class='description truncate grey-text'>
+          {{ include.post.description }}
+        </p>
+      </a>
+    </div>
+
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">
+        <a href="{{ include.post.url }}">
+          {{ include.post.title }}
+        </a>
+        <i class="mdi-navigation-close right"></i>
+      </span>
+
+      <span class='truncate-clamp-12 grey-text'>
+        {{ include.post.long_description }}
+      </span>
+    </div>
+  </div>
+</div>

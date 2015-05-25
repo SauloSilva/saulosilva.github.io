@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class='post-show z-depth-1'>
+  <article class="markdown-body">
+    <h1>{{ page.title }}</h1>
+    <span class='read-time'>
+      <i class='mdi-device-access-time'></i>
+      Leia em: {{ page.read_time }}
+    </span>
+
+    <span class='author-info'>
+      <img src="{{ page.author_email | to_gravatar }}" alt="Foto de {{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
+      Escrito por: <b>{{ page.author_name }}</b>
+    </span>
+
+    <div class='image-big'>
+      {{ page.image_big | image }}
+    </div>
+
+    {{ content }}
+  </article>
+
+  {% include socials.html %}
+  {% include comments.html %}
+</div>

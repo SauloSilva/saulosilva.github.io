@@ -1,0 +1,15 @@
+---
+layout: page
+description: Ruby tem uma ótima semântica e sintaxe. Veja dicas legais que pode serem aplicadas no dia a dia.
+title: Categoria de Ruby
+class_name: ruby
+ico_name: ruby-ico
+---
+
+<div class='posts row'>
+  {% for post in site.categories['ruby'] %}
+    {% include post.html post=post column=6 %}
+  {% endfor %}
+</div>
+
+{% include pagination.html %}
