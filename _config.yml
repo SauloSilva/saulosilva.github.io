@@ -46,3 +46,7 @@ assets:
     - _assets/stylesheets
     - _vendor/stylesheets
     - _vendor/javascripts
+
+gems:
+  - jekyll-assets
+  - redcarpet
