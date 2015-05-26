@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'github-pages'
+gem 'awestruct'
+gem 'redcarpet'
 gem 'jekyll-assets', '0.14.0'
-gem 'redcarpet', '3.2.3'
-gem 'awestruct', '0.5.5'
 gem 'travis', '1.7.6'
