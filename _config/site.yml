@@ -1,0 +1,6 @@
+profiles:
+  production:
+    base_url: https://saulo.github.io
+    deploy:
+      host: github_pages
+      branch: master
