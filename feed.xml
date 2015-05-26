@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title></title>
+    <description>Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.</description>
+    <link>https://saulosilva.github.io</link>
+    <atom:link href="https://saulosilva.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>ActiveModel Serializer no sinatra</title>
+        
+        
+          <description>&lt;p&gt;A &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; pode ajudá-lo a construir &lt;strong&gt;APIs JSON&lt;/strong&gt; através de objetos serializados. &lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/ruby/active-model-serializer-no-sinatra</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/ruby/active-model-serializer-no-sinatra</guid>
+      </item>
+    
+      <item>
+        <title>Singleton em JS</title>
+        
+        
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;design pattern&lt;/em&gt;. &lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/js/singleton-em-js</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/js/singleton-em-js</guid>
+      </item>
+    
+      <item>
+        <title>Get started</title>
+        
+        
+          <description>&lt;p&gt;Ola meus amigos desenvolvedores, seja bem vindos, me chamo Saulo e trabalho com Web desde de 2009, atualmente sou programador Ruby e Javascript. &lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 16 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/get-started</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/get-started</guid>
+      </item>
+    
+  </channel>
+</rss>
