@@ -20,23 +20,15 @@ pages_list:
   About:
     url: http://saulosantiago.com.br
     name: About
-    class_name: about
-    ico_name: about-ico
   Ruby:
     url: /ruby
     name: Ruby
-    class_name: ruby
-    ico_name: ruby-ico
   JS:
-    url: /js
-    name: Js
-    class_name: js
-    ico_name: js-ico
+    url: /javascript
+    name: Javascript
   Feed:
     url: /feed.xml
     name: Feed
-    class_name: feed
-    ico_name: feed-ico
 
 assets:
   cache: false

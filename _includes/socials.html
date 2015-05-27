@@ -1,15 +1,27 @@
 <div class="share-page">
-    <b>
-      Share this on &rarr;
-    </b>
+    <div class='social'>
+      <b>
+        Share this on &rarr;
+      </b>
+    </div>
 
-    <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook'>Facebook</a>
+    <div class='social'>
+      <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+    </div>
 
-    <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus'>Google+</a>
+    <div class='social'>
+      <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+    </div>
 
-    <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.social.twitter.username }}&related={{ site.social.twitter.username }}" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter'>Twitter</a>
+    <div class='social'>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.social.twitter.username }}&related={{ site.social.twitter.username }}" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+    </div>
 
-    <a href="http://www.reddit.com/submit?url={{ site.url }}&title={{ page.title }}" class='button-reddit' target="_blank">Reddit</a>
+    <div class='social'>
+      <a href="http://www.reddit.com/submit?url={{ site.url }}&title={{ page.title }}" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+    </div>
 
-    <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}&title={{ page.title }}&summary={{ page.description }}&source={{ site.url }}" class='button-linkedin' target="_blank">Linkedin</a>
+    <div class='social'>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}&title={{ page.title }}&summary={{ page.description }}&source={{ site.url }}" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+    </div>
 </div>

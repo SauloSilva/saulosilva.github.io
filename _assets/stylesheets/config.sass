@@ -1,6 +1,52 @@
+@function em($target, $context: 16px)
+  @if ($target == 0)
+    @return 0
+  @else
+    @return ($target / $context) * 1em
+
+=respond-to($val, $query: min-width, $media: screen)
+  @media #{$media} and ($query: $val)
+    @content
+
 $roboto-font-path: "../public/fonts/roboto/" !default
 $icons-font-path: "../public/fonts/material-design-icons/" !default
 
 $primary-color: #005461 !default
 
 $link-color: #000
+
+$navbar-height: 94px !default
+$navbar-height-mobile: 76px !default
+
+$b-space: em(10px)
+
+// ----- Grid ----- //
+
+// Breakpoints
+
+$g-sm: 320px
+$g-md: 480px
+$g-ml: 640px
+$g-lg: 768px
+$g-lg2: 990px
+$g-xlg: 1200px
+$g-xlg2: 1920px
+$g-xxlg2: 2560px
+
+// Settings
+
+$g-columns: 12
+$g-defaults: "sm" $g-sm, "md" $g-md, "ml" $g-ml, "lg" $g-lg, "lg2" $g-lg2, "xlg" $g-xlg, "xlg2" $g-xlg2, "xxlg2" $g-xxlg2
+$g-gutter: $b-space
+$g-silent: true
+
+// Selector
+
+$g-selector: if($g-silent, unquote("%"), unquote("."))
+
+// ----- Clearfix ----- //
+
+.group::after
+  clear: both
+  content: ''
+  display: table

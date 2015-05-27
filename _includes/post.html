@@ -1,10 +1,4 @@
-{% if include.column %}
-  {% assign column = include.column %}
-{% else %}
-  {% assign column = 4 %}
-{% endif %}
-
-<div class="col s12 m{{ column }}">
+<div class='post'>
   <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
       <a href="{{ include.post.url }}">

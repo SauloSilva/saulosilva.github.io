@@ -1,14 +1,14 @@
 ---
 layout: page
 description: Javascript é uma linguagem que vem crescendo a cada ano que se passa. Que tal ver algumas dicas sobre essa interessantíssima linguagem!
-title: Categoria de javascript
+title: Javascript
 class_name: js
 ico_name: js-ico
 ---
 
-<div class='posts row'>
+<div class='posts'>
   {% for post in site.categories['js'] %}
-    {% include post.html post=post column=6 %}
+    {% include post.html post=post %}
   {% endfor %}
 </div>
 

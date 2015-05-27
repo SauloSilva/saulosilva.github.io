@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" title="Home" class="brand-logo">
+    <a href="/" title="Home" class="brand-logo truncate">
       {% image 'logo-bg.png' class='circle' [resize:50x50] %}
       {{ site.title }}
     </a>
@@ -12,7 +12,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       {% for page in site.pages_list %}
         <li>
-          <a href="{{ page[1]['url']  }}" class="{{ page[1]['class_name'] }}">
+          <a href="{{ page[1]['url']  }}">
             {{ page[1]['name'] }}
           </a>
         </li>
@@ -22,8 +22,7 @@
     <ul class="side-nav" id="mobile-demo">
       {% for page in site.pages_list %}
         <li>
-          <a href="{{ page[1]['url'] }}" class="{{ page[1]['class_name'] }}">
-            <i class='ico {{ page[1]['ico_name'] }}'></i>
+          <a href="{{ page[1]['url'] }}">
             {{ page[1]['name'] }}
           </a>
         </li>

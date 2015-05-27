@@ -1,87 +1,47 @@
 .share-page
   margin: 20px 0
 
-a.button-facebook,
-a.button-googleplus,
-a.button-linkedin,
-a.button-reddit,
-a.button-twitter
-  border-radius: 3px
-  box-shadow: 0 1px 1px #999
-  color: #fff
-  display: inline-block
-  font-size: 16px
-  margin: 0 10px
-  padding: 5px
-  text-align: center
-  width: 110px
+  .social
+    @extend %g-b
+    @extend %g-b--sm--1of1
+    @extend %g-b--md--1of1
+    @extend %g-b--ml--1of1
+    @extend %g-b--lg--1of6
+    line-height: 36px
+
+    a
+      padding: 0px 20px
+      width: 118px
+      +respond_to($g-lg, max-width)
+        margin-top: 10px
+        width: 100%
 
 a.button-facebook
   background-color: #2b4170
-  background: -moz-linear-gradient(top, #3b5998, #2b4170)
-  background: -ms-linear-gradient(top, #3b5998, #2b4170)
-  background: -webkit-linear-gradient(top, #3b5998, #2b4170)
-  border: 1px solid #2b4170
-  text-shadow: 0 -1px -1px #1f2f52
 
 a.button-facebook:hover
   background-color: #3b5998
-  background: -moz-linear-gradient(top, #2b4170, #3b5998)
-  background: -ms-linear-gradient(top, #2b4170, #3b5998)
-  background: -webkit-linear-gradient(top, #2b4170, #3b5998)
 
 a.button-googleplus
   background-color: #c33219
-  background: -moz-linear-gradient(top, #e64522, #c33219)
-  background: -ms-linear-gradient(top, #e64522, #c33219)
-  background: -webkit-linear-gradient(top, #e64522, #c33219)
-  border: 1px solid #c33219
-  text-shadow: 0 -1px -1px #972412
 
 a.button-googleplus:hover
   background-color: #e64522
-  background: -moz-linear-gradient(top, #c33219, #e64522)
-  background: -ms-linear-gradient(top, #c33219, #e64522)
-  background: -webkit-linear-gradient(top, #c33219, #e64522)
 
 a.button-linkedin
   background-color: #0073b2
-  background: -moz-linear-gradient(top, #009cda, #0073b2)
-  background: -webkit-linear-gradient(top, #009cda, #0073b2)
-  border: 1px solid #0073b2
-  text-shadow: 0 -1px -1px #005486
 
 a.button-linkedin:hover
   background-color: #009cda
-  background: -moz-linear-gradient(top, #0073b2, #009cda)
-  background: -ms-linear-gradient(top, #0073b2, #009cda)
-  background: -webkit-linear-gradient(top, #0073b2, #009cda)
-
 
 a.button-twitter
   background-color: #0081ce
-  background: -moz-linear-gradient(top, #00aced, #0081ce)
-  background: -ms-linear-gradient(top, #00aced, #0081ce)
-  background: -webkit-linear-gradient(top, #00aced, #0081ce)
-  border: 1px solid #0081ce
-  text-shadow: 0 -1px -1px #005ea3
 
 a.button-twitter:hover
   background-color: #00aced
-  background: -moz-linear-gradient(top, #0081ce, #00aced)
-  background: -ms-linear-gradient(top, #0081ce, #00aced)
-  background: -webkit-linear-gradient(top, #0081ce, #00aced)
 
 a.button-reddit
   background-color: #AD0808
-  background: -moz-linear-gradient(top, #FF0000, #AD0808)
-  background: -ms-linear-gradient(top, #FF0000, #AD0808)
-  background: -webkit-linear-gradient(top, #FF0000, #AD0808)
-  border: 1px solid #AD0808
-  text-shadow: 0 -1px -1px #AD0808
 
 a.button-reddit:hover
   background-color: #AD0808
-  background: -moz-linear-gradient(top, #AD0808, #FF0000)
-  background: -ms-linear-gradient(top, #AD0808, #FF0000)
-  background: -webkit-linear-gradient(top, #AD0808, #FF0000)

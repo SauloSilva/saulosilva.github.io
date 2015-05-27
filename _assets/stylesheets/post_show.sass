@@ -1,31 +1,56 @@
 %h2
-  font-size: 27px
+  font-size: em(27px)
   font-weight: 100
   margin: 5px 0
 
 .post-show
   background: #FFF
   padding: 20px
+  max-width: 1100px
+  margin: 0 auto
+
   h1
+    font-size: em(30px) !important
     text-align: center
+
   .image-big
     padding-bottom: 20px
     img
       width: 100%
   .read-time
+    @extend %g-b
+    @extend %g-b--sm--1of1
+    @extend %g-b--md--1of1
+    @extend %g-b--ml--1of2
+    @extend %g-b--lg--1of2
+
+    +respond_to($g-ml, max-width)
+      text-align: right
+
     display: inline-block
-    float: left
     font-weight: 100
     i
       color: #C2C2C2
       font-size: 32px
       vertical-align: middle
   .author-info
+    @extend %g-b
+    @extend %g-b--sm--1of1
+    @extend %g-b--md--1of1
+    @extend %g-b--ml--1of2
+    @extend %g-b--lg--1of2
+
+    +respond_to($g-ml, max-width)
+      margin: 10px 0
+      text-align: center
+
+    +respond_to($g-ml)
+      text-align: right
+
+
     display: inline-block
     font-weight: 100 !important
-    float: right
     padding: 0 0 15px
-    text-align: right
     img
       vertical-align: middle
 
