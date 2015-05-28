@@ -21,22 +21,8 @@ layout: default
 
     {{ content }}
 
-    <div itemscope itemtype="http://schema.org/Article" id='rich-snippet-article'>
-      <h1>
-        <span itemprop="name">{{ page.title }}</span>
-      </h1>
-      <p itemprop="articleBody">{{ page.description }}</p>
+    {% include rich_snippets/article.html %}
 
-      </hr>
-
-      <p>Posted by:
-        <a href="https://plus.google.com/114181995496424305537/posts/p/pub" rel="author">
-          <span itemprop="author">{{ page.author_name }}</span> of
-            <a href="https://plus.google.com/8877665544332211" rel="publisher">
-          <span itemprop="publisher">{{ site.url }}</span>
-        </a>
-      </p>
-    </div>
   </article>
 
   {% include socials.html %}

@@ -9,7 +9,7 @@ description: Aprenda a manipular suas repostas em JSONs.
 long_description: Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra.
 
 has_preview: true
-category: [ruby, highlights]
+category: ruby
 tags: [API, Ruby, Sinatra, JSON, Serializer, ActiveModel Serializer, ActiveModelSerializer]
 comments: true
 image_big: posts/ruby/serializer-jsons-com-sinatra-big.png

@@ -9,7 +9,7 @@ description: Singleton diz que você terá apenas uma instância de classe.
 long_description: Singleton diz que você terá apenas uma instância de classe (se estiver utilizando ES6) ou de uma função construtora (se estiver utilizando ES5).
 
 has_preview: true
-category: [javascript]
+category: javascript
 tags: [JS, Javascript, Singleton, Design Pattern, ES5, ES6]
 comments: true
 image_big: posts/javascript/sigleton-design-patterns-com-javascript-big.png
