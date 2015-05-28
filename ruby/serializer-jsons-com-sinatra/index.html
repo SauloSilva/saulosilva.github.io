@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Aprenda a manipular suas reposta JSON.">
+    <meta name="description" content="Aprenda a manipular suas repostas em JSONs.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
@@ -113,7 +113,7 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-a1b6917d2773dfd960d5c627a165156e.png" class='circle'>
+      <img src="/assets/logo-bg-50x50-7ddcdb0f96b22d3ed86a61ee90943427.png" class='circle'>
       Saulo Santiago
     </a>
 
@@ -197,18 +197,18 @@
       <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-05cc6a433eaacd80d6e3ed4f0024540a.png">
     </div>
 
-    <p>Serializar objetos JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
+    <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
 
-<p>A gem <strong>facilita a manipulação de objetos para respostas do tipo JSON.</strong></p>
+<p>A gem <strong>facilita a manipulação dos objetos em Ruby para respostas do tipo JSON.</strong></p>
 
-<p>Com isso podemos dedicar um lugar para personalizar totalmente a saída do <code>JSON</code>. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estende da classe <code>ActiveModel::Serializer</code>.</p>
+<p>Com isso podemos dedicar um lugar para personalizar totalmente a saída desses objetos. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estenda de <code>ActiveModel::Serializer</code>.</p>
 
-<p>Imagine que seu <code>controller</code> recebe um objeto com a seguinte estrutura:</p>
+<p>Imagine que seu <code>controller</code> receba um objeto com a seguinte estrutura:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#&lt;Foo id: 1, foo: &quot;foo&quot;, bar: &quot;bar&quot;, baz: &quot;baz&quot;&gt;</span>
 </code></pre></div>
-<p>Mas você não esta satisfeito em devolver todos atributos como resposta na <code>request</code>. Qual a solução para isto?</p>
+<p>Mas você não esta satisfeito em devolver todos atributos como resposta. Qual seria a solução para isto?</p>
 
-<p>A solução é manipular este objeto usando uma classe de serializer. Tomando o objeto acima como exemplo, desejo que apenas o atributo <code>bar</code> esteja presente. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
+<p>A solução é manipular este objeto usando uma classe serializer. Tomando o objeto acima como exemplo, desejo que apenas o atributo <code>bar</code> seja retornado no objeto. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">FooSerializer</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializer</span>
   <span class="n">attributes</span> <span class="ss">:bar</span>
 <span class="k">end</span>
@@ -235,9 +235,7 @@
 
 <p>Genial, não? </p>
 
-<p>Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails. </p>
-
-<p>Mas calma que para quase tudo tem solução.</p>
+<p>Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails.</p>
 
 <h2>Solução para o Sinatra</h2>
 
@@ -245,7 +243,7 @@
 
 <p>O problema é que no Sinatra não oferece suporte para a classe <code>ActionController</code>, sendo assim a gem lança o seguinte erro <code>cannot load such file -- action_controller (LoadError)</code> ao tentar carregar, mas este erro é <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20">tratado</a> para que nossa aplicação não pare de funcionar.</p>
 
-<p>Sendo assim o <code>render</code> não tem mais aquela magia toda de identificar o serializer e retornar o objeto serializado automaticamente, e para os serializer funcionar você deve fazer esse trabalho da seguinte forma:</p>
+<p>Sendo assim perdemos toda aquela magia de identificar o serializer e retornar o objeto serializado automaticamente, e para que os serializers funcionem você deverá fazer esse trabalho manualmente da seguinte forma:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
   <span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
   <span class="n">json</span> <span class="no">FooSerializer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span>
@@ -253,14 +251,14 @@
 </code></pre></div>
 <p>Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, eu concordo contigo.</p>
 
-<p>Vendo a necessidade de melhorias, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra assim como é no Rails.</p>
+<p>Vendo essa necessidade, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra assim como é no Rails.</p>
 
 <p>E o resultado disto ficou:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
   <span class="n">json</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Para que tudo funcione como mencionei acima basta instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
+<p>Para que estas adaptações funcione como no exemplo acima você devera instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
 
 <p>Essa <code>gem</code> basicamente aplica toda a lógica de controller feita para o Rails no módulo <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4"><code>JSON</code></a> do Sinatra com algumas opções caso queira personalizar mais ainda suas respostas.</p>
 
@@ -292,7 +290,7 @@
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://saulosilva.github.io&title=Serializer JSONs com Sinatra&summary=Aprenda a manipular suas reposta JSON.&source=https://saulosilva.github.io" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://saulosilva.github.io&title=Serializer JSONs com Sinatra&summary=Aprenda a manipular suas repostas em JSONs.&source=https://saulosilva.github.io" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
@@ -336,16 +334,16 @@
       </div>
 
       <div class="col s12 m6 center-align tecnologies">
-        <img src="/assets/ruby-50x50-f8e5021c229c76d064d4602936cebf6f.png">
-        <img src="/assets/node-50x50-bec0a6e011a6a3df59c550ea387ae14d.png">
-        <img src="/assets/html5-50x50-a7d2173e338f0de15f35c8503211503b.png">
-        <img src="/assets/js-50x50-c0b0869508230b5d81b8dd73f5f3583c.png">
-        <img src="/assets/css3-50x50-e2415c5d6715c763c359a8c364f138de.png">
-        <img src="/assets/backbonejs-50x50-979d1d4124d5910112b8c3845943aa35.png">
-        <img src="/assets/marionettejs-50x50-740da006da346c5709a79ed54ae97a94.png">
-        <img src="/assets/emberjs-50x50-efef7ee312d342161bc1e91fec2b28da.png">
-        <img src="/assets/angular-50x50-ce724a951e8a915b0191b47800a25bc7.png">
-        <img src="/assets/nginx-50x50-05a0510dfe50f0458d210843ccceaf86.png">
+        <img src="/assets/ruby-50x50-028f1110c0f6ebd9516c223597d9a83f.png">
+        <img src="/assets/node-50x50-4db2037e3d842365a622adff0f4d1d70.png">
+        <img src="/assets/html5-50x50-1435dea82f484659f34431fbc11479aa.png">
+        <img src="/assets/js-50x50-ae8fa693a94b5cc476a45b7c5865a66f.png">
+        <img src="/assets/css3-50x50-7a80c0b30b82a0eff40fd02ce61bd105.png">
+        <img src="/assets/backbonejs-50x50-a4924bb6fc6e77517c7b12a80e0112c3.png">
+        <img src="/assets/marionettejs-50x50-d90848045fff60e927b96771ba5fc6f6.png">
+        <img src="/assets/emberjs-50x50-d6b40ac956b5adfda3075ee2dc97f5be.png">
+        <img src="/assets/angular-50x50-44fa7e2a769ae397cf6e268375a99918.png">
+        <img src="/assets/nginx-50x50-872a7312ed3d0a696c0ae078c5418d6c.png">
       </div>
     </div>
   </div>
