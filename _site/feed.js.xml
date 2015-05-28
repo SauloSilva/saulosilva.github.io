@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saulo Santiago - Javascript</title>
+    <description>Posts categorized as 'js'</description>
+    <link>https://saulosilva.github.io</link>
+    <atom:link href="https://saulosilva.github.io/feed.category.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Singleton em JS</title>
+        
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;design pattern&lt;/em&gt;. &lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/js/singleton-em-js</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/js/singleton-em-js</guid>
+      </item>
+    
+  </channel>
+</rss>

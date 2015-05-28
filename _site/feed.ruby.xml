@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saulo Santiago - Ruby</title>
+    <description>Posts categorized as 'ruby'</description>
+    <link>https://saulosilva.github.io</link>
+    <atom:link href="https://saulosilva.github.io/feed.category.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Serializer JSONs com Sinatra</title>
+        
+          <description>&lt;p&gt;Serializar objetos em JSONs nunca foi tão fácil depois que a &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; passou a existir. &lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</guid>
+      </item>
+    
+  </channel>
+</rss>

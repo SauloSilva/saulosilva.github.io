@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title></title>
+    <description>Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.</description>
+    <link>https://saulosilva.github.io</link>
+    <atom:link href="https://saulosilva.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Serializer JSONs com Sinatra</title>
+        
+        
+          <description>&lt;p&gt;Serializar objetos em JSONs nunca foi tão fácil depois que a &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; passou a existir. &lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</guid>
+      </item>
+    
+      <item>
+        <title>Singleton Design Patterns com Javascript</title>
+        
+        
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;. &lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</guid>
+      </item>
+    
+      <item>
+        <title>Get started</title>
+        
+        
+          <description>&lt;p&gt;Ola meus amigos desenvolvedores, seja bem vindos, me chamo Saulo e trabalho com Web desde de 2009, atualmente sou programador Ruby e Javascript. &lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 16 May 2015 00:00:00 +0000</pubDate>
+        <link>https://saulosilva.github.io/get-started</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/get-started</guid>
+      </item>
+    
+  </channel>
+</rss>
