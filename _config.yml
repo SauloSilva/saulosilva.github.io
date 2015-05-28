@@ -41,4 +41,5 @@ assets:
 
 gems:
   - jekyll-assets
+  - jekyll-sitemap
   - redcarpet
