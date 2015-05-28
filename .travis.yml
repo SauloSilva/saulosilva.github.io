@@ -10,6 +10,7 @@ branches:
 branches:
   except:
     - master
+    - cname
 
 script: 'jekyll build && rake travis'
 
