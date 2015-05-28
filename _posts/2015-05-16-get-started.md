@@ -7,7 +7,7 @@ title: Get started
 description: Sejam bem vindos ao meu blog.
 has_preview: false
 category: []
-tags: []
+tags: [Get Started, meu blog, Saulo Santiago, desenvolvedor Ruby, desenvolvedor Javascript]
 comments: true
 image_big: posts/get-started-big.png
 image_thumb: posts/get-started-thumb.png
