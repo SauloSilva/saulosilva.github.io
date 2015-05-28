@@ -4,7 +4,7 @@
     "@type": "NewsArticle",
     "headline": "{{ page.title }}",
     "alternativeHeadline": "{{ page.description }}",
-    "image": [{{ page.image_big | asset_path }}, {{ page.image_thumb | asset_path }}],
+    "image": ["{{ site.url }}{{ page.image_big | asset_path }}", "{{ site.url }}{{ page.image_thumb | asset_path }}"],
     "datePublished": "{{ page.date }}",
     "description": "{{ page.description }}",
     "articleBody": "{{ content }}"
