@@ -3,29 +3,29 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 6 minutos
-title: Singleton em JS
-description: Passo a passo de um objeto singleton.
+title: Singleton Design Patterns com Javascript
+description: Singleton diz que você terá apenas uma instância de classe.
 
-long_description: Singleton é um padrão de design pattern. Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe.
+long_description: Singleton diz que você terá apenas uma instância de classe (se estiver utilizando ES6) ou função construtora (se estiver utilizando ES5).
 
 has_preview: true
 category: [js]
-tags: [js, singleton, design pattern, es5, es6]
+tags: [JS, Javascript, Singleton, Design Pattern, ES5, ES6]
 comments: true
-image_big: posts/js/singleton-em-js-big.png
-image_thumb: posts/js/singleton-em-js-thumb.png
-permalink: js/singleton-em-js
+image_big: posts/js/sigleton-design-patterns-com-javascript-big.png
+image_thumb: posts/js/sigleton-design-patterns-com-javascript-thumb.png
+permalink: js/sigleton-design-patterns-com-javascript
 ---
 
-_Singleton_ é um _design pattern_. 
+_Singleton_ é um _Design Patterns_. 
 
-Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe. 
+Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe ou função construtora. 
 
-Um conceito principal para implementação de um objeto _singleton_ é que precisamos pensar em um forma de disponibilizarmos uma propriedade no objeto de maneira que possamos acessa-lo direto sem a necessidade de uma instância.
+Para implementação de um objeto _Singleton_, precisamos pensar em um forma de disponibilizarmos uma propriedade no objeto, de maneira que possamos acessá-lo direto sem a necessidade de uma instância.
 
-#### Implementação no ES5
+#### Implementação no ECMAScript 5
 
-Vou mostrar uma implementação básica em javascript na versão do ECMA 5:
+Vou mostrar uma implementação básica em javascript na versão do ECMAScript 5:
 
 ```js
 window.Foo = (function() {
@@ -46,19 +46,19 @@ Foo.getInstance() // => new instance
 Foo.getInstance() // => return object instantied
 ```
 
-De início declarei uma variável interna chamada `_instance`. A função desta variável é guardar o estado da instância enquanto nosso script estiver sendo executado.
+De início declarei uma variável interna chamada de `_instance`. A função desta variável é guardar o estado atual da instância.
 
-Logo após foi definido uma propriedade chamada de `getInstance` em `Foo` que tem como valor uma função que executará nossa regra de _singleton_. Esta função pode ser chamada direto através do objeto `Foo`. 
+Logo após foi definido uma propriedade chamada de `getInstance` dentro do objeto `Foo`, essa função implementa nossa regra de _Singleton_.
 
 A primeira e única instrução que encontramos dentro da nossa propriedade `getInstance` é um ternário que verifica o estado da variável `_instance`. 
 
-Quando a variável estiver nula significa que estamos chamando a propriedade `getInstance` pela primeira vez, então o seguinte trecho de código é executado: `_instance = new Foo()` (uma nova instância de `Foo` é gerado e armazenado na variável `_instance`). 
+Quando a variável for nula, significa que estamos passando ali pela primeira vez, então o seguinte trecho de código é executado: `_instance = new Foo()`. 
 
-Das próximas **n vezes** que chamarmos a propriedade `getInstance` através do objeto `Foo` ja teremos a instância do objeto armazenada na variável `getInstance` então é feito apenas o retorno da variável que guarda a instância do objeto `Foo`.
+Das próximas **n vezes** já teremos a instância do objeto armazenada na variável `getInstance` então apenas o retorno da variável é feito.
 
-#### Implementação no ES6
+#### Implementação no ECMAScript
 
-Para finalizar irei mostrar um exemplo de _singleton_ utilizando o ECMA 6:
+Para finalizar irei mostrar um exemplo de _Singleton_ utilizando o ECMAScript 6:
 
 ```js
 let _instance = Symbol();
@@ -85,24 +85,22 @@ Foo.getInstance // => new instance
 Foo.getInstance // => return object instantied
 ```
 
-Esta lógica é um pouco diferente da anterior.
+Esta lógica é quase parecida com a anterior.
 
-Neste caso criei duas variável fora do escopo da classe, com o nome de `_instance` e uma outra chamada de `_singletonEnforcer` ambas definidas como símbolo pois a principal característica dos símbolos é serem únicos e imutáveis, e isto é o suficiente para criamos propriedades na nossa classe que seja única. 
+Neste caso criei duas variável fora do escopo da classe, com o nome de `_instance` e uma outra chamada de `_singletonEnforcer` ambas definidas como símbolo. 
 
-Ao criar a classe `Foo` defini um método estático chamado `getInstance` que será responsável por controlar se há necessidade de uma nova instância ou se simplesmente devolve a instância já criada.
+Ao criar a classe `Foo` defini um método estático chamado `getInstance` que será acessado através da class `Foo` sem necessidade de instância.
 
-Note que quando chamamos o método `getInstance` a primeira coisa que é verificada é se existe uma propriedade definida que não esteja nula `!this[_instance]`. Caso o valor seja `null` ele criar esta propriedade na classe `Foo` e atribui como valor a instância da própria classe `Foo`: `this[_instance] = new Foo(_singletonEnforcer);`, caso o valor da propriedade não seja `null` ele passa para próxima instrução.
+Quando o método `getInstance` é chamado pela primeira vez, ele verifica se existe uma propriedade definida que não esteja nula `!this[_instance]`. Caso a propriedade ainda não esteja definida ele criar e atribui a instância como valor: `this[_instance] = new Foo(_singletonEnforcer);`, caso haja a propriedade ele apenas retorna `return this[_instance]`.
 
-A próxima instrução retorna essa propriedade: `return this[_instance]`.
+Para finalizar, na função construtora da classe eu envio `_singletonEnforcer` como uma forma de garantir que a nova instância esteja sendo chamada sempre da função `getInstance`, caso o valor seja diferente uma excessão é lançada `throw('Cannot constructor singleton')`, impedindo a instância desta classe. 
 
-Perceba que ao instanciar a classe `Foo` eu mando de parâmetro no construtor a váriavel `_singletonEnforcer` e dentro do construtor da classe eu verifico se o parâmetro que chega é o mesmo valor de `_singletonEnforcer`, caso seja um valor diferente eu disparo uma `exception` pois terei certeza de que a instância não foi definida de dentro da função `getInstance`. 
+#### Finalizando
 
-#### Exemplo de uso
-
-Imagine um objeto que tem a função de abrir um conexão com o banco de dados antes de executar qualquer operação.
+Imagine um objeto que tem a função de abrir uma conexão com o banco de dados antes de executar qualquer operação.
 
 Se a cada operação abrirmos uma conexão, com certeza perderemos muito a qualidade de processamente, podendo até travar as conexões.
 
-Mas se utilizarmos uma classe _singleton_ para fazer esta conexão, evitaremos essa sobrecarga pois estaremos utilizando da mesma instância para todas as operações.
+Mas se utilizarmos uma classe _Singleton_ para fazer as conexões, evitaremos essa sobrecarga pois estaremos utilizando da mesma instância para todas as operações.
 
-O conceito de _singleton_ pode ser aplicado em várias outras lógicas de programação.
+O conceito de _Singleton_ pode ser aplicado em várias outras lógicas de programação sempre que quiser garantir a existência de apenas uma instância de uma classe (se estiver usando ES6) ou função construtura (se estiver usando ES5).
