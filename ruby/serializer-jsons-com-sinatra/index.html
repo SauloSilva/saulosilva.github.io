@@ -87,7 +87,7 @@
 
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/public/ms-icon-144x144.png">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#005461">
   <meta name="application-name" content="Saulo Silva">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -113,7 +113,7 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-ed9cf4bdbb2145d944534be79c468e76.png" class='circle'>
+      <img src="/assets/logo-bg-50x50-72ecc63afda3dcb2bab10557fcca3221.png" class='circle'>
       Saulo Santiago
     </a>
 
@@ -199,39 +199,39 @@
 
     <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
 
-<p>A gem <strong>facilita a manipulação dos objetos em Ruby para respostas do tipo JSON.</strong></p>
+<p>A gem <strong>facilita a manipulação dos objetos Ruby para objetos JSONs.</strong></p>
 
 <p>Com isso podemos dedicar um lugar para personalizar totalmente a saída desses objetos. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estenda de <code>ActiveModel::Serializer</code>.</p>
 
-<p>Imagine que seu <code>controller</code> receba um objeto com a seguinte estrutura:</p>
+<p>Imagine que o <code>controller</code> receba um objeto com a seguinte estrutura:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#&lt;Foo id: 1, foo: &quot;foo&quot;, bar: &quot;bar&quot;, baz: &quot;baz&quot;&gt;</span>
 </code></pre></div>
-<p>Mas você não esta satisfeito em devolver todos atributos como resposta. Qual seria a solução para isto?</p>
+<p>Mas você eu não estou satisfeito em devolver todos atributos na resposta. Qual seria a solução para isto?</p>
 
-<p>A solução é manipular este objeto usando uma classe serializer. Tomando o objeto acima como exemplo, desejo que apenas o atributo <code>bar</code> seja retornado no objeto. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
+<p>A solução é manipular este objeto usando uma classe serializer. Desejo que ele tenha apenas o atributo <code>bar</code>. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">FooSerializer</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializer</span>
   <span class="n">attributes</span> <span class="ss">:bar</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Se estiver utilizando o <strong>framework <a href="https://github.com/rails/rails">Rails</a></strong> basta fazer um <code>render</code> do tipo json:</p>
+<p>Se estiver utilizando o <strong>framework <a href="https://github.com/rails/rails">Rails</a></strong> basta fazer um <code>render</code> do tipo <code>json</code>:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">show</span>
   <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Que teremos o retorno desejado:</p>
+<p>e teremos este retorno:</p>
 <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
   <span class="p">}</span>  
 <span class="p">}</span>
 </code></pre></div>
-<p>Perfeito, era isto que queriamos.</p>
+<p>Perfeito, tudo funcionou como desejavamos.</p>
 
-<h4>Conhecendo a magia da Gem</h4>
+<h4>Conhecendo um pouco mais a Gem</h4>
 
 <p>Você deve ter achado esquisito (<strong>automatico</strong>) em fazer apenas um <code>render</code> e ele trazer um objeto serializado sem precisar especificar nada de onde pegar.</p>
 
-<p>Pois bem esta magia acontece dentro da <code>gem</code>, como podemos ver aqui, ele intercepta todos os <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48">renders</a> do tipo json, depois <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71">procura pelo serializer</a> que tenha o mesmo nome do objeto e finaliza devolvendo a <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95">instância desta classe</a> já no formato JSON.</p>
+<p>Pois bem esta magia acontece dentro da <code>gem</code>, como podemos <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48">ver aqui</a>, ele intercepta todos os <code>renders</code> do tipo <code>json</code>, depois <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71">procura pelo serializer</a> que tenha o mesmo nome do objeto e finaliza devolvendo a <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95">instância desta classe</a> no formato JSON.</p>
 
 <p>Genial, não? </p>
 
@@ -239,11 +239,11 @@
 
 <h2>Solução para o Sinatra</h2>
 
-<p>Meses atras passei por esta dificuldade. Precisei utilizar o <code>ActiveModel::Serializers</code> mas tive problemas em deixar tudo automatico como ocorre no Rails.</p>
+<p>Meses atras passei por esta dificuldade. Precisei utilizar o <code>ActiveModel::Serializers</code> em uma APP feita em Sinatra e tive problemas em deixar as resposta em <code>JSONs</code> serializadas de forma automatica, como ocorre no Rails.</p>
 
 <p>O problema é que no Sinatra não oferece suporte para a classe <code>ActionController</code>, sendo assim a gem lança o seguinte erro <code>cannot load such file -- action_controller (LoadError)</code> ao tentar carregar, mas este erro é <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20">tratado</a> para que nossa aplicação não pare de funcionar.</p>
 
-<p>Sendo assim perdemos toda aquela magia de identificar o serializer e retornar o objeto serializado automaticamente, e para que os serializers funcionem você deverá fazer esse trabalho manualmente da seguinte forma:</p>
+<p>Sendo assim que fazer esse trabalho manualmente, ficando da seguinte forma:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
   <span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
   <span class="n">json</span> <span class="no">FooSerializer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span>
@@ -251,14 +251,14 @@
 </code></pre></div>
 <p>Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, eu concordo contigo.</p>
 
-<p>Vendo essa necessidade, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra assim como é no Rails.</p>
+<p>Vendo essa necessidade, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra também, assim como é no Rails.</p>
 
 <p>E o resultado disto ficou:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
   <span class="n">json</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Para que estas adaptações funcione como no exemplo acima você devera instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
+<p>Para que estas adaptações funcione como no exemplo acima você deverá instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
 
 <p>Essa <code>gem</code> basicamente aplica toda a lógica de controller feita para o Rails no módulo <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4"><code>JSON</code></a> do Sinatra com algumas opções caso queira personalizar mais ainda suas respostas.</p>
 
@@ -334,16 +334,16 @@
       </div>
 
       <div class="col s12 m6 center-align tecnologies">
-        <img src="/assets/ruby-50x50-b7d23f3bceabb64242ffe4b08858578c.png">
-        <img src="/assets/node-50x50-cfee33d42e5f204d8379b4983ebd5dd1.png">
-        <img src="/assets/html5-50x50-e1faf1ace980f8de252e3fbe08fe4794.png">
-        <img src="/assets/js-50x50-fa4747aacd4e9ed0d43fa282085f27c5.png">
-        <img src="/assets/css3-50x50-fa7a5744471cf2085fd15987c54acc68.png">
-        <img src="/assets/backbonejs-50x50-37465fe4f1c9c8929c693fa7a366e06b.png">
-        <img src="/assets/marionettejs-50x50-48b74fe5e99192ff4542821a4e0cf34c.png">
-        <img src="/assets/emberjs-50x50-c98d32c9eb427b8d1fdd18d5b7779fa8.png">
-        <img src="/assets/angular-50x50-befceaa74baef8bdc9ce4e6766fdfc85.png">
-        <img src="/assets/nginx-50x50-f39b18535f0b642da044c2f335b4056d.png">
+        <img src="/assets/ruby-50x50-6dfa72dcc718c8bfac284f1776993b9a.png">
+        <img src="/assets/node-50x50-fc2e67df66a62614fc5f751f584979fc.png">
+        <img src="/assets/html5-50x50-ba0afe1699bb0a1de7289421924e26ae.png">
+        <img src="/assets/js-50x50-4806b260b8c02826be90b70efa85d775.png">
+        <img src="/assets/css3-50x50-a1dd4c4d723f53bfe154f0c9ac9b44ff.png">
+        <img src="/assets/backbonejs-50x50-d478337e56b1440b43f979c67b8fed25.png">
+        <img src="/assets/marionettejs-50x50-dea4544a55c03c805e9db06aa1b2db2a.png">
+        <img src="/assets/emberjs-50x50-9dd6762f71a1bebc6d16c95e8360e470.png">
+        <img src="/assets/angular-50x50-6273fa1602c8e598c98d5e7af9a08415.png">
+        <img src="/assets/nginx-50x50-fe9dcacbb2e7bd03cdd1bf8ad9921483.png">
       </div>
     </div>
   </div>
