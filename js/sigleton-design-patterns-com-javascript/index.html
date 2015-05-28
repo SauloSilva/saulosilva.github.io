@@ -111,7 +111,7 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-72ecc63afda3dcb2bab10557fcca3221.png" class='circle'>
+      <img src="/assets/logo-bg-50x50-2e044dcf89bb5198e6f777ab4427f865.png" class='circle'>
       Saulo Santiago
     </a>
 
@@ -199,7 +199,7 @@
 
 <p>Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe ou função construtora. </p>
 
-<p>Para implementação de um objeto <em>Singleton</em>, precisamos pensar em um forma de disponibilizarmos uma propriedade no objeto, de maneira que possamos acessá-lo direto sem a necessidade de uma instância.</p>
+<p>Para implementação de um objeto <em>Singleton</em>, precisamos pensar em uma forma de disponibilizarmos uma propriedade no objeto, de maneira que possamos acessá-lo direto sem a necessidade de uma instância.</p>
 
 <h4>Implementação no ECMAScript 5</h4>
 
@@ -229,9 +229,9 @@
 
 <p>Quando a variável for nula, significa que estamos passando ali pela primeira vez, então o seguinte trecho de código é executado: <code>_instance = new Foo()</code>. </p>
 
-<p>Das próximas <strong>n vezes</strong> já teremos a instância do objeto armazenada na variável <code>getInstance</code> então apenas o retorno da variável é feito.</p>
+<p>Das próximas <strong>n vezes</strong> já teremos a instância do objeto armazenada na variável <code>_instance</code> então apenas o retorno é feito.</p>
 
-<h4>Implementação no ECMAScript</h4>
+<h4>Implementação no ECMAScript 6</h4>
 
 <p>Para finalizar irei mostrar um exemplo de <em>Singleton</em> utilizando o ECMAScript 6:</p>
 <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">_instance</span> <span class="o">=</span> <span class="nx">Symbol</span><span class="p">();</span>
@@ -265,17 +265,17 @@
 
 <p>Quando o método <code>getInstance</code> é chamado pela primeira vez, ele verifica se existe uma propriedade definida que não esteja nula <code>!this[_instance]</code>. Caso a propriedade ainda não esteja definida ele criar e atribui a instância como valor: <code>this[_instance] = new Foo(_singletonEnforcer);</code>, caso haja a propriedade ele apenas retorna <code>return this[_instance]</code>.</p>
 
-<p>Para finalizar, na função construtora da classe eu envio <code>_singletonEnforcer</code> como uma forma de garantir que a nova instância esteja sendo chamada sempre da função <code>getInstance</code>, caso o valor seja diferente uma excessão é lançada <code>throw(&#39;Cannot constructor singleton&#39;)</code>, impedindo a instância desta classe. </p>
+<p>Para finalizar, na função construtora da classe eu envio <code>_singletonEnforcer</code> como uma forma de garantir que a nova instância esteja sendo chamada sempre de dentro da função <code>getInstance</code>, caso o valor seja diferente uma excessão é lançada <code>throw(&#39;Cannot constructor singleton&#39;)</code>, impedindo que a classe seja inicializada. </p>
 
 <h4>Finalizando</h4>
 
 <p>Imagine um objeto que tem a função de abrir uma conexão com o banco de dados antes de executar qualquer operação.</p>
 
-<p>Se a cada operação abrirmos uma conexão, com certeza perderemos muito a qualidade de processamente, podendo até travar as conexões.</p>
+<p>Se a cada operação abrirmos uma conexão, com certeza perderemos muito a qualidade de processamento, podendo até travar as conexões.</p>
 
 <p>Mas se utilizarmos uma classe <em>Singleton</em> para fazer as conexões, evitaremos essa sobrecarga pois estaremos utilizando da mesma instância para todas as operações.</p>
 
-<p>O conceito de <em>Singleton</em> pode ser aplicado em várias outras lógicas de programação sempre que quiser garantir a existência de apenas uma instância de uma classe (se estiver usando ES6) ou função construtura (se estiver usando ES5).</p>
+<p>O conceito de <em>Singleton</em> pode ser aplicado em várias outras lógicas de programação sempre que quiser garantir a existência de apenas uma instância de uma classe (se estiver usando ES6) ou de uma função construtura (se estiver usando ES5).</p>
 
   </article>
 
@@ -347,16 +347,16 @@
       </div>
 
       <div class="col s12 m6 center-align tecnologies">
-        <img src="/assets/ruby-50x50-6dfa72dcc718c8bfac284f1776993b9a.png">
-        <img src="/assets/node-50x50-fc2e67df66a62614fc5f751f584979fc.png">
-        <img src="/assets/html5-50x50-ba0afe1699bb0a1de7289421924e26ae.png">
-        <img src="/assets/js-50x50-4806b260b8c02826be90b70efa85d775.png">
-        <img src="/assets/css3-50x50-a1dd4c4d723f53bfe154f0c9ac9b44ff.png">
-        <img src="/assets/backbonejs-50x50-d478337e56b1440b43f979c67b8fed25.png">
-        <img src="/assets/marionettejs-50x50-dea4544a55c03c805e9db06aa1b2db2a.png">
-        <img src="/assets/emberjs-50x50-9dd6762f71a1bebc6d16c95e8360e470.png">
-        <img src="/assets/angular-50x50-6273fa1602c8e598c98d5e7af9a08415.png">
-        <img src="/assets/nginx-50x50-fe9dcacbb2e7bd03cdd1bf8ad9921483.png">
+        <img src="/assets/ruby-50x50-d57c05debca929fb451f7ec41b2aeac0.png">
+        <img src="/assets/node-50x50-d5171f83410aff45c1b1433d1fb5b50e.png">
+        <img src="/assets/html5-50x50-704155102b094841fab5931c4ac7e5b5.png">
+        <img src="/assets/js-50x50-f2c9ff199a14ba2e53500957ad7da9a4.png">
+        <img src="/assets/css3-50x50-27549afca5ba2f59ec7a9475c41ab788.png">
+        <img src="/assets/backbonejs-50x50-2fc8d8e7c4c8e49c28880d005ab8836f.png">
+        <img src="/assets/marionettejs-50x50-40fc1fc2255d160ed9a67e918226af1b.png">
+        <img src="/assets/emberjs-50x50-2f88606d6fda59584a2a820e11796692.png">
+        <img src="/assets/angular-50x50-6408004c5b588b8c8d86c3a20d0162cc.png">
+        <img src="/assets/nginx-50x50-a2043f3e2b11a9c6080f6f8989fe6d18.png">
       </div>
     </div>
   </div>
