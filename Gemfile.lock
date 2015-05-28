@@ -249,6 +249,7 @@ DEPENDENCIES
   awestruct
   github-pages
   jekyll-assets (= 0.14.0)
+  jekyll-sitemap
   rake
   redcarpet
   travis (= 1.7.6)
