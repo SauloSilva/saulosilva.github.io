@@ -7,14 +7,14 @@
     <atom:link href="https://saulosilva.github.io/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>ActiveModel Serializer no sinatra</title>
+        <title>Serializer JSONs com Sinatra</title>
         
-          <description>&lt;p&gt;A &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; pode ajudá-lo a construir &lt;strong&gt;APIs JSON&lt;/strong&gt; através de objetos serializados. &lt;/p&gt;
+          <description>&lt;p&gt;Serializar objetos JSONs nunca foi tão fácil depois que a &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; passou a existir. &lt;/p&gt;
 </description>
         
         <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/ruby/active-model-serializer-no-sinatra</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/ruby/active-model-serializer-no-sinatra</guid>
+        <link>https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</guid>
       </item>
     
   </channel>

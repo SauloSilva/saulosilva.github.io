@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+    <meta name="description" content="Aprenda a manipular suas reposta JSON.">
+  
+
+  <meta content="Saulo Santiago" property="og:site_name">
+
+  
+    <meta content="Serializer JSONs com Sinatra" property="og:title">
+  
+
+  
+    <meta content="article" property="og:type">
+  
+
+  
+    <meta content="https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra" property="og:url">
+  
+
+  
+    <meta content="2015-05-18T00:00:00+00:00" property="article:published_time">
+
+    <meta content="https://saulosilva.github.io/about/" property="article:author">
+  
+
+  
+    <meta content="/assets/posts/ruby/active-model-serializer-no-sinatra-big-05cc6a433eaacd80d6e3ed4f0024540a.png" property="og:image">
+  
+
+  
+    
+      <meta content="ruby" property="article:section">
+    
+  
+
+  
+    
+      <meta content="API" property="article:tag">
+    
+      <meta content="Ruby" property="article:tag">
+    
+      <meta content="Sinatra" property="article:tag">
+    
+      <meta content="JSON" property="article:tag">
+    
+      <meta content="Serializer" property="article:tag">
+    
+      <meta content="ActiveModel Serializer" property="article:tag">
+    
+      <meta content="ActiveModelSerializer" property="article:tag">
+    
+  
+
+  <title>
+    
+      Serializer JSONs com Sinatra &middot; Saulo Santiago
+    
+  </title>
+
+  
+    
+      <link rel="alternate" type="application/rss+xml" title="" href="https://saulosilva.github.io/feed.post.xml">
+    
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-icon-180x180.png">
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/public/android-icon-192x192.png">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/public/ms-icon-144x144.png">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="application-name" content="Saulo Silva">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#FFFFFF">
+  <meta name="apple-mobile-web-app-title" content="Saulo Silva">
+
+  <link rel="manifest" href="/public/manifest.json">
+
+  <link rel="stylesheet" href="/assets/application-471532374005af79eebd8a3784137994.css">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63356631-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+  <body>
+    <nav>
+  <div class="nav-wrapper">
+    <a href="/" title="Home" class="brand-logo truncate">
+      <img src="/assets/logo-bg-50x50-6cab83d023bedaa57b6e61ac07ed8fdb.png" class='circle'>
+      Saulo Santiago
+    </a>
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse">
+      <i class="mdi-navigation-menu"></i>
+    </a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      
+        <li>
+          <a href="http://saulosantiago.com.br">
+            About
+          </a>
+        </li>
+      
+        <li>
+          <a href="/ruby">
+            Ruby
+          </a>
+        </li>
+      
+        <li>
+          <a href="/javascript">
+            Javascript
+          </a>
+        </li>
+      
+        <li>
+          <a href="/feed.xml">
+            Feed
+          </a>
+        </li>
+      
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      
+        <li>
+          <a href="http://saulosantiago.com.br">
+            About
+          </a>
+        </li>
+      
+        <li>
+          <a href="/ruby">
+            Ruby
+          </a>
+        </li>
+      
+        <li>
+          <a href="/javascript">
+            Javascript
+          </a>
+        </li>
+      
+        <li>
+          <a href="/feed.xml">
+            Feed
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+    <main>
+      <div class='post-show z-depth-1'>
+  <article class="markdown-body">
+    <h1>Serializer JSONs com Sinatra</h1>
+    <span class='read-time'>
+      <i class='mdi-device-access-time'></i>
+      Leia em: 4 minutos
+    </span>
+
+    <span class='author-info'>
+      <img src="//www.gravatar.com/avatar/427733403ad646d7a164918b9da1d227?s=135" alt="Foto de Saulo Santiago" width='50' height='50' class='circle responsive-img'/>
+      Escrito por: <b>Saulo Santiago</b>
+    </span>
+
+    <div class='image-big'>
+      <img src="/assets/posts/ruby/active-model-serializer-no-sinatra-big-05cc6a433eaacd80d6e3ed4f0024540a.png">
+    </div>
+
+    <p>Serializar objetos JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
+
+<p>A gem <strong>facilita a manipulação de objetos para respostas do tipo JSON.</strong></p>
+
+<p>Com isso podemos dedicar um lugar para personalizar totalmente a saída do <code>JSON</code>. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estende da classe <code>ActiveModel::Serializer</code>.</p>
+
+<p>Imagine que seu <code>controller</code> recebe um objeto com a seguinte estrutura:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#&lt;Foo id: 1, foo: &quot;foo&quot;, bar: &quot;bar&quot;, baz: &quot;baz&quot;&gt;</span>
+</code></pre></div>
+<p>Mas você não esta satisfeito em devolver todos atributos como resposta na <code>request</code>. Qual a solução para isto?</p>
+
+<p>A solução é manipular este objeto usando uma classe de serializer. Tomando o objeto acima como exemplo, desejo que apenas o atributo <code>bar</code> esteja presente. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">FooSerializer</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializer</span>
+  <span class="n">attributes</span> <span class="ss">:bar</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Se estiver utilizando o <strong>framework <a href="https://github.com/rails/rails">Rails</a></strong> basta fazer um <code>render</code> do tipo json:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">show</span>
+  <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Que teremos o retorno desejado:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
+  <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div>
+<p>Perfeito, era isto que queriamos.</p>
+
+<h4>Conhecendo a magia da Gem</h4>
+
+<p>Você deve ter achado esquisito (<strong>automatico</strong>) em fazer apenas um <code>render</code> e ele trazer um objeto serializado sem precisar especificar nada de onde pegar.</p>
+
+<p>Pois bem esta magia acontece dentro da <code>gem</code>, como podemos ver aqui, ele intercepta todos os <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48">renders</a> do tipo json, depois <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71">procura pelo serializer</a> que tenha o mesmo nome do objeto e finaliza devolvendo a <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95">instância desta classe</a> já no formato JSON.</p>
+
+<p>Genial, não? </p>
+
+<p>Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails. </p>
+
+<p>Mas calma que para quase tudo tem solução.</p>
+
+<h2>Solução para o Sinatra</h2>
+
+<p>Meses atras passei por esta dificuldade. Precisei utilizar o <code>ActiveModel::Serializers</code> mas tive problemas em deixar tudo automatico como ocorre no Rails.</p>
+
+<p>O problema é que no Sinatra não oferece suporte para a classe <code>ActionController</code>, sendo assim a gem lança o seguinte erro <code>cannot load such file -- action_controller (LoadError)</code> ao tentar carregar, mas este erro é <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20">tratado</a> para que nossa aplicação não pare de funcionar.</p>
+
+<p>Sendo assim o <code>render</code> não tem mais aquela magia toda de identificar o serializer e retornar o objeto serializado automaticamente, e para os serializer funcionar você deve fazer esse trabalho da seguinte forma:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
+  <span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">json</span> <span class="no">FooSerializer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, eu concordo contigo.</p>
+
+<p>Vendo a necessidade de melhorias, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra assim como é no Rails.</p>
+
+<p>E o resultado disto ficou:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
+  <span class="n">json</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Para que tudo funcione como mencionei acima basta instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
+
+<p>Essa <code>gem</code> basicamente aplica toda a lógica de controller feita para o Rails no módulo <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4"><code>JSON</code></a> do Sinatra com algumas opções caso queira personalizar mais ainda suas respostas.</p>
+
+<p>Maiores detalhes você encontrará <a href="https://github.com/SauloSilva/sinatra-active-model-serializers#requirements">aqui nas espeficicações da gem.</a></p>
+
+  </article>
+
+  <div class="share-page">
+    <div class='social'>
+      <b>
+        Share this on &rarr;
+      </b>
+    </div>
+
+    <div class='social'>
+      <a href="https://facebook.com/sharer.php?u=https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+    </div>
+
+    <div class='social'>
+      <a href="https://plus.google.com/share?url=https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+    </div>
+
+    <div class='social'>
+      <a href="https://twitter.com/intent/tweet?text=Serializer JSONs com Sinatra&url=https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.reddit.com/submit?url=https://saulosilva.github.io&title=Serializer JSONs com Sinatra" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://saulosilva.github.io&title=Serializer JSONs com Sinatra&summary=Aprenda a manipular suas reposta JSON.&source=https://saulosilva.github.io" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+    </div>
+</div>
+  
+  <div class='comments'>
+    <h2>Comentários:</h2>
+    <span>
+      <i class='mdi-editor-insert-comment'></i>
+      Deixe sua dúvida, sugestão ou crítica, estou ancioso para saber tudo que você achou sobre este post:
+    </span>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'saulosantiago';
+
+        (function() {
+            var dsq = document.createElement('script');
+
+            dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+
+</div>
+    </main>
+
+    <footer class='page-footer'>
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12 m6">
+        <h5 class="white-text">Quem sou?</h5>
+        <p class="grey-text text-lighten-4">
+          Desenvolvedor Ruby e Javascript.</br>
+          Trabalho há 6 anos com sistemas web.</br>
+          Meu maior combustível é a cafeína.
+        </p>
+      </div>
+
+      <div class="col s12 m6 center-align tecnologies">
+        <img src="/assets/ruby-50x50-5f67fb08d2f8e91bb8e399b7810a9d9c.png">
+        <img src="/assets/node-50x50-c7ed1d03bae76b9a00a565241d6d30e6.png">
+        <img src="/assets/html5-50x50-ac7899be717591046eb089d61d6d768b.png">
+        <img src="/assets/js-50x50-c6247dcb92fc85437dcd1be8a1a23800.png">
+        <img src="/assets/css3-50x50-db8023e172d5e2cff06ee0730e4885b3.png">
+        <img src="/assets/backbonejs-50x50-138a169177f1b0d99a4c15ed1a034004.png">
+        <img src="/assets/marionettejs-50x50-6fbcf409541fccb6490ea17d1f4f9dd7.png">
+        <img src="/assets/emberjs-50x50-f9a5b4f9cd453bfbf9b8aeb3cbdd82fc.png">
+        <img src="/assets/angular-50x50-d6ac065679fecd7fdbbf1b686ae13029.png">
+        <img src="/assets/nginx-50x50-ea57caf32c8c23e8f9b6de9da314351e.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <div class="container">
+      &copy; 2015. All rights reserved for Saulo Santiago.
+    </div>
+  </div>
+</footer>
+  </body>
+
+  <script src="/assets/application-d5c002228b1694b38b44d49a59b4b9a9.js"></script>
+</html>

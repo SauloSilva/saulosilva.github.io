@@ -7,14 +7,14 @@
     <atom:link href="https://saulosilva.github.io/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Singleton em JS</title>
+        <title>Singleton Design Patterns com Javascript</title>
         
-          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;design pattern&lt;/em&gt;. &lt;/p&gt;
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;. &lt;/p&gt;
 </description>
         
         <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/js/singleton-em-js</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/js/singleton-em-js</guid>
+        <link>https://saulosilva.github.io/js/sigleton-design-patterns-com-javascript</link>
+        <guid isPermaLink="true">https://saulosilva.github.io/js/sigleton-design-patterns-com-javascript</guid>
       </item>
     
   </channel>
