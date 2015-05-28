@@ -12,8 +12,8 @@ has_preview: true
 category: [ruby, highlights]
 tags: [API, Ruby, Sinatra, JSON, Serializer, ActiveModel Serializer, ActiveModelSerializer]
 comments: true
-image_big: posts/ruby/active-model-serializer-no-sinatra-big.png
-image_thumb: posts/ruby/active-model-serializer-no-sinatra-thumb.png
+image_big: posts/ruby/serializer-jsons-com-sinatra-big.png
+image_thumb: posts/ruby/serializer-jsons-com-sinatra-thumb.png
 permalink: ruby/serializer-jsons-com-sinatra
 ---
 
