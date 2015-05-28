@@ -19,19 +19,19 @@ permalink: ruby/serializer-jsons-com-sinatra
 
 Serializar objetos em JSONs nunca foi tão fácil depois que a [`gem ActiveModel::Serializers`](https://github.com/rails-api/active_model_serializers) passou a existir. 
 
-A gem **facilita a manipulação dos objetos em Ruby para respostas do tipo JSON.**
+A gem **facilita a manipulação dos objetos Ruby para objetos JSONs.**
 
 Com isso podemos dedicar um lugar para personalizar totalmente a saída desses objetos. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estenda de `ActiveModel::Serializer`.
 
-Imagine que seu `controller` receba um objeto com a seguinte estrutura:
+Imagine que o `controller` receba um objeto com a seguinte estrutura:
 
 ```ruby
 #<Foo id: 1, foo: "foo", bar: "bar", baz: "baz">
 ```
 
-Mas você não esta satisfeito em devolver todos atributos como resposta. Qual seria a solução para isto?
+Mas você eu não estou satisfeito em devolver todos atributos na resposta. Qual seria a solução para isto?
 
-A solução é manipular este objeto usando uma classe serializer. Tomando o objeto acima como exemplo, desejo que apenas o atributo `bar` seja retornado no objeto. Para que isto seja possível dexei o serializer da seguinte maneira:
+A solução é manipular este objeto usando uma classe serializer. Desejo que ele tenha apenas o atributo `bar`. Para que isto seja possível dexei o serializer da seguinte maneira:
 
 ```ruby
 class FooSerializer < ActiveModel::Serializer
@@ -39,7 +39,7 @@ class FooSerializer < ActiveModel::Serializer
 end
 ```
 
-Se estiver utilizando o **framework [Rails](https://github.com/rails/rails)** basta fazer um `render` do tipo json:
+Se estiver utilizando o **framework [Rails](https://github.com/rails/rails)** basta fazer um `render` do tipo `json`:
 
 ```ruby
 def show
@@ -47,7 +47,7 @@ def show
 end
 ```
 
-Que teremos o retorno desejado:
+e teremos este retorno:
 
 ```json
 {
@@ -57,13 +57,13 @@ Que teremos o retorno desejado:
 }
 ```
 
-Perfeito, era isto que queriamos.
+Perfeito, tudo funcionou como desejavamos.
 
-#### Conhecendo a magia da Gem
+#### Conhecendo um pouco mais a Gem
 
 Você deve ter achado esquisito (**automatico**) em fazer apenas um `render` e ele trazer um objeto serializado sem precisar especificar nada de onde pegar.
 
-Pois bem esta magia acontece dentro da `gem`, como podemos ver aqui, ele intercepta todos os [renders](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48) do tipo json, depois [procura pelo serializer](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71) que tenha o mesmo nome do objeto e finaliza devolvendo a [instância desta classe](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95) já no formato JSON.
+Pois bem esta magia acontece dentro da `gem`, como podemos [ver aqui](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48), ele intercepta todos os `renders` do tipo `json`, depois [procura pelo serializer](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71) que tenha o mesmo nome do objeto e finaliza devolvendo a [instância desta classe](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95) no formato JSON.
 
 Genial, não? 
 
@@ -71,11 +71,11 @@ Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só func
 
 ## Solução para o Sinatra
 
-Meses atras passei por esta dificuldade. Precisei utilizar o `ActiveModel::Serializers` mas tive problemas em deixar tudo automatico como ocorre no Rails.
+Meses atras passei por esta dificuldade. Precisei utilizar o `ActiveModel::Serializers` em uma APP feita em Sinatra e tive problemas em deixar as resposta em `JSONs` serializadas de forma automatica, como ocorre no Rails.
 
 O problema é que no Sinatra não oferece suporte para a classe `ActionController`, sendo assim a gem lança o seguinte erro `cannot load such file -- action_controller (LoadError)` ao tentar carregar, mas este erro é [tratado](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20) para que nossa aplicação não pare de funcionar.
 
-Sendo assim perdemos toda aquela magia de identificar o serializer e retornar o objeto serializado automaticamente, e para que os serializers funcionem você deverá fazer esse trabalho manualmente da seguinte forma:
+Sendo assim que fazer esse trabalho manualmente, ficando da seguinte forma:
 
 ```ruby
 get '/foo/:id' do
@@ -86,7 +86,7 @@ end
 
 Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, eu concordo contigo.
 
-Vendo essa necessidade, criei esta [`gem sinatra-active-model-serializers`](https://github.com/SauloSilva/sinatra-active-model-serializers/) para deixar tudo isso automatico no Sinatra assim como é no Rails.
+Vendo essa necessidade, criei esta [`gem sinatra-active-model-serializers`](https://github.com/SauloSilva/sinatra-active-model-serializers/) para deixar tudo isso automatico no Sinatra também, assim como é no Rails.
 
 E o resultado disto ficou:
 
@@ -96,7 +96,7 @@ get '/foo/:id' do
 end
 ```
 
-Para que estas adaptações funcione como no exemplo acima você devera instalar a gem: `gem install sinatra-active-model-serializers` ou adicionar em seu Gemfile: `gem 'sinatra-active-model-serializers'`.
+Para que estas adaptações funcione como no exemplo acima você deverá instalar a gem: `gem install sinatra-active-model-serializers` ou adicionar em seu Gemfile: `gem 'sinatra-active-model-serializers'`.
 
 Essa `gem` basicamente aplica toda a lógica de controller feita para o Rails no módulo [`JSON`](https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4) do Sinatra com algumas opções caso queira personalizar mais ainda suas respostas.
 
