@@ -2,7 +2,7 @@
   <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
       <a href="{{ include.post.url }}">
-        {{ include.post.image_thumb | image }}
+        <img src="{{ include.post.image_thumb | asset_path }}" alt="{{ include.post.title }}"/>
       </a>
     </div>
 

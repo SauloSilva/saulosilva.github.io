@@ -31,7 +31,9 @@ pages_list:
     name: Feed
 
 assets:
-  cache: false
+  cache: true
+  js_compressor:  uglifier
+  css_compressor: sass
   sources:
     - _assets/images
     - _assets/javascripts
@@ -43,3 +45,4 @@ gems:
   - jekyll-assets
   - jekyll-sitemap
   - redcarpet
+  - uglifier

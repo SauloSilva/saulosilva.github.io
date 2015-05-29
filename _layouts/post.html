@@ -11,12 +11,12 @@ layout: default
     </span>
 
     <span class='author-info'>
-      <img src="{{ page.author_email | to_gravatar }}" alt="Foto de {{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
+      <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
       Escrito por: <b>{{ page.author_name }}</b>
     </span>
 
     <div class='image-big'>
-      {{ page.image_big | image }}
+      <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}"/>
     </div>
 
     {{ content }}
