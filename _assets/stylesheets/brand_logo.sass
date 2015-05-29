@@ -1,7 +1,7 @@
 .brand-logo
   font-size: 24px !important
   font-weight: 100
-  padding-left: 30px !important
+  padding-left: 40px !important
   min-width: 255px
 
   img
@@ -11,6 +11,9 @@
 
   h1
     float: right
-    font-size: 28px
-    margin: 11px
+    font-size: 24px
+    margin: 12px
     font-weight: 100
+
+    +respond_to(600px, max-width)
+      margin: 3px
