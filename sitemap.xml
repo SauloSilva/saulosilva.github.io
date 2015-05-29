@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</loc>
+    <loc>http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra</loc>
     <lastmod>2015-05-18T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</loc>
+    <loc>http://saulosantiago.js.org/javascript/sigleton-design-patterns-com-javascript</loc>
     <lastmod>2015-05-17T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://saulosilva.github.io/get-started</loc>
+    <loc>http://saulosantiago.js.org/get-started</loc>
     <lastmod>2015-05-16T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://saulosilva.github.io/</loc>
+    <loc>http://saulosantiago.js.org/</loc>
   </url>
   <url>
-    <loc>https://saulosilva.github.io/javascript/</loc>
+    <loc>http://saulosantiago.js.org/javascript/</loc>
   </url>
   <url>
-    <loc>https://saulosilva.github.io/ruby/</loc>
+    <loc>http://saulosantiago.js.org/ruby/</loc>
   </url>
 </urlset>

@@ -3,8 +3,8 @@
   <channel>
     <title></title>
     <description>Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.</description>
-    <link>https://saulosilva.github.io</link>
-    <atom:link href="https://saulosilva.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://saulosantiago.js.org</link>
+    <atom:link href="http://saulosantiago.js.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Serializer JSONs com Sinatra</title>
@@ -14,8 +14,8 @@
 </description>
         
         <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/ruby/serializer-jsons-com-sinatra</guid>
+        <link>http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra</guid>
       </item>
     
       <item>
@@ -26,8 +26,8 @@
 </description>
         
         <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</guid>
+        <link>http://saulosantiago.js.org/javascript/sigleton-design-patterns-com-javascript</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/javascript/sigleton-design-patterns-com-javascript</guid>
       </item>
     
       <item>
@@ -38,8 +38,8 @@
 </description>
         
         <pubDate>Sat, 16 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/get-started</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/get-started</guid>
+        <link>http://saulosantiago.js.org/get-started</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/get-started</guid>
       </item>
     
   </channel>

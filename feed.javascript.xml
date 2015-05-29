@@ -3,8 +3,8 @@
   <channel>
     <title>Saulo Santiago - Javascript</title>
     <description>Posts categorized as 'js'</description>
-    <link>https://saulosilva.github.io</link>
-    <atom:link href="https://saulosilva.github.io/feed.category.xml" rel="self" type="application/rss+xml" />
+    <link>http://saulosantiago.js.org</link>
+    <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Singleton Design Patterns com Javascript</title>
@@ -13,8 +13,8 @@
 </description>
         
         <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
-        <link>https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</link>
-        <guid isPermaLink="true">https://saulosilva.github.io/javascript/sigleton-design-patterns-com-javascript</guid>
+        <link>http://saulosantiago.js.org/javascript/sigleton-design-patterns-com-javascript</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/javascript/sigleton-design-patterns-com-javascript</guid>
       </item>
     
   </channel>

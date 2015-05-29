@@ -5,16 +5,16 @@
     <description>
       
     </description>
-    <link>https://saulosilva.github.io</link>
-    <atom:link href="https://saulosilva.github.io/feed.post.xml" rel="self" type="application/rss+xml" />
+    <link>http://saulosantiago.js.org</link>
+    <atom:link href="http://saulosantiago.js.org/feed.post.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       
         <description></description>
       
       <pubDate></pubDate>
-      <link>https://saulosilva.github.io</link>
-      <guid isPermaLink="true">https://saulosilva.github.io</guid>
+      <link>http://saulosantiago.js.org</link>
+      <guid isPermaLink="true">http://saulosantiago.js.org</guid>
     </item>
   </channel>
 </rss>
