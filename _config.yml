@@ -10,7 +10,7 @@ description: Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas w
 paginate: 10
 paginate_path: /pagina/:num/
 permalink: pretty
-url: https://saulosilva.github.io
+url: http://saulosantiago.js.org
 
 social:
   twitter:
