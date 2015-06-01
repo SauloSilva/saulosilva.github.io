@@ -4,6 +4,7 @@
 
 $(document).ready(function() {
   $('.button-collapse').sideNav();
+
   $('img.lazy').lazyload({
     effect : 'fadeIn'
   });

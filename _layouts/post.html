@@ -12,7 +12,11 @@ layout: default
 
     <span class='author-info'>
       <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
-      Escrito por: <b>{{ page.author_name }}</b>
+      <p>
+        Escrito por: <b>{{ page.author_name }}</b>
+        </br>
+        em: {{ page.date | date_to_string }}.
+      </p>
     </span>
 
     <div class='image-big'>
@@ -24,6 +28,11 @@ layout: default
     {% include rich_snippets/article.html %}
 
   </article>
+
+  <b>Veja mais posts sobre:</b>
+  <a href="{{ site.url }}/{{ page.category }}"
+    <h3> {{ page.category }} </h3>
+  </a>
 
   {% include socials.html %}
   {% include comments.html %}
