@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-content">
-      <span class="grey-text activator">
+      <span class="activator">
         {{ include.post.date | date_to_string }}
 
         {% if include.post.has_preview %}
@@ -20,7 +20,7 @@
           {{ include.post.title }}
         </h2>
 
-        <p class='description truncate grey-text'>
+        <p class='description truncate'>
           {{ include.post.description }}
         </p>
       </a>
@@ -28,7 +28,7 @@
 
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
-        <a href="{{ include.post.url }}">
+        <a href="{{ include.post.url }}" class='truncate'>
           {{ include.post.title }}
         </a>
         <i class="mdi-navigation-close right"></i>
