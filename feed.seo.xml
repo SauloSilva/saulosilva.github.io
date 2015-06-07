@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saulo Santiago - Javascript</title>
+    <description>Posts categorized as 'SEO'</description>
+    <link>http://saulosantiago.js.org</link>
+    <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Otimizações para motores de busca</title>
+        
+          <description>&lt;p&gt;Ame-os ou odeie-os. 
+Você não pode vencê-los? Então se junte a eles. 
+Estou, naturalmente, referindo-se a questão de SEO.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 04 Jun 2015 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/seo/otimizacoes-para-motores-de-busca</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/seo/otimizacoes-para-motores-de-busca</guid>
+      </item>
+    
+  </channel>
+</rss>
