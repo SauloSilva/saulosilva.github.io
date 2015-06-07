@@ -26,6 +26,9 @@ pages_list:
   JS:
     url: /javascript
     name: Javascript
+  SEO:
+    url: /seo
+    name: SEO
   Feed:
     url: /feed.xml
     name: Feed

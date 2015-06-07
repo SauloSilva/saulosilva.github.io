@@ -1,0 +1,16 @@
+---
+layout: page
+description: Search Engine Optimization (SEO) é um conjunto de técnicas, que visam melhorar o posicionamento de suas páginas no mecanismo de busca, ou seja, quando um usuário digita, no mecanismo de busca uma palavra-chave, o objetivo do SEO é fazer com que uma (ou várias) das páginas do seu website apareça entre os primeiros resultados da busca orgânica.
+
+title: SEO
+class_name: seo
+ico_name: seo-ico
+---
+
+<div class='posts'>
+  {% for post in site.categories['seo'] %}
+    {% include post.html post=post %}
+  {% endfor %}
+</div>
+
+{% include pagination.html %}
