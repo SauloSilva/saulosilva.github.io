@@ -128,7 +128,7 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-121ef582750df9628f020403a8b3cf20.png" class='circle' alt='Saulo Santiago'>
+      <img src="/assets/logo-bg-50x50-aa5a59cd771f0a1865d76c766604a9c9.png" class='circle' alt='Saulo Santiago'>
       <h1 class='truncate'>
         Saulo Santiago
       </h1>
@@ -209,9 +209,9 @@
 </nav>
 
     <main>
-      <div class='post-show z-depth-1'>
+      <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <h1>Serializer JSONs com Sinatra</h1>
+    <h1 itemprop="headline">Serializer JSONs com Sinatra</h1>
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
       Leia em: 4 minutos
@@ -222,15 +222,16 @@
       <p>
         Escrito por: <b>Saulo Santiago</b>
         </br>
-        em: <b>18 May 2015</b>.
+        em: <b itemprop="datePublished">18 May 2015</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-b153974d25bf840205d7198c9634ee1a.png" alt="Serializer JSONs com Sinatra"/>
+      <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-b153974d25bf840205d7198c9634ee1a.png" alt="Serializer JSONs com Sinatra" itemprop="image"/>
     </div>
 
-    <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
+    <div itemprop="articleBody">
+      <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
 
 <p>A gem <strong>facilita a manipulação dos objetos Ruby para objetos JSONs.</strong></p>
 
@@ -297,6 +298,7 @@
 
 <p>Maiores detalhes você encontrará <a href="https://github.com/SauloSilva/sinatra-active-model-serializers#requirements">aqui nas espeficicações da gem.</a></p>
 
+    </div>
 
     <script type="application/ld+json">
   {
