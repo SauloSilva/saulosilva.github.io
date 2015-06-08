@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<div class='post-show z-depth-1'>
+<div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <h1>{{ page.title }}</h1>
+    <h1 itemprop="headline">{{ page.title }}</h1>
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
       Leia em: {{ page.read_time }}
@@ -15,15 +15,17 @@ layout: default
       <p>
         Escrito por: <b>{{ page.author_name }}</b>
         </br>
-        em: <b>{{ page.date | date_to_string }}</b>.
+        em: <b itemprop="datePublished">{{ page.date | date_to_string }}</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}"/>
+      <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}" itemprop="image"/>
     </div>
 
-    {{ content }}
+    <div itemprop="articleBody">
+      {{ content }}
+    </div>
 
     {% include rich_snippets/article.html %}
 
