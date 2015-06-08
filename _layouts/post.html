@@ -4,7 +4,10 @@ layout: default
 
 <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <h1 itemprop="headline">{{ page.title }}</h1>
+    <a href="{{ page.url }}" class='h1'>
+      <h1 itemprop="headline">{{ page.title }}</h1>
+    </a>
+
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
       Leia em: {{ page.read_time }}
@@ -12,6 +15,7 @@ layout: default
 
     <span class='author-info'>
       <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
+
       <p>
         Escrito por: <b>{{ page.author_name }}</b>
         </br>
