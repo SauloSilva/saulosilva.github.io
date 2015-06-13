@@ -36,9 +36,11 @@ layout: default
   </article>
 
   <b>Veja mais posts sobre:</b>
-  <a href="{{ site.url }}/{{ page.category }}"
-    <h3> {{ page.category }} </h3>
-  </a>
+  {% for category in page.categories %}
+    <a href="{{ site.url }}/{{ category }}"
+      <h3> {{ category }} </h3>
+    </a>
+  {% endfor %}
 
   {% include socials.html %}
   {% include comments.html %}

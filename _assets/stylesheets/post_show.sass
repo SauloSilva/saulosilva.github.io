@@ -65,7 +65,8 @@
       vertical-align: middle
 
     p
-      float: right
+      +respond_to($g-ml)
+        float: right
 
   .related
     h2
