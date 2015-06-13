@@ -7,6 +7,19 @@
     <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>SEO para SPA</title>
+        
+          <description>&lt;blockquote&gt;
+&lt;p&gt;It’s going to depend on what your particular area is, what the topic is, and what kind of layout you come out with. But if it works for you and for users to have that all on one page, for the most part, it should work for Google as well.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        
+        <pubDate>Thu, 11 Jun 2015 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/seo/seo-para-spa</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/seo/seo-para-spa</guid>
+      </item>
+    
+      <item>
         <title>Singleton Design Patterns com Javascript</title>
         
           <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;. &lt;/p&gt;

@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Aprenda a manipular suas repostas em JSONs.">
+    <meta name="description" content="Entenda o problema de SEO em SPA.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Serializer JSONs com Sinatra" property="og:title">
+    <meta content="SEO para SPA" property="og:title">
   
 
   
@@ -21,46 +21,48 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra" property="og:url">
+    <meta content="http://saulosantiago.js.org/seo/seo-para-spa" property="og:url">
   
 
   
-    <meta content="2015-05-18T00:00:00+00:00" property="article:published_time">
+    <meta content="2015-06-11T00:00:00+00:00" property="article:published_time">
 
     <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
   
-    <meta content="/assets/posts/ruby/serializer-jsons-com-sinatra-big-b153974d25bf840205d7198c9634ee1a.png" property="og:image">
+    <meta content="/assets/posts/seo/seo-para-spa-big-0c6c19e5080c83f938a5df898b448a37.png" property="og:image">
   
 
   
     
-      <meta content="ruby" property="article:section">
+      <meta content="seo" property="article:section">
     
   
 
   
     
-      <meta content="API" property="article:tag">
+      <meta content="Search Engine Optimization" property="article:tag">
     
-      <meta content="Ruby" property="article:tag">
+      <meta content="SEO" property="article:tag">
     
-      <meta content="Sinatra" property="article:tag">
+      <meta content="Single-Page Application" property="article:tag">
     
-      <meta content="JSON" property="article:tag">
+      <meta content="SPA" property="article:tag">
     
-      <meta content="Serializer" property="article:tag">
+      <meta content="Framework JS" property="article:tag">
     
-      <meta content="ActiveModel Serializer" property="article:tag">
+      <meta content="Node" property="article:tag">
     
-      <meta content="ActiveModelSerializer" property="article:tag">
+      <meta content="PhantomJS" property="article:tag">
+    
+      <meta content="Nginx" property="article:tag">
     
   
 
   <title>
     
-      Serializer JSONs com Sinatra &middot; Saulo Santiago
+      SEO para SPA &middot; Saulo Santiago
     
   </title>
 
@@ -211,13 +213,13 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/ruby/serializer-jsons-com-sinatra" class='h1'>
-      <h1 itemprop="headline">Serializer JSONs com Sinatra</h1>
+    <a href="/seo/seo-para-spa" class='h1'>
+      <h1 itemprop="headline">SEO para SPA</h1>
     </a>
 
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
-      Leia em: 4 minutos
+      Leia em: 3 minutos
     </span>
 
     <span class='author-info'>
@@ -226,81 +228,52 @@
       <p>
         Escrito por: <b>Saulo Santiago</b>
         </br>
-        em: <b itemprop="datePublished">18 May 2015</b>.
+        em: <b itemprop="datePublished">11 Jun 2015</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-b153974d25bf840205d7198c9634ee1a.png" alt="Serializer JSONs com Sinatra" itemprop="image"/>
+      <img src="/assets/posts/seo/seo-para-spa-big-0c6c19e5080c83f938a5df898b448a37.png" alt="SEO para SPA" itemprop="image"/>
     </div>
 
     <div itemprop="articleBody">
-      <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
+      <blockquote>
+<p>It’s going to depend on what your particular area is, what the topic is, and what kind of layout you come out with. But if it works for you and for users to have that all on one page, for the most part, it should work for Google as well.</p>
 
-<p>A gem <strong>facilita a manipulação dos objetos Ruby para objetos JSONs.</strong></p>
+<p><a href="https://www.youtube.com/watch?v=Mibrj2bOFCU#t=73">What does Google think of single-page websites?</a> - Google Webmasters</p>
+</blockquote>
 
-<p>Com isso podemos dedicar um lugar para personalizar totalmente a saída desses objetos. Para cada objeto que queremos serializar devemos criar um arquivo que contenha uma classe que estenda de <code>ActiveModel::Serializer</code>.</p>
+<p>O surgimento de bibliotecas e frameworks Javascript trouxe um novo formato para sites e aplicações web, o Single-Page Application (SPA). </p>
 
-<p>Imagine que o <code>controller</code> receba um objeto com a seguinte estrutura:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#&lt;Foo id: 1, foo: &quot;foo&quot;, bar: &quot;bar&quot;, baz: &quot;baz&quot;&gt;</span>
-</code></pre></div>
-<p>Mas você eu não estou satisfeito em devolver todos atributos na resposta. Qual seria a solução para isto?</p>
+<p>Por conta de seus inúmeros benefícios, muitos desenvolvedores têm optado por utilizá-lo. O grande problema é que a parte de Search Engine Optimization (SEO) fica bastante comprometida.</p>
 
-<p>A solução é manipular este objeto usando uma classe serializer. Desejo que ele tenha apenas o atributo <code>bar</code>. Para que isto seja possível dexei o serializer da seguinte maneira:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">FooSerializer</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Serializer</span>
-  <span class="n">attributes</span> <span class="ss">:bar</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>Se estiver utilizando o <strong>framework <a href="https://github.com/rails/rails">Rails</a></strong> basta fazer um <code>render</code> do tipo <code>json</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">show</span>
-  <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>e teremos este retorno:</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
-  <span class="p">}</span>  
-<span class="p">}</span>
-</code></pre></div>
-<p>Perfeito, tudo funcionou como desejavamos.</p>
+<p>Apesar dos benefícios serem a chave principal para uma boa escolha, existe um grande problema, a parte de SEO fica bastante comprometida.</p>
 
-<h4>Conhecendo um pouco mais a Gem</h4>
+<h3>O problema</h3>
 
-<p>Você deve ter achado esquisito (<strong>automatico</strong>) em fazer apenas um <code>render</code> e ele trazer um objeto serializado sem precisar especificar nada de onde pegar.</p>
+<p>Os Search engines se evoluem mas ainda não conseguem analisar e tampouco indexar o conteúdo que se encontra dentro de um arquivo Javascript.
+Sendo assim o conteúdo do seu site não estará visível na <a href="http://pt.wikipedia.org/wiki/Busca_org%C3%A2nica">busca orgânica</a>.</p>
 
-<p>Pois bem esta magia acontece dentro da <code>gem</code>, como podemos <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48">ver aqui</a>, ele intercepta todos os <code>renders</code> do tipo <code>json</code>, depois <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71">procura pelo serializer</a> que tenha o mesmo nome do objeto e finaliza devolvendo a <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95">instância desta classe</a> no formato JSON.</p>
+<h3>A Solução</h3>
 
-<p>Genial, não? </p>
+<p>A &quot;fallback page&quot; (termo que utilizo para nomear esta técnica) é a solução para este problema. </p>
 
-<p>Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails.</p>
+<p>A responsabilidade disto é fornecer ao Search Engine o principal atributo - o conteúdo. Para que isto seja possível precisamos construir uma página dinâmica que tem a mesma funcionalidade e conteúdo da aplicação web via Javascript, vindo diretamente do servidor.</p>
 
-<h2>Solução para o Sinatra</h2>
+<p>Esta página não é destinada aos usuários, ela so é servida quando a &quot;request&quot; estiver vindo de um crawler.</p>
 
-<p>Meses atras passei por esta dificuldade. Precisei utilizar o <code>ActiveModel::Serializers</code> em uma APP feita em Sinatra e tive problemas em deixar as resposta em <code>JSONs</code> serializadas de forma automatica, como ocorre no Rails.</p>
+<p>Para desenvolver esta solução teremos que implementar uma nova aplicação utilizando, Node, PhantomJS e Nginx. Isto elimina todas as necessidades de alterações em nosso SPA. </p>
 
-<p>O problema é que no Sinatra não oferece suporte para a classe <code>ActionController</code>, sendo assim a gem lança o seguinte erro <code>cannot load such file -- action_controller (LoadError)</code> ao tentar carregar, mas este erro é <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/active_model_serializers.rb#L18-L20">tratado</a> para que nossa aplicação não pare de funcionar.</p>
+<p>Esta aplicação não tem limite de utilização, no entanto podemos ter vários sites se utilizando da mesma aplicação a fim de SEO.</p>
 
-<p>Sendo assim que fazer esse trabalho manualmente, ficando da seguinte forma:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
-  <span class="n">foo</span> <span class="o">=</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-  <span class="n">json</span> <span class="no">FooSerializer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>Não podemos dizer que isto não seja uma solução válida, mas se você achou que da pra melhorar, eu concordo contigo.</p>
+<h3>Finalizando</h3>
 
-<p>Vendo essa necessidade, criei esta <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/"><code>gem sinatra-active-model-serializers</code></a> para deixar tudo isso automatico no Sinatra também, assim como é no Rails.</p>
+<p>Atualmente aplico este conceito para todos os SPA que desenvolvo e o resultado é muito satisfatório.</p>
 
-<p>E o resultado disto ficou:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">get</span> <span class="s1">&#39;/foo/:id&#39;</span> <span class="k">do</span>
-  <span class="n">json</span> <span class="no">Foo</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>Para que estas adaptações funcione como no exemplo acima você deverá instalar a gem: <code>gem install sinatra-active-model-serializers</code> ou adicionar em seu Gemfile: <code>gem &#39;sinatra-active-model-serializers&#39;</code>.</p>
+<p>Para este post não ficar extenso, irei fazer a implementação do código em um post a parte.
+Aguarde, logo terei novidades para você...</p>
 
-<p>Essa <code>gem</code> basicamente aplica toda a lógica de controller feita para o Rails no módulo <a href="https://github.com/SauloSilva/sinatra-active-model-serializers/blob/v0.0.3/lib/sinatra-active-model-serializers/json.rb#L4"><code>JSON</code></a> do Sinatra com algumas opções caso queira personalizar mais ainda suas respostas.</p>
-
-<p>Maiores detalhes você encontrará <a href="https://github.com/SauloSilva/sinatra-active-model-serializers#requirements">aqui nas espeficicações da gem.</a></p>
+<p>Aproveite e leia algumas dicas importantes sobre otimização de sua página para os motores de busca <a href="http://saulosantiago.js.org/seo/otimizacoes-para-motores-de-busca/">aqui</a>.</p>
 
     </div>
 
@@ -308,12 +281,12 @@
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "Serializer JSONs com Sinatra",
-    "alternativeHeadline": "Aprenda a manipular suas repostas em JSONs.",
-    "image": ["http://saulosantiago.js.org/assets/posts/ruby/serializer-jsons-com-sinatra-big-b153974d25bf840205d7198c9634ee1a.png", "http://saulosantiago.js.org/assets/posts/ruby/serializer-jsons-com-sinatra-thumb-4094322bf68137263e40fbe85703908a.png"],
-    "datePublished": "2015-05-18 00:00:00 +0000",
-    "description": "Aprenda a manipular suas repostas em JSONs.",
-    "articleBody": "Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra."
+    "headline": "SEO para SPA",
+    "alternativeHeadline": "Entenda o problema de SEO em SPA.",
+    "image": ["http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-big-0c6c19e5080c83f938a5df898b448a37.png", "http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-thumb-1d82281517b104ab9855090ee667cc37.png"],
+    "datePublished": "2015-06-11 00:00:00 +0000",
+    "description": "Entenda o problema de SEO em SPA.",
+    "articleBody": "Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente."
   }
 </script>
 
@@ -321,8 +294,12 @@
 
   <b>Veja mais posts sobre:</b>
   
-    <a href="http://saulosantiago.js.org/ruby"
-      <h3> ruby </h3>
+    <a href="http://saulosantiago.js.org/seo"
+      <h3> seo </h3>
+    </a>
+  
+    <a href="http://saulosantiago.js.org/javascript"
+      <h3> javascript </h3>
     </a>
   
 
@@ -334,23 +311,23 @@
     </div>
 
     <div class='social'>
-      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/seo/seo-para-spa" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
     <div class='social'>
-      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/seo/seo-para-spa" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=Serializer JSONs com Sinatra&url=http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=SEO para SPA&url=http://saulosantiago.js.org/seo/seo-para-spa&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=SEO para SPA" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra&summary=Aprenda a manipular suas repostas em JSONs.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=SEO para SPA&summary=Entenda o problema de SEO em SPA.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
