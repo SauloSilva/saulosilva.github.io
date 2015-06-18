@@ -2,14 +2,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     RedCloth (4.2.9)
-    activesupport (4.2.1)
+    activesupport (4.2.2)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    autoprefixer-rails (5.2.0)
+    autoprefixer-rails (5.2.0.1)
       execjs
       json
     awestruct (0.5.3)
@@ -27,7 +27,7 @@ GEM
       zurb-foundation (>= 4.0.9)
     backports (3.6.4)
     blankslate (2.1.2.4)
-    bootstrap-sass (3.3.4.1)
+    bootstrap-sass (3.3.5)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     celluloid (0.16.0)
@@ -157,7 +157,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     liquid (2.6.2)
-    listen (2.10.0)
+    listen (2.10.1)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -188,7 +188,7 @@ GEM
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
-    rack (1.5.3)
+    rack (1.5.4)
     rake (10.4.2)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
@@ -260,4 +260,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.10.3
+   1.10.4
