@@ -6,4 +6,8 @@
 
   ga('create', 'UA-63356631-1', 'auto');
   ga('send', 'pageview');
+
+  setInterval(function() {
+    ga('send', 'event', 'heartbeat', 'beat');
+  }, 30000);
 </script>
