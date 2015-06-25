@@ -1,0 +1,15 @@
+---
+layout: page
+description: Git é um sistema de controle de versão distribuído, gratuito, open source - projetado para lidar com tudo - desde pequenos a grandes projetos com velocidade e eficiência.
+title: Git
+class_name: git
+ico_name: git-ico
+---
+
+<div class='posts'>
+  {% for post in site.categories['git'] %}
+    {% include post.html post=post %}
+  {% endfor %}
+</div>
+
+{% include pagination.html %}

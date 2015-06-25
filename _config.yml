@@ -29,6 +29,9 @@ pages_list:
   SEO:
     url: /seo
     name: SEO
+  Git:
+    url: /git
+    name: Git
   Feed:
     url: /feed.xml
     name: Feed
