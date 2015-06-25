@@ -7,6 +7,19 @@
     <atom:link href="http://saulosantiago.js.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Git commit --amend</title>
+        
+        
+          <description>&lt;p&gt;O trabalho principal do Git é garantir que nenhuma informação seja perdida.
+Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso significa que podemos ter a liberdade para definir o que queremos em nosso histórico de &lt;em&gt;commits&lt;/em&gt;.&lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/git/git-commit--amend</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/git/git-commit--amend</guid>
+      </item>
+    
+      <item>
         <title>SEO para SPA</title>
         
         

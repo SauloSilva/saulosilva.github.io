@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.">
+    <meta name="description" content="Comando para reescrever a história de um commit">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Home" property="og:title">
+    <meta content="Git commit --amend" property="og:title">
   
 
   
@@ -21,28 +21,47 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/" property="og:url">
+    <meta content="http://saulosantiago.js.org/git/git-commit--amend" property="og:url">
   
 
   
+    <meta content="2015-06-22T00:00:00+00:00" property="article:published_time">
 
-  
-    <meta content="/assets/logo-bg-67efca79f677f4fb94883ffe6437a18e.png" property="og:image">
-  
-
+    <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
+  
+    <meta content="/assets/posts/git/git-commit--amend-big-e0c45f380715c56365d075e2bd4bff19.png" property="og:image">
+  
+
+  
+    
+      <meta content="git" property="article:section">
+    
+  
+
+  
+    
+      <meta content="git" property="article:tag">
+    
+      <meta content="commit" property="article:tag">
+    
+      <meta content="amend" property="article:tag">
+    
+      <meta content="reescrever história" property="article:tag">
+    
   
 
   <title>
     
-      Saulo Santiago
+      Git commit --amend &middot; Saulo Santiago
     
   </title>
 
   
-    <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.xml">
-
+    
+      <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.post.xml">
+    
   
 
   <link rel="apple-touch-icon" sizes="57x57" href="/public/apple-icon-57x57.png">
@@ -200,267 +219,173 @@
 </nav>
 
     <main>
-      <div class="posts">
+      <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
+  <article class="markdown-body">
+    <a href="/git/git-commit--amend" class='h1'>
+      <h1 itemprop="headline">Git commit --amend</h1>
+    </a>
+
+    <span class='read-time'>
+      <i class='mdi-device-access-time'></i>
+      Leia em: 2 minutos
+    </span>
+
+    <span class='author-info'>
+      <img src="//www.gravatar.com/avatar/427733403ad646d7a164918b9da1d227?s=135" alt="Saulo Santiago" width='50' height='50' class='circle responsive-img'/>
+
+      <p>
+        Escrito por: <b>Saulo Santiago</b>
+        </br>
+        em: <b itemprop="datePublished">22 Jun 2015</b>.
+      </p>
+    </span>
+
+    <div class='image-big'>
+      <img src="/assets/posts/git/git-commit--amend-big-e0c45f380715c56365d075e2bd4bff19.png" alt="Git commit --amend" itemprop="image"/>
+    </div>
+
+    <div itemprop="articleBody">
+      <p>O trabalho principal do Git é garantir que nenhuma informação seja perdida.
+Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso significa que podemos ter a liberdade para definir o que queremos em nosso histórico de <em>commits</em>.</p>
+
+<p>Para que isto seja possível o Git oferece um comando para reescrever os <em>commits</em> anteriores.
+Neste tutorial irei discutir o principal motivo para se reescrever a história de um <em>commit</em>, juntamente com algumas dicas.</p>
+
+<h4>Discussão</h4>
+
+<p>É bem comum esquecer de adicionar alguma informação/arquivo no <em>commit</em> ou submeter um <em>commit</em> com uma mensagem errada. A <em>flag</em> <code>--amend</code> é o jeito mais conviniênte de voltar atrás e corrigir isto sem muito esforço.</p>
+
+<h4>Reescrevendo a história</h4>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add .
+git commit --amend
+git push origin -f &lt;your_branch&gt;
+</code></pre></div>
+<p>Essa técnica combina o envio de conteúdos que ainda não foram adicionados ao Git utilizando o último <em>commit</em> ao invés de criar uma nova <em>snapshot</em>, tendo a possibilidade de alteração da messagem do <em>commit</em> anterior.</p>
+
+<h4>Exemplo</h4>
+
+<p>Vejamos o exemplo abaixo, o cenário onde ocorre é em development. Suponhamos que foi criado dois arquivos, mas na hora de adicionar ao Git um dos arquivos foram esquecidos.</p>
+
+<p>A solução foi utilizar a <em>flag</em> <code>--amend</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># Criou foo.rb e bar.rb mas adicionou somente o foo.rb e commitou
+touch foo.rb bar.rb
+
+git add foo.rb
+git commit
+
+# Adicionou as mudanças esquecidas de bar.rb fez o amend e commitou
+git add bar.rb
+git commit --amend --no-edit
+git push origin -f any_branch
+</code></pre></div>
+<p>O resultado disso é fazer com que as alterações atuais façam parte do <em>commit</em> anterior.</p>
+
+<p>A <em>flag</em> <code>--no-edit</code> tira a possilidade de editar da mensagem do <em>commit</em>; caso ao contrário o editor padrão é aberto com a mensagem do <em>commit</em> anterior. Nesta etapa existe a possilidade de alteração da mensagem.</p>
+
+<h4>Dica</h4>
+
+<p>Estes três comandos de: adicionar, amend e commit, podem serem resumidos em apenas um comando.
+Para que isto seja possível é necessário inserir um <a href="https://gist.github.com/SauloSilva/372f77fecfce995715d6">arquivo de bash</a> que fiz dentro da pasta binária de seu sistema:</p>
+
+<p><strong>Se for Mac</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /bin/git-amend https://gist.githubusercontent.com/SauloSilva/372f77fecfce995715d6/raw/25b4da0cbbf4a81cd30aa40e9adb24678f23fbdc/git-amend
+sudo chmod +x /bin/git-amend
+</code></pre></div>
+<p><strong>Se for Linux</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /usr/bin/git-amend https://gist.githubusercontent.com/SauloSilva/372f77fecfce995715d6/raw/25b4da0cbbf4a81cd30aa40e9adb24678f23fbdc/git-amend
+sudo chmod +x /usr/bin/git-amend
+</code></pre></div>
+<p>Da próxima vez que precisar fazer um <em>amend</em> é so executar:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git amend
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git amend --no-edit
+</code></pre></div>
+<p>Simples não!?</p>
+
+<h4>Não use o <code>amend</code> para commits públicos</h4>
+
+<p>Não podemos utililizar o <code>amend</code> para resetar <em>commits</em> de outros desenvolvedores.</p>
+
+<p><em>Commit</em> alterado é considerado um <em>commit</em> novo.
+Por isso tome cuidado antes de executar este comando, pois você pode estar prejudicando outros desenvolvedores que estam se baseando no <em>commit</em> alterado. Isto pode gerar confusões e vários problemas difíceis de se reverterem.</p>
+
+    </div>
+
+    <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Git commit --amend",
+    "alternativeHeadline": "Comando para reescrever a história de um commit",
+    "image": ["http://saulosantiago.js.org/assets/posts/git/git-commit--amend-big-e0c45f380715c56365d075e2bd4bff19.png", "http://saulosantiago.js.org/assets/posts/git/git-commit--amend-thumb-06f5e73dcd36cce21e70aec458399120.png"],
+    "datePublished": "2015-06-22 00:00:00 +0000",
+    "description": "Comando para reescrever a história de um commit",
+    "articleBody": "É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conviniênte de voltar atrás e corrigir isto sem precisar de muito esforço."
+  }
+</script>
+
+  </article>
+
+  <b>Veja mais posts sobre:</b>
   
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/git/git-commit--amend">
-        <img data-original="/assets/posts/git/git-commit--amend-thumb-06f5e73dcd36cce21e70aec458399120.png" alt="Git commit --amend" class='lazy' width='500' height='300'/>
-      </a>
+    <a href="http://saulosantiago.js.org/git"
+      <h3> git </h3>
+    </a>
+  
+
+  <div class="share-page">
+    <div class='social'>
+      <b>
+        Share this on &rarr;
+      </b>
     </div>
 
-    <div class="card-content">
-      <span class="activator">
-        22 Jun 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/git/git-commit--amend">
-        <h2 class='card-title truncate'>
-          Git commit --amend
-        </h2>
-
-        <p class='description truncate'>
-          Comando para reescrever a história de um commit
-        </p>
-      </a>
+    <div class='social'>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/git/git-commit--amend" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/git/git-commit--amend" class='truncate'>
-          Git commit --amend
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conviniênte de voltar atrás e corrigir isto sem precisar de muito esforço.
-      </span>
+    <div class='social'>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/git/git-commit--amend" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
+
+    <div class='social'>
+      <a href="https://twitter.com/intent/tweet?text=Git commit --amend&url=http://saulosantiago.js.org/git/git-commit--amend&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Git commit --amend" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Git commit --amend&summary=Comando para reescrever a história de um commit&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+    </div>
+</div>
+  
+  <div class='comments'>
+    <h2>Comentários:</h2>
+    <span>
+      <i class='mdi-editor-insert-comment'></i>
+      Deixe sua dúvida, sugestão ou crítica, estou ancioso para saber tudo que você achou sobre este post:
+    </span>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'saulosantiago';
+
+        (function() {
+            var dsq = document.createElement('script');
+
+            dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
+
 </div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/seo/seo-para-spa">
-        <img data-original="/assets/posts/seo/seo-para-spa-thumb-1d82281517b104ab9855090ee667cc37.png" alt="SEO para SPA" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        11 Jun 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/seo/seo-para-spa">
-        <h2 class='card-title truncate'>
-          SEO para SPA
-        </h2>
-
-        <p class='description truncate'>
-          Entenda o problema de SEO em SPA.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/seo/seo-para-spa" class='truncate'>
-          SEO para SPA
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente.
-      </span>
-    </div>
-  </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/seo/otimizacoes-para-motores-de-busca">
-        <img data-original="/assets/posts/seo/otimizacoes-para-motores-de-busca-thumb-532fb2e1fefdac32b4073be2c79347e5.png" alt="Otimizações para motores de busca" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        04 Jun 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/seo/otimizacoes-para-motores-de-busca">
-        <h2 class='card-title truncate'>
-          Otimizações para motores de busca
-        </h2>
-
-        <p class='description truncate'>
-          Aprenda técnicas importantes de SEO para o seu site.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/seo/otimizacoes-para-motores-de-busca" class='truncate'>
-          Otimizações para motores de busca
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Quando publicamos um site na Web, na maioria das vezes, queremos que ele tenha uma grande audiência. Para conquista-la, devemos pensar em como estruturar o conteúdo para obter um bom posicionamento nas buscas orgânicas. Aprenda técnicas importantes de SEO neste post e alavanque seu número de audiência.
-      </span>
-    </div>
-  </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/ruby/serializer-jsons-com-sinatra">
-        <img data-original="/assets/posts/ruby/serializer-jsons-com-sinatra-thumb-4094322bf68137263e40fbe85703908a.png" alt="Serializer JSONs com Sinatra" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        18 May 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/ruby/serializer-jsons-com-sinatra">
-        <h2 class='card-title truncate'>
-          Serializer JSONs com Sinatra
-        </h2>
-
-        <p class='description truncate'>
-          Aprenda a manipular suas repostas em JSONs.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/ruby/serializer-jsons-com-sinatra" class='truncate'>
-          Serializer JSONs com Sinatra
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra.
-      </span>
-    </div>
-  </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/javascript/sigleton-design-patterns-com-javascript">
-        <img data-original="/assets/posts/javascript/sigleton-design-patterns-com-javascript-thumb-7853aec8e7cbbe188b7f6ff5b5d73d87.png" alt="Singleton Design Patterns com Javascript" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        17 May 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/javascript/sigleton-design-patterns-com-javascript">
-        <h2 class='card-title truncate'>
-          Singleton Design Patterns com Javascript
-        </h2>
-
-        <p class='description truncate'>
-          Singleton diz que você terá apenas uma instância de classe.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/javascript/sigleton-design-patterns-com-javascript" class='truncate'>
-          Singleton Design Patterns com Javascript
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Singleton diz que você terá apenas uma instância de classe (se estiver utilizando ES6) ou de uma função construtora (se estiver utilizando ES5).
-      </span>
-    </div>
-  </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/get-started">
-        <img data-original="/assets/posts/get-started-thumb-fce99692a1c0c57c5e8e4fc0ad52fde9.png" alt="Get started" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        16 May 2015
-
-        
-      </span>
-
-      <a href="/get-started">
-        <h2 class='card-title truncate'>
-          Get started
-        </h2>
-
-        <p class='description truncate'>
-          Sejam bem vindos ao meu blog.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/get-started" class='truncate'>
-          Get started
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        
-      </span>
-    </div>
-  </div>
-</div>
-  
-</div>
-
-
     </main>
 
     <div id='organization' itemscope='' itemtype='http://schema.org/Organization'>
