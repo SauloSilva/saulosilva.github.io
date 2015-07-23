@@ -6,7 +6,7 @@ read_time: 2 minutos
 title: Git commit --amend
 description: Comando para reescrever a história de um commit
 
-long_description: É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conviniênte de voltar atrás e corrigir isto sem precisar de muito esforço.
+long_description: É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conveniente de voltar atrás e corrigir isto sem precisar de muito esforço.
 
 has_preview: true
 category: git
@@ -25,7 +25,7 @@ Neste tutorial irei discutir o principal motivo para se reescrever a história d
 
 #### Discussão
 
-É bem comum esquecer de adicionar alguma informação/arquivo no _commit_ ou submeter um _commit_ com uma mensagem errada. A _flag_ `--amend` é o jeito mais conviniênte de voltar atrás e corrigir isto sem muito esforço.
+É bem comum esquecer de adicionar alguma informação/arquivo no _commit_ ou submeter um _commit_ com uma mensagem errada. A _flag_ `--amend` é o jeito mais conveniente de voltar atrás e corrigir isto sem muito esforço.
 
 #### Reescrevendo a história
 
