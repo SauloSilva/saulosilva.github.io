@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Search Engine Optimization (SEO) é um conjunto de técnicas, que visam melhorar o posicionamento de suas páginas no mecanismo de busca, ou seja, quando um usuário digita, no mecanismo de busca uma palavra-chave, o objetivo do SEO é fazer com que uma (ou várias) das páginas do seu website apareça entre os primeiros resultados da busca orgânica.">
+    <meta name="description" content="Veja como funciona os operadores no Ruby.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="SEO" property="og:title">
+    <meta content="Operadores e seus métodos" property="og:title">
   
 
   
@@ -21,28 +21,58 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/seo/" property="og:url">
+    <meta content="http://saulosantiago.js.org/ruby/operadores-e-seus-metodos" property="og:url">
   
 
   
+    <meta content="2015-07-18T00:00:00+00:00" property="article:published_time">
 
-  
-    <meta content="/assets/logo-bg-10cfa529bd32704c4544e901bf45de37.png" property="og:image">
-  
-
+    <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
+  
+    <meta content="/assets/posts/ruby/operadores-e-seus-metodos-big-25d17dc2c786e5a702aaf239a0867ff2.png" property="og:image">
+  
+
+  
+    
+      <meta content="ruby" property="article:section">
+    
+  
+
+  
+    
+      <meta content="Operadores Ruby" property="article:tag">
+    
+      <meta content="Operadores aritméticos" property="article:tag">
+    
+      <meta content="Operadores de comparações" property="article:tag">
+    
+      <meta content="Operador de set e get" property="article:tag">
+    
+      <meta content="Operadores binários" property="article:tag">
+    
+      <meta content="Operadores lógicos" property="article:tag">
+    
+      <meta content="Operadores de atribuições" property="article:tag">
+    
+      <meta content="Operador ternário" property="article:tag">
+    
+      <meta content="Operadores de alcance" property="article:tag">
+    
+      <meta content="contruindo nossos próprios operadores" property="article:tag">
+    
   
 
   <title>
     
-      SEO &middot; Saulo Santiago
+      Operadores e seus métodos &middot; Saulo Santiago
     
   </title>
 
   
     
-      <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.seo.xml">
+      <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.post.xml">
     
   
 
@@ -201,103 +231,632 @@
 </nav>
 
     <main>
-      <div class="page">
-  <h1 class="page-title grey-text seo">
-    <i class="ico seo-ico"></i>
-    SEO
-  </h1>
+      <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
+  <article class="markdown-body">
+    <a href="/ruby/operadores-e-seus-metodos" class='h1'>
+      <h1 itemprop="headline">Operadores e seus métodos</h1>
+    </a>
 
-  <hr>
-  <div class='posts'>
+    <span class='read-time'>
+      <i class='mdi-device-access-time'></i>
+      Leia em: 11 minutos
+    </span>
+
+    <span class='author-info'>
+      <img src="//www.gravatar.com/avatar/427733403ad646d7a164918b9da1d227?s=135" alt="Saulo Santiago" width='50' height='50' class='circle responsive-img'/>
+
+      <p>
+        Escrito por: <b>Saulo Santiago</b>
+        </br>
+        em: <b itemprop="datePublished">18 Jul 2015</b>.
+      </p>
+    </span>
+
+    <div class='image-big'>
+      <img src="/assets/posts/ruby/operadores-e-seus-metodos-big-25d17dc2c786e5a702aaf239a0867ff2.png" alt="Operadores e seus métodos" itemprop="image"/>
+    </div>
+
+    <div itemprop="articleBody">
+      <p>Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.</p>
+
+<h2>Operadores</h2>
+
+<p>O exemplo abaixo mostra dois operadores familiares.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># 3</span>
+
+<span class="n">person</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Joe&quot;</span>
+</code></pre></div>
+<p>Nas expressões acima denominamos dois operadores, um com o sinal de mais (operador aritmético) e outro com um sinal de igual (operador de atribuição).
+Essa maneira não é diferente do que você já esta acostumado a utilizar em outras liguagens como: Javascript, Java, C#.
+Mas no Ruby os operadores são realmente chamados de métodos.</p>
+
+<p>Vamos tentar executar o seguinte comando no ruby:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="o">.</span><span class="n">+</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 3</span>
+</code></pre></div>
+<p>Na execução, o operador <code>+</code>, fez uma chamada de método no objeto <code>1</code>, passando o objeto <code>2</code> de parâmetro.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Saulo&#39;</span>
+
+<span class="nb">name</span><span class="o">.</span><span class="n">+</span><span class="p">(</span><span class="s1">&#39; Santiago&#39;</span><span class="p">)</span> <span class="c1"># O retorno será &quot;Saulo Santiago&quot;, mas a variável `name` continua armazenando &#39;Saulo&#39;</span>
+
+<span class="nb">name</span> <span class="o">+=</span> <span class="s2">&quot; Santiago&quot;</span> <span class="c1"># Agora a variável `name` armazena &#39;Saulo Santiago&#39;</span>
+</code></pre></div>
+<p>Ficou claro que podemos fazer concatenação com o método <code>+</code>. Como bônus o Ruby define o operador <code>+=</code> com base no operador <code>+</code> (note que você não pode utilizar o <code>+=</code> como um método), sendo assim conseguimos uma sintaxe mais enxuta.</p>
+
+<p>Isso nos dá um poder incrível. Nós podemos personalizar o significado de adição, subtração e atribuir objetos em nossas classes personalizadas.</p>
+
+<p>Vamos tomar um passo adiante.</p>
+
+<h2>Construindo nossos próprios métodos de operação</h2>
+
+<p>Vamos tentar estabelecer e criar um método.</p>
+
+<p>Para este exemplo, vamos pensar em um objeto chamado Geladeira, que pode adicionar as coisas via o operador <code>+</code> e retirar as coisas via o operador <code>-</code>. Vamos iniciar nossa classe:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Fridge</span>
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="p">(</span><span class="n">beverages</span><span class="o">=[]</span><span class="p">,</span> <span class="n">foods</span><span class="o">=[]</span><span class="p">)</span>
+    <span class="vi">@beverages</span> <span class="o">=</span> <span class="n">beverages</span>
+    <span class="vi">@foods</span> <span class="o">=</span> <span class="n">foods</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">+</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">-</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Nossa função do <code>initialize</code> é bem simples: nós tomamos dois parâmetros (ambos por padrão retornam matrizes vazias, se nada for enviado), que são atribuidos a variáveis ​​de instância.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">+</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_a?</span> <span class="no">Beverage</span>
+    <span class="vi">@beverages</span><span class="o">.</span><span class="n">push</span> <span class="n">item</span>
+  <span class="k">else</span>
+    <span class="vi">@foods</span><span class="o">.</span><span class="n">push</span> <span class="n">item</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Isso é muito simples. Cada objeto tem um método <code>is_a?</code> que leva um único parâmetro: a classe. Se o objeto é uma instância dessa classe, ele irá retornar <code>true</code>, caso contrário, retornará <code>false</code>.</p>
+
+<p>Assim, este diz que se o item que estamos adicionando na Geladeira é uma bebida, nós vamos adicioná-lo à matriz <code>@beverages</code>. Caso contrário, nós vamos adicioná-lo à matriz <code>@foods</code>.</p>
+
+<p>Agora, que tal levarmos as coisas para fora da geladeira? Este método ficará um pouco mais complexo.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">-</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="vi">@beverages</span><span class="o">.</span><span class="n">find</span> <span class="k">do</span> <span class="o">|</span><span class="n">beverage</span><span class="o">|</span>
+    <span class="n">beverage</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">downcase</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">downcase</span>
+  <span class="k">end</span>
+
+  <span class="k">return</span> <span class="vi">@beverages</span><span class="o">.</span><span class="n">delete</span> <span class="n">ret</span> <span class="k">unless</span> <span class="n">ret</span><span class="o">.</span><span class="n">nil?</span>
+
+  <span class="n">ret</span> <span class="o">=</span> <span class="vi">@foods</span><span class="o">.</span><span class="n">find</span> <span class="k">do</span> <span class="o">|</span><span class="n">food</span><span class="o">|</span>
+    <span class="n">food</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">downcase</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">downcase</span>
+  <span class="k">end</span>
+
+  <span class="vi">@foods</span><span class="o">.</span><span class="n">delete</span> <span class="n">ret</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>No código acima recebemos uma <code>string</code> de parâmetro, que representará o nome do objeto que queremos remover.</p>
+
+<p>Usamos o método <code>find</code> para interar sobre a matriz e buscar um ou mais objetos que tenham o mesmo valor que o parâmetro que foi enviado.</p>
+
+<p>Se houver algum item que corresponde na matriz, ele será armazenadas no variável <code>ret</code>, a seguir será removido com <code>@beverages.delete ret</code> e retornado, caso contrário, <code>ret</code> será nula.</p>
+
+<p>Você deve estar pensando, por que usamos o <code>return</code> no meio do método?
+Se não estivessemos utilizando o <code>return</code> o código continuaria sendo executado, e neste caso não queriamos este comportamento.</p>
+
+<p>Então para parar a execução de um bloco de código em um determinado lugar no método que não seja a última instrução, colocamos um <code>return</code>.</p>
+
+<p>Caso nada seja retornado, isso significa que o item não foi encontrado no <code>@beverages</code>. Portanto, nós assumimos que ele está em <code>@foods</code>. Nós fizemos a mesma coisa para encontrar o item em <code>@foods</code> e em seguida, devolvemos.</p>
+
+<p>Note que nas duas verificações estamos convertendo as <code>strings</code> todas para minúsculas, isso garante uma verificação mais segura.</p>
+
+<p>Antes de testarmos isso, vamos precisar de duas classes: <code>Food</code> e <code>Beverage</code>:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Beverage</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="nb">name</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="vi">@time</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Food</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="nb">name</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="vi">@time</span> <span class="o">=</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Depois de ter criado as classes; vamos testa-ló no <code>IRB</code>.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">001</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="no">Fridge</span><span class="o">.</span><span class="n">new</span>
+
+ <span class="o">=&gt;</span> <span class="c1">#&lt;Fridge:0x007fa9d305d140 @beverages=[], @foods=[]&gt;</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">002</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">+</span> <span class="no">Beverage</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;water&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="c1">#&lt;Beverage:0x007fa9d3054158 @name=&quot;water&quot;, @time=2015-07-20 01:01:04 -0300&gt;]</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">003</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">+</span> <span class="no">Beverage</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;beer&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="c1">#&lt;Beverage:0x007fa9d3054158 @name=&quot;water&quot;, @time=2015-07-20 01:01:04 -0300&gt;, #&lt;Beverage:0x007fa9d3046aa8 @name=&quot;beer&quot;, @time=2015-07-20 01:01:18 -0300&gt;]</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">004</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">+</span> <span class="no">Food</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;bread&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="c1">#&lt;Food:0x007fa9d303e1c8 @name=&quot;bread&quot;, @time=2015-07-20 01:01:27 -0300&gt;]</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">005</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">+</span> <span class="no">Food</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;eggs&quot;</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="o">[</span><span class="c1">#&lt;Food:0x007fa9d303e1c8 @name=&quot;bread&quot;, @time=2015-07-20 01:01:27 -0300&gt;, #&lt;Food:0x007fa9d3034ba0 @name=&quot;eggs&quot;, @time=2015-07-20 01:01:30 -0300&gt;]</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">006</span> <span class="o">&gt;</span> <span class="n">f</span>
+ <span class="o">=&gt;</span> <span class="c1">#&lt;Fridge:0x007fa9d305d140 @beverages=[#&lt;Beverage:0x007fa9d3054158 @name=&quot;water&quot;, @time=2015-07-20 01:01:04 -0300&gt;, #&lt;Beverage:0x007fa9d3046aa8 @name=&quot;beer&quot;, @time=2015-07-20 01:01:18 -0300&gt;], @foods=[#&lt;Food:0x007fa9d303e1c8 @name=&quot;bread&quot;, @time=2015-07-20 01:01:27 -0300&gt;, #&lt;Food:0x007fa9d3034ba0 @name=&quot;eggs&quot;, @time=2015-07-20 01:01:30 -0300&gt;]&gt;</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">007</span> <span class="o">&gt;</span> <span class="n">f</span> <span class="o">-</span> <span class="s1">&#39;water&#39;</span>
+ <span class="o">=&gt;</span> <span class="c1">#&lt;Beverage:0x007fa9d3054158 @name=&quot;water&quot;, @time=2015-07-20 01:01:04 -0300&gt;</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">00</span><span class="mi">8</span> <span class="o">&gt;</span> <span class="n">f</span>
+ <span class="o">=&gt;</span> <span class="c1">#&lt;Fridge:0x007fa9d305d140 @beverages=[#&lt;Beverage:0x007fa9d3046aa8 @name=&quot;beer&quot;, @time=2015-07-20 01:01:18 -0300&gt;], @foods=[#&lt;Food:0x007fa9d303e1c8 @name=&quot;bread&quot;, @time=2015-07-20 01:01:27 -0300&gt;, #&lt;Food:0x007fa9d3034ba0 @name=&quot;eggs&quot;, @time=2015-07-20 01:01:30 -0300&gt;]&gt;</span>
+<span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">2</span> <span class="p">:</span><span class="mo">053</span> <span class="o">&gt;</span>
+</code></pre></div>
+<p>Como você observou, criei o objeto <code>Fridge</code> e adicionei nele várias classes de <code>Beverage</code> e <code>Food</code>, e no final retirei um objeto pelo nome (<code>water</code>).</p>
+
+<p>Pronto, conseguimos personalizar os operadores de adição e subtração para nossa classe <code>Fridge</code>.</p>
+
+<h2>Operadores de Get e Set</h2>
+
+<p>Agora vamos escrever métodos para a definir e obter operadores utilizando os <code>hashes</code>. Mas antes iremos analisarmos o seguinte trecho de código:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">person</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">person</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Saulo&quot;</span>
+</code></pre></div>
+<p>Mas uma vez que os operadores são métodos, podemos fazê-lo desta maneira:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">person</span><span class="o">.</span><span class="n">[</span><span class="o">]=</span><span class="p">(</span><span class="ss">:age</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span> <span class="c1"># to set</span>
+
+<span class="n">person</span><span class="o">.</span><span class="n">[</span><span class="o">]</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span> <span class="c1"># to get</span>
+</code></pre></div>
+<p>Tudo isto funciona perfeitamente pois estes são métodos normais, tendo apenas uma sintaxe especial.</p>
+
+<p>Vamos fazermos uma classe chamada <code>Club</code>. Nosso clube tem diferentes membros com diferentes funções. No entanto, a gente pode querer ter mais do que um membro com uma determinada função.</p>
+
+<p>Então, o nosso exemplo irá ser composto por um <code>hash</code> de membros e seus papéis. Se atribuirmos um segundo membro a uma função, em vez de substituir o primeiro, iremos adicioná-lo.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Club</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@members</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">[]</span> <span class="p">(</span><span class="n">role</span><span class="p">)</span>
+    <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>O método responsável por trazer um membro da matriz é simples. Mas o método para adicionar um novo membro é mais complexo:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">[]=</span> <span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span>
+  <span class="k">if</span> <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">].</span><span class="n">nil?</span>
+    <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">]</span> <span class="o">=</span> <span class="n">member</span>
+  <span class="k">elsif</span> <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">].</span><span class="n">is_a?</span> <span class="nb">String</span>
+    <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span> <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">]</span><span class="p">,</span> <span class="n">member</span> <span class="o">]</span>
+  <span class="k">else</span>
+    <span class="vi">@members</span><span class="o">[</span><span class="n">role</span><span class="o">].</span><span class="n">push</span> <span class="n">member</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Se não houver membros com função definida, o membro é atribuido para uma nova função dentro do <code>hash</code> <code>members</code>.</p>
+
+<p>Se a função esta definido como uma <code>string</code>, é feito uma conversão em uma nova matriz com os membros originais e o novo membro.</p>
+
+<p>Finalmente, se nenhuma dessas opções forem verdadeiras, significa que a função já existe na matriz, e por isso, o novo membro é apenas adicionado.</p>
+
+<p>Podemos testar isto da seguinte maneira:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">c</span> <span class="o">=</span> <span class="no">Club</span><span class="o">.</span><span class="n">new</span>
+
+<span class="n">c</span><span class="o">[</span><span class="ss">:developer</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Saulo&quot;</span>
+
+<span class="n">c</span><span class="o">[</span><span class="ss">:engineer</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Foo&quot;</span>
+
+<span class="n">c</span><span class="o">[</span><span class="ss">:engineer</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;Bar&quot;</span>
+
+<span class="n">c</span><span class="o">[</span><span class="ss">:developer</span><span class="o">]</span> <span class="c1"># &quot;Saulo&quot;</span>
+
+<span class="n">c</span><span class="o">[</span><span class="ss">:engingeer</span><span class="o">]</span> <span class="c1"># [ &quot;Foo&quot;, &quot;Bar&quot; ]</span>
+</code></pre></div>
+<h2>Listando todos os Operadores</h2>
+
+<p>Assumindo que a variável <code>a</code> seja <code>10</code> e a <code>b</code> seja <code>20</code>. Segue a lista completa dos operadores:</p>
+
+<h3>Operadores aritiméticos</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">+</td>
+<td style="text-align: left">Adiciona valores da esquerda com o da direita</td>
+<td style="text-align: left"><code>a + b</code> irá retornar 30</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">-</td>
+<td style="text-align: left">Subtrai os valores da esquerda com o da direita</td>
+<td style="text-align: left"><code>b - a</code> irá retornar 10</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">*</td>
+<td style="text-align: left">Multiplica os valores</td>
+<td style="text-align: left"><code>a * b</code> irá retornar 200</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">/</td>
+<td style="text-align: left">Divide o valor da esquerda com o da direita</td>
+<td style="text-align: left"><code>b / a</code> irá retornar 2</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">%</td>
+<td style="text-align: left">Divide o valor da esquerda com o da direita e retorna a sobra da divisão</td>
+<td style="text-align: left"><code>b % a</code> irá retornar 0</td>
+<td style="text-align: center">Sim</td>
+</tr>
+</tbody></table>
+
+<h3>Operadores de comparações</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">==</td>
+<td style="text-align: left">Verifica se o valor dos dois operandos são iguais ou não, se sim, então a condição se torna verdadeira.</td>
+<td style="text-align: left"><code>a == b</code> não é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">!=</td>
+<td style="text-align: left">Verifica se o valor dos dois operandos são diferentes ou não, se sim, então a condição se torna verdadeira.</td>
+<td style="text-align: left"><code>a != b</code> é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&gt;</td>
+<td style="text-align: left">verifica se o valor da esquerda é maior que o da direita, se sim retorna verdadeiro</td>
+<td style="text-align: left"><code>a &gt; b</code> não é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&lt;</td>
+<td style="text-align: left">verifica se o valor da esquerda é menor que o da direita, se sim retorna verdadeiro</td>
+<td style="text-align: left"><code>a &gt; b</code> é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&gt;=</td>
+<td style="text-align: left">verifica se o valor da esquerda é maior ou igual ao da direita, se sim retorna verdadeiro</td>
+<td style="text-align: left"><code>a &gt;= b</code> não é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&lt;=</td>
+<td style="text-align: left">verifica se o valor da esquerda é menor ou igual ao da direita, se sim retorna verdadeiro</td>
+<td style="text-align: left"><code>a &lt;= b</code> é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&lt;=&gt;</td>
+<td style="text-align: left">Operador de comparação combinada. Retorna <code>0</code> se primeiro operando é igual ao segundo, retorna 1 se o primeiro operando for maior que o segundo e retorna <code>-1</code> se o primeiro operando for menor que o segundo.</td>
+<td style="text-align: left"><code>a &lt;=&gt; b</code> retorna -1</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">===</td>
+<td style="text-align: left">Usado para testar a igualdade dentro de uma cláusula que contenha instruções.</td>
+<td style="text-align: left"><code>(1...10) === 5</code> é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">.eql?</td>
+<td style="text-align: left">Verdadeiro se o receptor e o argumento têm o mesmo tipo e valor.</td>
+<td style="text-align: left"><code>1 == 1.0</code> retorna verdadeiro, mas em <code>1.eql?(1.0)</code> não é verdadeiro</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">.equal?</td>
+<td style="text-align: left">Verdadeiro se o receptor e o argumento tem a mesma identificação do objeto.</td>
+<td style="text-align: left">se <code>foo_obj</code> é duplicado para <code>bar_obj</code> então <code>foo_obj == bar_obj</code> é verdade, <code>a.equal? bar_obj</code> é falso, mas <code>a.equal? foo_obj</code> é verdade.</td>
+<td style="text-align: center">Sim</td>
+</tr>
+</tbody></table>
+
+<h3>Operador de Set e Get</h3>
+
+<p>Assumimos que a variável <code>y = {}</code> sempre esta inicializada com um <code>hash</code> vazio.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">[]=</td>
+<td style="text-align: left">Operador de Set</td>
+<td style="text-align: left"><code>y[]=(:red, &#39;#ff0000&#39;)</code> irá atribuir um hash que contém a chave <code>red</code> com o valor <code>#ff0000</code></td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">[]</td>
+<td style="text-align: left">Operador de Get</td>
+<td style="text-align: left"><code>y[:red]</code> irá retornar o valor da chave <code>red</code></td>
+<td style="text-align: center">Sim</td>
+</tr>
+</tbody></table>
+
+<h3>Operadores binários</h3>
+
+<p>Imagine que que <code>x = 18</code> e <code>y = 20</code>, em binário os valores são:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>     <span class="c1">#=&gt; &quot;10010&quot;</span>
+<span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>     <span class="c1">#=&gt; &quot;10100&quot;</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">&amp;</td>
+<td style="text-align: left">Operador AND</td>
+<td style="text-align: left"><code>(x &amp; y).to_s(2)</code> irá retornar &quot;10000&quot;</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">pipe</td>
+<td style="text-align: left">Operador OR</td>
+<td style="text-align: left"><code>(x pipe y).to_s(2)</code> irá retornar &quot;10110&quot;</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">^</td>
+<td style="text-align: left">Operador XOR</td>
+<td style="text-align: left"><code>(x ^ y).to_s(2)</code> irá retornar &quot;110&quot; (zeros à esquerda são omitidos)</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">~</td>
+<td style="text-align: left">Operador NOT</td>
+<td style="text-align: left"><code>(~x).to_s(2)</code> irá retornar &quot;-10011&quot;</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&lt;&lt;</td>
+<td style="text-align: left">Operador com desvio a esquerda</td>
+<td style="text-align: left"><code>(x &lt;&lt; 2).to_s(2)</code> irá retornar &quot;1001000&quot;</td>
+<td style="text-align: center">Sim</td>
+</tr>
+<tr>
+<td style="text-align: center">&gt;&gt;</td>
+<td style="text-align: left">Operador com desvio a direita</td>
+<td style="text-align: left"><code>(x &gt;&gt; 2).to_s(2)</code> irá retornar &quot;100&quot;</td>
+<td style="text-align: center">Sim</td>
+</tr>
+</tbody></table>
+
+<h3>Operadores lógicos</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">and ou &amp;&amp;</td>
+<td style="text-align: left">Se ambas condições forem verdadeiras, então é retornado <code>true</code></td>
+<td style="text-align: left"><code>(a &amp;&amp; b)</code> é verdadeiro</td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">or ou double pipe</td>
+<td style="text-align: left">Se algumas das condições forem diferente de zero, o retorno é <code>true</code></td>
+<td style="text-align: left"><code>(a or b)</code> é verdadeiro</td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">not ou !</td>
+<td style="text-align: left">Inverte o estado da lógica do operando</td>
+<td style="text-align: left"><code>!(a &amp;&amp; b)</code> é falso</td>
+<td style="text-align: center">Não</td>
+</tr>
+</tbody></table>
+
+<h3>Operadores de atribuições</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">=</td>
+<td style="text-align: left">Operador de atribuição simples, atribui valores da direita para o lado esquerdo</td>
+<td style="text-align: left"><code>c = a + b</code> é atribuido o valor da soma de <code>a + b</code> em <code>c</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">+=</td>
+<td style="text-align: left">Adiciona e faz a atribuição</td>
+<td style="text-align: left"><code>c += a</code> é equivalente a <code>c = c + a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">-=</td>
+<td style="text-align: left">Subtrai e faz a atribuição</td>
+<td style="text-align: left"><code>c -= a</code> é equivalente a <code>c = c - a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">*=</td>
+<td style="text-align: left">Multiplica e faz a atribuição</td>
+<td style="text-align: left"><code>c *= a</code> é equivalente a <code>c = c * a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">/=</td>
+<td style="text-align: left">Divide e faz a atribuição</td>
+<td style="text-align: left"><code>c /= a</code> é equivalente a <code>c = c / a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">%=</td>
+<td style="text-align: left">Divide e faz a atribuição do resto</td>
+<td style="text-align: left"><code>c %= a</code> é equivalente a <code>c = c % a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">**=</td>
+<td style="text-align: left">Exponencia e faz a atribuição</td>
+<td style="text-align: left"><code>c **= a</code> é equivalente a <code>c = c ** a</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+</tbody></table>
+
+<h3>Operador ternário</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">? :</td>
+<td style="text-align: left">Expressão condicional</td>
+<td style="text-align: left">Se a condição é verdadeira? então o valor é <code>x</code> caso contrário o valor é <code>y</code></td>
+<td style="text-align: center">Não</td>
+</tr>
+</tbody></table>
+
+<h3>Operadores de alcance</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Operador</th>
+<th style="text-align: left">O que faz?</th>
+<th style="text-align: left">Exemplo</th>
+<th style="text-align: center">Método?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">..</td>
+<td style="text-align: left">Cria um alcance do ponto de partida até o ponto final inclusivo</td>
+<td style="text-align: left"><code>1..10</code> cria um intervalo de 1 a 10</td>
+<td style="text-align: center">Não</td>
+</tr>
+<tr>
+<td style="text-align: center">...</td>
+<td style="text-align: left">Cria um alcance do ponto de partida até o ponto final exclusivo</td>
+<td style="text-align: left"><code>1..10</code> cria um intervalo de 1 a 9</td>
+<td style="text-align: center">Não</td>
+</tr>
+</tbody></table>
+
+<p><strong>Nota:</strong> Operadores com um <strong>Sim</strong> na coluna <code>Método?</code>, na verdade, são métodos que podem serem subscritos.</p>
+
+    </div>
+
+    <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Operadores e seus métodos",
+    "alternativeHeadline": "Veja como funciona os operadores no Ruby.",
+    "image": ["http://saulosantiago.js.org/assets/posts/ruby/operadores-e-seus-metodos-big-25d17dc2c786e5a702aaf239a0867ff2.png", "http://saulosantiago.js.org/assets/posts/ruby/operadores-e-seus-metodos-thumb-de91ea4db417a198e5365178eff1ea91.png"],
+    "datePublished": "2015-07-18 00:00:00 +0000",
+    "description": "Veja como funciona os operadores no Ruby.",
+    "articleBody": "Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes."
+  }
+</script>
+
+  </article>
+
+  <b>Veja mais posts sobre:</b>
   
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/seo/seo-para-spa">
-        <img data-original="/assets/posts/seo/seo-para-spa-thumb-444e3d6a61abac34b7e5388b0fd9bbd6.png" alt="SEO para SPA" class='lazy' width='500' height='300'/>
-      </a>
+    <a href="http://saulosantiago.js.org/ruby"
+      <h3> ruby </h3>
+    </a>
+  
+
+  <div class="share-page">
+    <div class='social'>
+      <b>
+        Share this on &rarr;
+      </b>
     </div>
 
-    <div class="card-content">
-      <span class="activator">
-        11 Jun 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/seo/seo-para-spa">
-        <h2 class='card-title truncate'>
-          SEO para SPA
-        </h2>
-
-        <p class='description truncate'>
-          Entenda o problema de SEO em SPA.
-        </p>
-      </a>
+    <div class='social'>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/ruby/operadores-e-seus-metodos" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/seo/seo-para-spa" class='truncate'>
-          SEO para SPA
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente.
-      </span>
+    <div class='social'>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/ruby/operadores-e-seus-metodos" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
+
+    <div class='social'>
+      <a href="https://twitter.com/intent/tweet?text=Operadores e seus métodos&url=http://saulosantiago.js.org/ruby/operadores-e-seus-metodos&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Operadores e seus métodos" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Operadores e seus métodos&summary=Veja como funciona os operadores no Ruby.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+    </div>
+</div>
+  
+  <div class='comments'>
+    <h2>Comentários:</h2>
+    <span>
+      <i class='mdi-editor-insert-comment'></i>
+      Deixe sua dúvida, sugestão ou crítica, estou ancioso para saber tudo que você achou sobre este post:
+    </span>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'saulosantiago';
+
+        (function() {
+            var dsq = document.createElement('script');
+
+            dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/seo/otimizacoes-para-motores-de-busca">
-        <img data-original="/assets/posts/seo/otimizacoes-para-motores-de-busca-thumb-ed335b1e5a3301f13bd0b57e58880bc7.png" alt="Otimizações para motores de busca" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        04 Jun 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/seo/otimizacoes-para-motores-de-busca">
-        <h2 class='card-title truncate'>
-          Otimizações para motores de busca
-        </h2>
-
-        <p class='description truncate'>
-          Aprenda técnicas importantes de SEO para o seu site.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/seo/otimizacoes-para-motores-de-busca" class='truncate'>
-          Otimizações para motores de busca
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Quando publicamos um site na Web, na maioria das vezes, queremos que ele tenha uma grande audiência. Para conquista-la, devemos pensar em como estruturar o conteúdo para obter um bom posicionamento nas buscas orgânicas. Aprenda técnicas importantes de SEO neste post e alavanque seu número de audiência.
-      </span>
-    </div>
-  </div>
-</div>
-  
-</div>
-
 
 </div>
     </main>
