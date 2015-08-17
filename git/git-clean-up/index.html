@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Comando para reescrever a história de um commit">
+    <meta name="description" content="Saiba como limpar seus branchs obsoletos.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Git commit --amend" property="og:title">
+    <meta content="Git clean up" property="og:title">
   
 
   
@@ -21,17 +21,17 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/git/git-commit--amend" property="og:url">
+    <meta content="http://saulosantiago.js.org/git/git-clean-up" property="og:url">
   
 
   
-    <meta content="2015-06-22T00:00:00+00:00" property="article:published_time">
+    <meta content="2015-08-01T00:00:00+00:00" property="article:published_time">
 
     <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
   
-    <meta content="/assets/posts/git/git-commit--amend-big-0cf7d91e7811fb5f39682fa3cad843bd.png" property="og:image">
+    <meta content="/assets/posts/git/git-clean-up-big-9783c6994b214fb3480300faa39b91f3.png" property="og:image">
   
 
   
@@ -44,17 +44,17 @@
     
       <meta content="git" property="article:tag">
     
-      <meta content="commit" property="article:tag">
+      <meta content="clean-up" property="article:tag">
     
-      <meta content="amend" property="article:tag">
+      <meta content="cleaner" property="article:tag">
     
-      <meta content="reescrever história" property="article:tag">
+      <meta content="limpeza" property="article:tag">
     
   
 
   <title>
     
-      Git commit --amend &middot; Saulo Santiago
+      Git clean up &middot; Saulo Santiago
     
   </title>
 
@@ -221,8 +221,8 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/git/git-commit--amend" class='h1'>
-      <h1 itemprop="headline">Git commit --amend</h1>
+    <a href="/git/git-clean-up" class='h1'>
+      <h1 itemprop="headline">Git clean up</h1>
     </a>
 
     <span class='read-time'>
@@ -236,79 +236,80 @@
       <p>
         Escrito por: <b>Saulo Santiago</b>
         </br>
-        em: <b itemprop="datePublished">22 Jun 2015</b>.
+        em: <b itemprop="datePublished">01 Aug 2015</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <img src="/assets/posts/git/git-commit--amend-big-0cf7d91e7811fb5f39682fa3cad843bd.png" alt="Git commit --amend" itemprop="image"/>
+      <img src="/assets/posts/git/git-clean-up-big-9783c6994b214fb3480300faa39b91f3.png" alt="Git clean up" itemprop="image"/>
     </div>
 
     <div itemprop="articleBody">
-      <p>O trabalho principal do Git é garantir que nenhuma informação seja perdida.
-Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso significa que podemos ter a liberdade para definir o que queremos em nosso histórico de <em>commits</em>.</p>
+      <p>Depois de um certo tempo trabalhando com <code>branchs</code> em um repositório <strong>Git</strong>, os <code>branchs</code> tornam-se desatualizados e confusos. Sendo assim temos três tipos de <code>branchs</code> para verificarmos:</p>
 
-<p>Para que isto seja possível o Git oferece um comando para reescrever os <em>commits</em> anteriores.
-Neste tutorial irei discutir o principal motivo para se reescrever a história de um <em>commit</em>, juntamente com algumas dicas.</p>
+<ul>
+<li><strong>Branchs locais:</strong> Muito utilizadas no dia a dia</li>
+<li><strong>Referências para branchs remotas:</strong> Itens como <code>origin/branch-name</code></li>
+<li><strong>Branchs remotas:</strong> Branchs no servidor remoto (Ex: Github, Bitbucket, Gitorius)</li>
+</ul>
 
-<h4>Discussão</h4>
+<p>Neste tutorial vou supor que sua <code>branch</code> principal seja a <code>master</code>.
+Todos as <code>branchs</code> (<code>develop</code>, <code>release</code> entre outras) são mescladas na <code>branch</code> principal.</p>
 
-<p>É bem comum esquecer de adicionar alguma informação/arquivo no <em>commit</em> ou submeter um <em>commit</em> com uma mensagem errada. A <em>flag</em> <code>--amend</code> é o jeito mais conveniente de voltar atrás e corrigir isto sem muito esforço.</p>
+<h2>Branchs locais</h2>
 
-<h4>Reescrevendo a história</h4>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git add .
-git commit --amend
-git push origin -f &lt;your_branch&gt;
+<p>Vamos listar todas as <code>branchs</code> locais:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch
 </code></pre></div>
-<p>Essa técnica combina o envio de conteúdos que ainda não foram adicionados ao Git utilizando o último <em>commit</em> ao invés de criar uma nova <em>snapshot</em>, tendo a possibilidade de alteração da messagem do <em>commit</em> anterior.</p>
-
-<h4>Exemplo</h4>
-
-<p>Vejamos o exemplo abaixo, o cenário onde ocorre é em development. Suponhamos que foi criado dois arquivos, mas na hora de adicionar ao Git um dos arquivos foram esquecidos.</p>
-
-<p>A solução foi utilizar a <em>flag</em> <code>--amend</code>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"># Criou foo.rb e bar.rb mas adicionou somente o foo.rb e commitou
-touch foo.rb bar.rb
-
-git add foo.rb
-git commit
-
-# Adicionou as mudanças esquecidas de bar.rb fez o amend e commitou
-git add bar.rb
-git commit --amend --no-edit
-git push origin -f any_branch
+<p>Nós podemos listar todas as <code>branchs</code> que já foram mescladas com a <code>branch</code> principal da seguinte maneira:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git checkout master
+git branch --merged
 </code></pre></div>
-<p>O resultado disso é fazer com que as alterações atuais façam parte do <em>commit</em> anterior.</p>
-
-<p>A <em>flag</em> <code>--no-edit</code> tira a possilidade de editar da mensagem do <em>commit</em>; caso ao contrário o editor padrão é aberto com a mensagem do <em>commit</em> anterior. Nesta etapa existe a possilidade de alteração da mensagem.</p>
-
-<h4>Dica</h4>
-
-<p>Estes três comandos de: adicionar, amend e commit, podem serem resumidos em apenas um comando.
-Para que isto seja possível é necessário inserir um <a href="https://gist.github.com/SauloSilva/372f77fecfce995715d6">arquivo de bash</a> que fiz dentro da pasta binária de seu sistema:</p>
-
-<p><strong>Se for Mac</strong></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /bin/git-amend https://gist.githubusercontent.com/SauloSilva/372f77fecfce995715d6/raw/25b4da0cbbf4a81cd30aa40e9adb24678f23fbdc/git-amend
-sudo chmod +x /bin/git-amend
+<p>E para remover as <code>branchs</code> locais que já foram mescladas, basta executar este comando:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -d name-your-branch-merged
 </code></pre></div>
-<p><strong>Se for Linux</strong></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /usr/bin/git-amend https://gist.githubusercontent.com/SauloSilva/372f77fecfce995715d6/raw/25b4da0cbbf4a81cd30aa40e9adb24678f23fbdc/git-amend
-sudo chmod +x /usr/bin/git-amend
+<p>Em seguida podemos listar todas as <code>branchs</code> que ainda não foram mescladas com a <code>branch</code> principal:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch --no-merged
 </code></pre></div>
-<p>Da próxima vez que precisar fazer um <em>amend</em> é so executar:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git amend
+<p>Caso alguma <code>branch</code> listada tenha sido abandonada, você pode simplemente deletá-la com a opção <code>-D</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -D name-your-branch-abandoned
+</code></pre></div>
+<h2>Referências para branchs remotas</h2>
+
+<p>Após executar <code>git pull</code> ou <code>git fetch</code> o <strong>Git</strong> cria referências das <code>branchs</code> remotas no repositório local, mas as referências que já foram deletadas remotamente não são removidas localmente, sendo assim, há possibilidades das <code>branchs</code> locais ficarem obsoletas.</p>
+
+<p>Liste todas as <code>branchs</code> remotas:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch -r
+</code></pre></div>
+<p>Para limpar todas as referências antigas, basta executar:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git remote prune origin
+</code></pre></div>
+<h2>Dicas</h2>
+
+<p>É sempre bom se manter atualizado com o repositório online:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git fetch -p
+</code></pre></div>
+<p>Mas não se esqueça de inserir a opção <code>-p</code>, ela resolve os problemas das <code>branchs</code> que ficaram obsoletas ao atualizar as referencias remotas com as locais.
+E para remover todas as <code>branchs</code> locais que já foram mergeadas, com apenas um comando, execute:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git branch --merged | grep -v &quot;\*&quot; | grep -v master | grep -v dev | xargs -n 1 git branch -d
+</code></pre></div>
+<p>Este comando é grande para memorizar ou ficar digitando sempre. Para facilitar basta criar um arquivo binário da seguinte maneira:</p>
+
+<p><strong>Se estiver em um OSx</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /bin/git-clean-up https://gist.githubusercontent.com/SauloSilva/4b13902db1135849a8c9/raw/8febb88a14fc9f09c9235e4f1749301e8fd81e33/git-clean-up
+sudo chmod +x /bin/git-clean-up
+</code></pre></div>
+<p><strong>Se estiver no Linux</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo wget -O /usr/bin/git-clean-up https://gist.githubusercontent.com/SauloSilva/4b13902db1135849a8c9/raw/8febb88a14fc9f09c9235e4f1749301e8fd81e33/git-clean-up
+sudo chmod +x /usr/bin/git-clean-up
+</code></pre></div>
+<p>Da próxima vez que precisar fazer uma limpeza é so executar:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clean-up
 </code></pre></div>
 <p>ou</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git amend --no-edit
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clean-up name-your-main-branch
 </code></pre></div>
-<p>Simples não!?</p>
-
-<h4>Não use o <code>amend</code> para commits públicos</h4>
-
-<p>Não podemos utililizar o <code>amend</code> para resetar <em>commits</em> de outros desenvolvedores.</p>
-
-<p><em>Commit</em> alterado é considerado um <em>commit</em> novo.
-Por isso tome cuidado antes de executar este comando, pois você pode estar prejudicando outros desenvolvedores que estam se baseando no <em>commit</em> alterado. Isto pode gerar confusões e vários problemas difíceis de se reverterem.</p>
+<p>Sendo assim ficou simples manter as <code>branchs</code> organizadas.</p>
 
     </div>
 
@@ -316,12 +317,12 @@ Por isso tome cuidado antes de executar este comando, pois você pode estar prej
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "Git commit --amend",
-    "alternativeHeadline": "Comando para reescrever a história de um commit",
-    "image": ["http://saulosantiago.js.org/assets/posts/git/git-commit--amend-big-0cf7d91e7811fb5f39682fa3cad843bd.png", "http://saulosantiago.js.org/assets/posts/git/git-commit--amend-thumb-c5080d37e00e84458ebf1d34e3269211.png"],
-    "datePublished": "2015-06-22 00:00:00 +0000",
-    "description": "Comando para reescrever a história de um commit",
-    "articleBody": "É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conveniente de voltar atrás e corrigir isto sem precisar de muito esforço."
+    "headline": "Git clean up",
+    "alternativeHeadline": "Saiba como limpar seus branchs obsoletos.",
+    "image": ["http://saulosantiago.js.org/assets/posts/git/git-clean-up-big-9783c6994b214fb3480300faa39b91f3.png", "http://saulosantiago.js.org/assets/posts/git/git-clean-up-thumb-72f60481f3db2c5f7b3b4ad3450f662b.png"],
+    "datePublished": "2015-08-01 00:00:00 +0000",
+    "description": "Saiba como limpar seus branchs obsoletos.",
+    "articleBody": "Depois de um certo tempo trabalhando com branchs em um repositório Git, os branchs torna-se desatualizados e confusos. Sendo assim irei mostrar a vocês como manter as branchs organizadas de uma forma simples e fácil."
   }
 </script>
 
@@ -342,23 +343,23 @@ Por isso tome cuidado antes de executar este comando, pois você pode estar prej
     </div>
 
     <div class='social'>
-      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/git/git-commit--amend" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/git/git-clean-up" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
     <div class='social'>
-      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/git/git-commit--amend" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/git/git-clean-up" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=Git commit --amend&url=http://saulosantiago.js.org/git/git-commit--amend&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=Git clean up&url=http://saulosantiago.js.org/git/git-clean-up&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Git commit --amend" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Git clean up" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Git commit --amend&summary=Comando para reescrever a história de um commit&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Git clean up&summary=Saiba como limpar seus branchs obsoletos.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   

@@ -7,14 +7,14 @@
     <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Operadores e seus métodos</title>
+        <title>Operadores em Ruby e seus métodos</title>
         
           <description>&lt;p&gt;Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.&lt;/p&gt;
 </description>
         
         <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-        <link>http://saulosantiago.js.org/ruby/operadores-e-seus-metodos</link>
-        <guid isPermaLink="true">http://saulosantiago.js.org/ruby/operadores-e-seus-metodos</guid>
+        <link>http://saulosantiago.js.org/ruby/operadores-em-ruby-e-seus-metodos</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/ruby/operadores-em-ruby-e-seus-metodos</guid>
       </item>
     
       <item>

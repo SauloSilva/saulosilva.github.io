@@ -7,15 +7,27 @@
     <atom:link href="http://saulosantiago.js.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Operadores e seus métodos</title>
+        <title>Git clean up</title>
+        
+        
+          <description>&lt;p&gt;Depois de um certo tempo trabalhando com &lt;code&gt;branchs&lt;/code&gt; em um repositório &lt;strong&gt;Git&lt;/strong&gt;, os &lt;code&gt;branchs&lt;/code&gt; tornam-se desatualizados e confusos. Sendo assim temos três tipos de &lt;code&gt;branchs&lt;/code&gt; para verificarmos:&lt;/p&gt;
+</description>
+        
+        <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/git/git-clean-up</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/git/git-clean-up</guid>
+      </item>
+    
+      <item>
+        <title>Operadores em Ruby e seus métodos</title>
         
         
           <description>&lt;p&gt;Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.&lt;/p&gt;
 </description>
         
         <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-        <link>http://saulosantiago.js.org/ruby/operadores-e-seus-metodos</link>
-        <guid isPermaLink="true">http://saulosantiago.js.org/ruby/operadores-e-seus-metodos</guid>
+        <link>http://saulosantiago.js.org/ruby/operadores-em-ruby-e-seus-metodos</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/ruby/operadores-em-ruby-e-seus-metodos</guid>
       </item>
     
       <item>

@@ -7,3 +7,5 @@ gem 'uglifier'
 gem 'jekyll-assets', '0.14.0'
 gem 'jekyll-sitemap'
 gem 'travis', '1.7.6'
+
+gem 'timers', '4.0.1'
