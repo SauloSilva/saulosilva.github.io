@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Operadores e seus métodos
+title: Operadores em Ruby e seus métodos
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 11 minutos
@@ -12,9 +12,9 @@ has_preview: true
 category: ruby
 tags: [Operadores Ruby, Operadores aritméticos, Operadores de comparações, Operador de set e get, Operadores binários, Operadores lógicos, Operadores de atribuições, Operador ternário, Operadores de alcance, contruindo nossos próprios operadores]
 comments: true
-image_big: posts/ruby/operadores-e-seus-metodos-big.png
-image_thumb: posts/ruby/operadores-e-seus-metodos-thumb.png
-permalink: ruby/operadores-e-seus-metodos
+image_big: posts/ruby/operadores-em-ruby-e-seus-metodos-big.png
+image_thumb: posts/ruby/operadores-em-ruby-e-seus-metodos-thumb.png
+permalink: ruby/operadores-em-ruby-e-seus-metodos
 ---
 
 Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.

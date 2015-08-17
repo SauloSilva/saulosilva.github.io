@@ -1,6 +1,6 @@
 profiles:
   production:
-    base_url: https://saulo.github.io
+    base_url: saulosantiago.js.org
     deploy:
       host: github_pages
       branch: master
