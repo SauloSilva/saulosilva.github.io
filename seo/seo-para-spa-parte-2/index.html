@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Sejam bem vindos ao meu blog.">
+    <meta name="description" content="Resolva o problema de SEO em seu SPA.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Get started" property="og:title">
+    <meta content="SEO para SPA - parte 2" property="og:title">
   
 
   
@@ -21,40 +21,48 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/get-started" property="og:url">
+    <meta content="http://saulosantiago.js.org/seo/seo-para-spa-parte-2" property="og:url">
   
 
   
-    <meta content="2015-05-16T00:00:00+00:00" property="article:published_time">
+    <meta content="2015-09-15T00:00:00+00:00" property="article:published_time">
 
     <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
   
-    <meta content="/assets/posts/get-started-big-508b8724386a18614ccf36ea400b69d4.png" property="og:image">
+    <meta content="/assets/posts/seo/seo-para-spa-parte-2-big-557440187e7467245fdd1f79afd278cb.png" property="og:image">
   
 
   
     
+      <meta content="seo" property="article:section">
+    
   
 
   
     
-      <meta content="Get Started" property="article:tag">
+      <meta content="Search Engine Optimization" property="article:tag">
     
-      <meta content="meu blog" property="article:tag">
+      <meta content="SEO" property="article:tag">
     
-      <meta content="Saulo Santiago" property="article:tag">
+      <meta content="Single-Page Application" property="article:tag">
     
-      <meta content="desenvolvedor Ruby" property="article:tag">
+      <meta content="SPA" property="article:tag">
     
-      <meta content="desenvolvedor Javascript" property="article:tag">
+      <meta content="Framework JS" property="article:tag">
+    
+      <meta content="Node" property="article:tag">
+    
+      <meta content="PhantomJS" property="article:tag">
+    
+      <meta content="Nginx" property="article:tag">
     
   
 
   <title>
     
-      Get started &middot; Saulo Santiago
+      SEO para SPA - parte 2 &middot; Saulo Santiago
     
   </title>
 
@@ -221,13 +229,13 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/get-started" class='h1'>
-      <h1 itemprop="headline">Get started</h1>
+    <a href="/seo/seo-para-spa-parte-2" class='h1'>
+      <h1 itemprop="headline">SEO para SPA - parte 2</h1>
     </a>
 
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
-      Leia em: 3 minutos
+      Leia em: 30 minutos
     </span>
 
     <span class='author-info'>
@@ -243,68 +251,412 @@
           </a>
         </b>
         </br>
-        em: <b itemprop="datePublished">16 May 2015</b>.
+        em: <b itemprop="datePublished">15 Sep 2015</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <img src="/assets/posts/get-started-big-508b8724386a18614ccf36ea400b69d4.png" alt="Get started" itemprop="image"/>
+      <img src="/assets/posts/seo/seo-para-spa-parte-2-big-557440187e7467245fdd1f79afd278cb.png" alt="SEO para SPA - parte 2" itemprop="image"/>
     </div>
 
     <div itemprop="articleBody">
-      <p>Ola meus amigos desenvolvedores, seja bem vindos, me chamo Saulo e trabalho com Web desde de 2009, atualmente sou programador Ruby e Javascript. </p>
+      <p>Como falei no post (<a href="/seo/seo-para-spa/">SEO para SPA</a>), neste irei explicar uma solução para resolver o problema de SEO em SPAs, implementando uma técnica simples sem precisar alterar nada so seu site.</p>
 
-<p>A partir de hoje começarei a escrever sobre tecnologias que já utilizei no meu dia a dia e sobre algumas coisas que estou aprendendo e que acho importante compartilha-las.</p>
+<h4>Ferramentas</h4>
 
-<p>A cada semana pretendo disponibilizar um novo post para vocês.</p>
+<ul>
+<li><a href="http://nginx.org/">Nginx</a>  (Gerenciar o destino das requests de acordo com o user-agent)</li>
+<li><a href="http://expressjs.com/">Express</a> (Spawn do script phantom e devolução do html gerado como response da request)</li>
+<li><a href="http://phantomjs.org/">Phantom</a> (Processar a url enviada e capturar todo o HTML da página)</li>
+</ul>
 
-<h4>Minha visão sobre Ruby</h4>
+<h4>Vamos Codar</h4>
 
-<p>Gosto do Ruby por ter uma ótima semântica e sintaxe. </p>
+<p>Primeiro é preciso criar uma APP básica com o express:</p>
 
-<p>Ruby esta se tornando uma linguagem bem madura a partir da <a href="https://www.ruby-lang.org/en/news/2013/02/24/ruby-2-0-0-p0-is-released/">versão 2.0</a> onde ocorreram várias mudanças e uma das principais foram o aumento de sua performance.</p>
+<ul>
+<li>Instale o <code>express-generator</code> com o seguinte comando:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">npm install express-generator -g
+</code></pre></div>
+<ul>
+<li>Execute este comando para criar sua aplicação:</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">express seo_server
+</code></pre></div>
+<ul>
+<li>Vamos alterar o <code>app.js</code> deixando-o mais simples possível:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// app.js</span>
 
-<p>Ruby é composto por ótimos frameworks e bibliotecas como <a href="https://github.com/rails/rails"><code>Rails</code></a> e <a href="https://github.com/chef/chef"><code>Chef</code></a>. E tudo isso é gerenciado por um sistema chamado <a href="https://rubygems.org"><code>Rubygems</code></a>. </p>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;morgan&#39;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">routes</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/index&#39;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
-<p>A comunidade Ruby esta cada dia mais forte e maior, sendo assim é muito mais fácil achar soluções e dicas. </p>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="s1">&#39;dev&#39;</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">routes</span><span class="p">);</span>
 
-<p>Os programadores Ruby geralmente produzem soluções elegantes.</p>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+</code></pre></div>
+<p>Sendo assim, o <code>app.js</code> tem a responsabilidade de: requerer o express, requerer um arquivo de configuração para rota, requerer o <code>path</code> para lidar com os caminhos de diretórios, requerer o <code>morgan</code> para gerar logs.</p>
 
-<p>Com essas característica Ruby me convence que é a minha linguagem favorita de &quot;back-end&quot;.</p>
+<ul>
+<li>Para configurar nossa rota principal (<code>/</code>) vamos criar um novo arquivo em <code>routes/index.js</code> com o seguinte conteúdo:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">()</span>
+    <span class="p">,</span> <span class="nx">SeoServer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/seo_server&#39;</span><span class="p">);</span>
 
-<h4>Minha visão sobre Javascript</h4>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sr">/(.*)/</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">SeoServer</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span>
+<span class="p">});</span>
 
-<p>Javascript é uma linguagem de programação de fácil acesso e que esta presente em quase todos lugares.</p>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span><span class="p">;</span>
+</code></pre></div>
+<p>A configuração da routa <code>GET /</code> requer de um módulo <code>SeoServer</code> com uma função exportada que espera receber os três parâmetros da request.</p>
 
-<p>A baixa curva de aprendizado tem aumentado o número de interessados pela linguagem. </p>
+<ul>
+<li>Para definir o nosso modulo <code>SeoServer</code>, vamos criar um novo arquivo em <code>lib/seo_server.js</code> com o seguinte conteúdo:</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">childProcess</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">)</span>
 
-<p>A linguagem também atraiu bons pensantes que desenvolveram ótimos frameworks e bibliotecas com o intuito de melhorar o jeito de se programar em Javascript, alguns deles são: <code>jquery</code>, <code>backbone</code>, <code>ember</code>, <code>angular</code>, <code>marionette</code>, <code>grunt</code>, <code>gulp</code> e entre outros mais. </p>
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função construtura</span>
+<span class="cm">  ------------------</span>
 
-<p>Esse <code>boom</code> fez a comunidade se dispertar e implementar a versão 6 para o ECMA. Essa alteração irá trazer uma robustez enorme a linguagem que estava parada desde 2009 (quase 6 anos).</p>
+<span class="cm">  Responsabilidade:</span>
 
-<p>Javascript não esta presente só no <code>front</code>, atualmente temos código Javascript rodando no <code>server</code> graças ao <code>Node</code>, e isto é maravilhoso pois podemos ter Javascript dos dois lados também.</p>
+<span class="cm">  1 - Receber os parâmetros (req, res, next) da request e</span>
+<span class="cm">      armazenar cada um sendo um atributo do objeto SeoServer</span>
+<span class="cm">*/</span>
 
-<h4>Minha visão sobre o mundo Web</h4>
+<span class="kd">function</span> <span class="nx">SeoServer</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">req</span> <span class="o">=</span> <span class="nx">req</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">res</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+<span class="p">}</span>
 
-<p>No mundo Web encontramos quase tudo que queremos. Hoje temos a Web presente em vários tipos de dispositivos. </p>
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função init</span>
+<span class="cm">  ------------------</span>
 
-<p>Isso aumentou o número de pessoas conectadas. Essa nova demanda gera uma exigência maior por novos aplicativos ou melhorias nos que já existem.</p>
+<span class="cm">  Responsabilidades:</span>
 
-<p>A Web irá se expandir ainda mais, acredito que daqui uns anos o <code>off-line</code> entre em total extinção.</p>
+<span class="cm">  1 - Ler o atributo `x-forwarded-host` do header da request.</span>
+<span class="cm">  2 - Ler o atributo `x-loading-class` do header da request.</span>
+<span class="cm">  3 - Formar a url que será processada pelo phantom.</span>
+<span class="cm">  4 - Verificar a existência do conteúdo armazenado nas variáveis `host` e `loadingClass`.</span>
+<span class="cm">      Caso a condição seja satisfeita o função `getContent` é chamada com envio</span>
+<span class="cm">      de três parâmetros (url, loadingClass e uma função de `callback`</span>
+<span class="cm">      que fará o send da request enviando o conteúdo processado).</span>
+<span class="cm">      Caso a condição não seja satisfeita a request é finalizada.</span>
+<span class="cm">*/</span>
 
-<h4>Conclusão</h4>
+<span class="nx">SeoServer</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">init</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">host</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-forwarded-host&#39;</span><span class="p">],</span>
+        <span class="nx">loadingClass</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-loading-class&#39;</span><span class="p">],</span>
+        <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">host</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 
-<p>Sou um programador disposto a ajudar outros desenvolvedores com soluções.</p>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">host</span> <span class="o">&amp;&amp;</span> <span class="nx">loadingClass</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">getContent</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">loadingClass</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+        <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<p>Não sou o dono da verdade e ficarei muito feliz em saber a sua opnião nos comentários, seja ela qual for.</p>
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função getContent</span>
+<span class="cm">  ------------------</span>
 
-<p>Caso você queira abrir uma discussão que tende a ser extensa, deixo a <a href="https://github.com/SauloSilva/saulosilva.github.io/issues/new"><code>Issue</code> do meu blog</a> convencionada para isto, depois basta referenciar o link no comentário do post.</p>
+<span class="cm">  Responsabilidades:</span>
 
-<p>Caso você tenha uma experiência bacana e queira compartilhar no meu blog, será uma honra publicar o seu post.</p>
+<span class="cm">  1 - Receber a url, loadingClass e uma funcão callback de parâmetro.</span>
+<span class="cm">  2 - Fazer o spawn do arquivo `phantom_server.js` passando a url e o loadingClass como argumentos.</span>
+<span class="cm">  3 - Fazer o encode para `utf-8` de qualquer saída do objeto `phantom`.</span>
+<span class="cm">  4 - Registrar um output dos dados convertendo o resultado para uma `String`</span>
+<span class="cm">  5 - Registrar um `listerner` no objeto `phantom` para o evento de `exit`.</span>
+<span class="cm">      Se o code recebido no `callback` do `listener` for diferente de 0,</span>
+<span class="cm">      significa que algo deu errado, então uma excessão é lançada.</span>
+<span class="cm">      Se o code recebido no `callback` do `listener` for igual a 0,</span>
+<span class="cm">      o `callback` que foi enviado como terceiro parâmetro em `getContent`</span>
+<span class="cm">      é executado passando o conteúdo processado pelo objeto `phantom`.</span>
+<span class="cm">*/</span>
 
-<p>Escreva usando o template que esta disponível neste <a href="https://github.com/SauloSilva/saulosilva.github.io/blob/master/_template/%3Cdate%3E-%3Cpost-name%3E.md">link</a> e depois envie seu pull request. Irei apreciar muito o seu trabalho.</p>
+<span class="nx">SeoServer</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getContent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">loadingClass</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="nx">phantom</span> <span class="o">=</span> <span class="nx">childProcess</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(</span><span class="s1">&#39;phantomjs&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;./lib/phantom_server.js&#39;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">loadingClass</span><span class="p">]);</span>
+    <span class="nx">phantom</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
 
-<p>Obrigado e tenham uma boa leitura.</p>
+    <span class="nx">phantom</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">content</span> <span class="o">+=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+    <span class="p">});</span>
+
+    <span class="nx">phantom</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;exit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">code</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;Seoserver crashed!&#39;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">callback</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Export da função init no módulo</span>
+<span class="cm">  ------------------</span>
+
+<span class="cm">  Responsabilidades:</span>
+
+<span class="cm">  1 - Instânciar do objeto SeoServer enviando todos os parâmetros recebido.</span>
+<span class="cm">  2 - Utilizar o objeto instânciado para executa a função init.</span>
+<span class="cm">*/</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">seoServer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SeoServer</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">);</span>
+        <span class="nx">seoServer</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>O arquivo que acabamos de criar requer um arquivo <code>phantom_server.js</code> em <code>lib</code>, sendo assim vamos criar este arquivo <code>lib/phantom_server.js</code> e inserir o seguinte conteúdo:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="cm">/*</span>
+<span class="cm">  1 - Requerer o `system` e o `webpage`.</span>
+<span class="cm">  2 - Criar um `webpage`</span>
+<span class="cm">  3 - Leitura e armazenamento do argumento 1 (url)</span>
+<span class="cm">  4 - Leitura e armazenamento do argumento 2 (loadingClass)</span>
+<span class="cm">  5 - Definir timeout (15 segundos)</span>
+<span class="cm">  6 = Definir a variável startTime</span>
+<span class="cm">  6 = Definir a variável isLoaded</span>
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">system</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;system&#39;</span><span class="p">),</span>
+    <span class="nx">page</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;webpage&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">(),</span>
+    <span class="nx">url</span> <span class="o">=</span> <span class="nx">system</span><span class="p">.</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="nx">loadingClass</span> <span class="o">=</span> <span class="nx">system</span><span class="p">.</span><span class="nx">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="nx">timeout</span> <span class="o">=</span> <span class="mi">15000</span><span class="p">,</span>
+    <span class="nx">startTime</span><span class="p">,</span>
+    <span class="nx">isLoaded</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm">  1 - Desabilitar `webSecurityEnabled`</span>
+<span class="cm">  2 - Desabilitar `loadImages`</span>
+<span class="cm">  3 - Habilitar `localToRemoteUrlAccessEnabled`</span>
+<span class="cm">*/</span>
+
+<span class="nx">page</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">webSecurityEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">page</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">loadImages</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="nx">page</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">localToRemoteUrlAccessEnabled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função onLoadStarted</span>
+<span class="cm">  ------------------</span>
+
+<span class="cm">  Responsabilidades:</span>
+
+<span class="cm">  1 - Registrar a hora que o load da página iniciou</span>
+<span class="cm">  2 - Inserir false como valor da variável isLoaded</span>
+<span class="cm">*/</span>
+
+<span class="nx">page</span><span class="p">.</span><span class="nx">onLoadStarted</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">startTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="nx">isLoaded</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função onLoadFinished</span>
+<span class="cm">  ------------------</span>
+
+<span class="cm">  Responsabilidades:</span>
+
+<span class="cm">  1 - Verificar se o DOM da página carregada não possui nenhum elemento com uma classe de load.</span>
+<span class="cm">  2 - Armazenar o resultado da verificação (true ou false) na variável isLoaded.</span>
+<span class="cm">*/</span>
+
+<span class="nx">page</span><span class="p">.</span><span class="nx">onLoadFinished</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">isLoaded</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">loadingClass</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">loadingClass</span><span class="p">).</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="cm">/*</span>
+<span class="cm">  ------------------</span>
+<span class="cm">  Função checkComplete</span>
+<span class="cm">  ------------------</span>
+
+<span class="cm">  Responsabilidades:</span>
+
+<span class="cm">  1 - Verificar se isLoaded é true ou se tempo de processamento</span>
+<span class="cm">      é maior que o timeout definido no início deste arquivo.</span>
+<span class="cm">  2 - Caso ambas partes do condinal seja satisfeita, é feito</span>
+<span class="cm">      uma limpeza do registrador de `setInterval`, o conteúdo</span>
+<span class="cm">      da página (HTML) é imprimido por console.log</span>
+<span class="cm">      e processo do phantom é finalizado.</span>
+
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">checkComplete</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isLoaded</span> <span class="o">||</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span> <span class="o">&gt;</span> <span class="nx">timeout</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">checkCompleteInterval</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
+        <span class="nx">phantom</span><span class="p">.</span><span class="nx">exit</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Registra um setInterval a cada 1 milisegundo para executar o método checkComplete</span>
+<span class="kd">var</span> <span class="nx">checkCompleteInterval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">checkComplete</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Abre a url que foi requisitada</span>
+<span class="nx">page</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{});</span>
+</code></pre></div>
+<p>Agora que nossa a aplicação express e o arquivo do phantom para parsear o HTML estão configurados, precisamos fazer a configuração de um <code>proxy</code> reverso para redicionar as requests ou para o aplicação do SPA ou para aplicação SeoServer que acabamos de criar.</p>
+
+<p>O que diferencia uma <code>request</code> feita por um <code>crawler</code> de uma <code>request</code> feita por usuários é o <code>user-agent</code>. Sendo assim o trabalho de redirecionamento será feito em cima do <code>user-agent</code>.</p>
+
+<p>Primeiro vamos criar um arquivo de base para configurar o Nginx da nossa aplicação:</p>
+<div class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">worker_processes</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">events</span> <span class="p">{</span>
+  <span class="kn">worker_connections</span> <span class="mi">1024</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">http</span> <span class="p">{</span>
+  <span class="kn">types_hash_max_size</span> <span class="mi">2048</span><span class="p">;</span>
+  <span class="kn">server_names_hash_bucket_size</span> <span class="mi">64</span><span class="p">;</span>
+
+  <span class="kn">sendfile</span> <span class="no">on</span><span class="p">;</span>
+  <span class="kn">keepalive_timeout</span> <span class="mi">65</span><span class="p">;</span>
+
+  <span class="kn">access_log</span> <span class="s">/home/server-config/www/shared/log/nginx.access.log</span><span class="p">;</span>
+  <span class="kn">error_log</span>  <span class="s">/home/server-config/www/shared/log/nginx.error.log</span> <span class="s">debug</span><span class="p">;</span>
+
+  <span class="kn">gzip</span>                    <span class="no">on</span><span class="p">;</span>
+  <span class="kn">gzip_static</span>             <span class="no">on</span><span class="p">;</span>
+  <span class="kn">gzip_http_version</span>       <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+  <span class="kn">gzip_proxied</span>            <span class="s">expired</span> <span class="s">no-cache</span> <span class="s">no-store</span> <span class="s">private</span> <span class="s">auth</span><span class="p">;</span>
+  <span class="kn">gzip_disable</span>            <span class="s">&quot;MSIE</span> <span class="s">[1-6]\.&quot;</span><span class="p">;</span>
+  <span class="kn">gzip_vary</span>               <span class="no">on</span><span class="p">;</span>
+  <span class="kn">gzip_comp_level</span>         <span class="mi">6</span><span class="p">;</span>
+  <span class="kn">gzip_types</span>              <span class="s">text/plain</span> <span class="s">text/css</span> <span class="s">application/json</span> <span class="s">application/x-javascript</span> <span class="s">text/xml</span> <span class="s">application/xml</span> <span class="s">application/xml+rss</span> <span class="s">text/javascript</span><span class="p">;</span>
+
+  <span class="kn">proxy_set_header</span>        <span class="s">X-Real-IP</span>  <span class="nv">$remote_addr</span><span class="p">;</span>
+  <span class="kn">proxy_set_header</span>        <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+  <span class="kn">proxy_set_header</span>        <span class="s">X-Forwarded-Port</span> <span class="nv">$server_port</span><span class="p">;</span>
+  <span class="kn">proxy_set_header</span>        <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
+
+  <span class="kn">map</span> <span class="nv">$http_upgrade</span> <span class="nv">$connection_upgrade</span> <span class="p">{</span>
+      <span class="kn">default</span> <span class="s">upgrade</span><span class="p">;</span>
+      <span class="kn">&#39;&#39;</span> <span class="s">close</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kn">include</span>                 <span class="s">conf/upstreams/app.conf</span><span class="p">;</span>
+  <span class="kn">include</span>                 <span class="s">conf/servers/app.conf</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Depois que definimos o arquivo de configuração base do Nginx, vamos criar os arquivos que estão sendo feito os includes (<code>upstreams</code> e os <code>servers</code>).</p>
+
+<p>Vamos iniciar pelo <code>upstream</code>, que basicamente vai referenciar em quais portas nossas aplicações estam rodando.</p>
+<div class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">upstream</span> <span class="s">seo_server</span> <span class="p">{</span>
+  <span class="kn">server</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">6666</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">upstream</span> <span class="s">app</span> <span class="p">{</span>
+  <span class="kn">server</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>E para finalizar nossa configuração no nginx vamos definir os nossos <code>servers</code>.</p>
+<div class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">server_name</span> <span class="s">app.com.br</span><span class="p">;</span>
+  <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+
+  <span class="c1"># Defini onde será salvo os logs</span>
+
+  <span class="kn">access_log</span> <span class="s">/home/app/www/shared/log/nginx.access.log</span><span class="p">;</span>
+  <span class="kn">error_log</span>  <span class="s">/home/app/www/shared/log/nginx.error.log</span> <span class="s">debug</span><span class="p">;</span>
+  <span class="kn">root</span>       <span class="s">/home/app/www/current/public</span><span class="p">;</span>
+
+  <span class="c1"># Adiciona os headers que será utilizado pelo SeoServer</span>
+
+  <span class="kn">proxy_set_header</span>  <span class="s">X-Forwarded-Port</span> <span class="nv">$server_port</span><span class="p">;</span>
+  <span class="kn">proxy_set_header</span>  <span class="s">x-Loading-Class</span>  <span class="s">spinner</span><span class="p">;</span>
+  <span class="kn">proxy_set_header</span>  <span class="s">X-Forwarded-Host</span> <span class="nv">$host</span><span class="p">;</span>
+
+  <span class="c1"># Verifica o user-agent da request</span>
+  <span class="c1"># caso o user-agent seja de um crawler</span>
+  <span class="c1"># a variável bot recebe o valor true.</span>
+
+  <span class="kn">if</span> <span class="s">(</span><span class="nv">$http_user_agent</span> <span class="p">~</span> <span class="sr">(facebookexternalhit|Googlebot|bingbot|Screaming|rogerbot))</span> <span class="p">{</span>
+    <span class="kn">set</span> <span class="nv">$bot</span> <span class="s">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1"># Rewrite para servir os assets</span>
+
+  <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">^.+.(jpg|jpeg|gif|png|ico|css|tgz|gz|js|swf|html)</span>$ <span class="p">{</span>
+    <span class="kn">expires</span> <span class="s">max</span><span class="p">;</span>
+    <span class="kn">rewrite</span> <span class="s">(.*)</span> <span class="nv">$uri</span> <span class="s">break</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+
+    <span class="c1"># Caso a variável `bot` tenha seu valor como false</span>
+    <span class="c1"># é feito o proxy pass para a aplicação normal</span>
+
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$bot</span> <span class="p">=</span> <span class="s">false)</span> <span class="p">{</span>
+      <span class="kn">proxy_pass</span> <span class="s">http://app.localhost</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Caso a variável `bot` tenha seu valor como false</span>
+    <span class="c1"># é feito o proxy pass para a aplicação SeoServer</span>
+    <span class="c1"># que construímos a pouco.</span>
+
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$bot</span> <span class="s">!=</span> <span class="s">false)</span> <span class="p">{</span>
+      <span class="kn">proxy_pass</span> <span class="s">http://seoserver.localhost</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4>Definição do server para a aplicação.</h4>
+<div class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">server_name</span>   <span class="s">app.localhost</span><span class="p">;</span>
+  <span class="kn">root</span>          <span class="s">/home/app/www/current/public</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://app</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4>Definição do server para o SeoServer.</h4>
+<div class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+  <span class="kn">server_name</span>   <span class="s">seoserver.localhost</span><span class="p">;</span>
+  <span class="kn">root</span>          <span class="s">/home/seoserver/www/current/public</span><span class="p">;</span>
+
+  <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+    <span class="kn">proxy_pass</span> <span class="s">http://seoserver</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Agora é preciso testar se as configurações do <code>Nginx</code> que escrevemos não possui nenhum erro e após este teste fazer o start dele.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ nginx -t
+$ nginx
+</code></pre></div>
+<p>E finalmente colocar nosso servidor express para funcionar.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ bin/www
+</code></pre></div>
+<p>Para realizar um teste que verifica se implementação feita devolve o HTML diretamente do servidor, basta fazer um curl com o user-agent de um crawler (neste exemplo irei utilizar o user-agent do google bot). Veja o seguinte exemplo:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">curl -A &#39;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&#39; http://url-seu-site.com.br
+</code></pre></div>
+<p>Se a resposta do <code>curl</code> retornar todo o conteúdo de sua página HTML parseado seu site esta pronto para ser indexado pelos search engines.</p>
+
+<p>Para saber mais sobre boas práticas de SEO <a href="/seo/otimizacoes-para-motores-de-busca/">clique aqui</a> para ler mais.</p>
 
     </div>
 
@@ -312,18 +664,26 @@
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "Get started",
-    "alternativeHeadline": "Sejam bem vindos ao meu blog.",
-    "image": ["http://saulosantiago.js.org/assets/posts/get-started-big-508b8724386a18614ccf36ea400b69d4.png", "http://saulosantiago.js.org/assets/posts/get-started-thumb-3be84ae008a391c161437db69011bbc1.png"],
-    "datePublished": "2015-05-16 00:00:00 +0000",
-    "description": "Sejam bem vindos ao meu blog.",
-    "articleBody": ""
+    "headline": "SEO para SPA - parte 2",
+    "alternativeHeadline": "Resolva o problema de SEO em seu SPA.",
+    "image": ["http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-parte-2-big-557440187e7467245fdd1f79afd278cb.png", "http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-parte-2-thumb-cc0540fdbdf94a4d5a279c5e5fdd50c7.png"],
+    "datePublished": "2015-09-15 00:00:00 +0000",
+    "description": "Resolva o problema de SEO em seu SPA.",
+    "articleBody": "Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente. Neste post irei ensinar como desenvolver esta técnica para resolver este problema."
   }
 </script>
 
   </article>
 
   <b>Veja mais posts sobre:</b>
+  
+    <a href="http://saulosantiago.js.org/seo"
+      <h3> seo </h3>
+    </a>
+  
+    <a href="http://saulosantiago.js.org/javascript"
+      <h3> javascript </h3>
+    </a>
   
 
   <div class="share-page">
@@ -334,23 +694,23 @@
     </div>
 
     <div class='social'>
-      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/get-started" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/seo/seo-para-spa-parte-2" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
     <div class='social'>
-      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/get-started" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/seo/seo-para-spa-parte-2" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=Get started&url=http://saulosantiago.js.org/get-started&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=SEO para SPA - parte 2&url=http://saulosantiago.js.org/seo/seo-para-spa-parte-2&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Get started" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=SEO para SPA - parte 2" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Get started&summary=Sejam bem vindos ao meu blog.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=SEO para SPA - parte 2&summary=Resolva o problema de SEO em seu SPA.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
