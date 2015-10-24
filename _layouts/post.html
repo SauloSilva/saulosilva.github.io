@@ -14,10 +14,17 @@ layout: default
     </span>
 
     <span class='author-info'>
-      <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
+      <a href='http://saulosantiago.com.br/' target='_blank'>
+        <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
+      </a>
 
       <p>
-        Escrito por: <b>{{ page.author_name }}</b>
+        Escrito por:
+        <b>
+          <a href='http://saulosantiago.com.br/' target='_blank'>
+            {{ page.author_name }}
+          </a>
+        </b>
         </br>
         em: <b itemprop="datePublished">{{ page.date | date_to_string }}</b>.
       </p>
