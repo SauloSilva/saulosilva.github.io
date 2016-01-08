@@ -7,6 +7,19 @@
     <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Git fixup com autosquash</title>
+        
+          <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Dica importante:&lt;/strong&gt; Mantenha sua árvore de commit limpa usando &lt;code&gt;git fixup com autosquash&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        
+        <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/git/git-fixup-com-autosquash</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/git/git-fixup-com-autosquash</guid>
+      </item>
+    
+      <item>
         <title>Git clean up</title>
         
           <description>&lt;p&gt;Depois de um certo tempo trabalhando com &lt;code&gt;branchs&lt;/code&gt; em um repositório &lt;strong&gt;Git&lt;/strong&gt;, os &lt;code&gt;branchs&lt;/code&gt; tornam-se desatualizados e confusos. Sendo assim temos três tipos de &lt;code&gt;branchs&lt;/code&gt; para verificarmos:&lt;/p&gt;

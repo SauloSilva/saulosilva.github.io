@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Entenda o problema de SEO em SPA.">
+    <meta name="description" content="Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="SEO para SPA" property="og:title">
+    <meta content="Git fixup com autosquash" property="og:title">
   
 
   
@@ -21,48 +21,40 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/seo/seo-para-spa" property="og:url">
+    <meta content="http://saulosantiago.js.org/git/git-fixup-com-autosquash" property="og:url">
   
 
   
-    <meta content="2015-06-11T00:00:00+00:00" property="article:published_time">
+    <meta content="2015-11-12T00:00:00+00:00" property="article:published_time">
 
     <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
   
-    <meta content="/assets/posts/seo/seo-para-spa-big-4ae282a97ef06371bee40c43e717531e.png" property="og:image">
+    <meta content="/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png" property="og:image">
   
 
   
     
-      <meta content="seo" property="article:section">
+      <meta content="git" property="article:section">
     
   
 
   
     
-      <meta content="Search Engine Optimization" property="article:tag">
+      <meta content="git" property="article:tag">
     
-      <meta content="SEO" property="article:tag">
+      <meta content="fixup" property="article:tag">
     
-      <meta content="Single-Page Application" property="article:tag">
+      <meta content="autosquash" property="article:tag">
     
-      <meta content="SPA" property="article:tag">
-    
-      <meta content="Framework JS" property="article:tag">
-    
-      <meta content="Node" property="article:tag">
-    
-      <meta content="PhantomJS" property="article:tag">
-    
-      <meta content="Nginx" property="article:tag">
+      <meta content="commit" property="article:tag">
     
   
 
   <title>
     
-      SEO para SPA &middot; Saulo Santiago
+      Git fixup com autosquash &middot; Saulo Santiago
     
   </title>
 
@@ -229,13 +221,13 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/seo/seo-para-spa" class='h1' title="SEO para SPA">
-      <h1 itemprop="headline">SEO para SPA</h1>
+    <a href="/git/git-fixup-com-autosquash" class='h1' title="Git fixup com autosquash">
+      <h1 itemprop="headline">Git fixup com autosquash</h1>
     </a>
 
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
-      Leia em: 3 minutos
+      Leia em: 1 minutos e meio
     </span>
 
     <span class='author-info'>
@@ -246,59 +238,89 @@
       <p>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank' title="SEO para SPA">
+          <a href='http://saulosantiago.com.br/' target='_blank' title="Git fixup com autosquash">
             Saulo Santiago
           </a>
         </b>
         </br>
-        em: <b itemprop="datePublished">11 Jun 2015</b>.
+        em: <b itemprop="datePublished">12 Nov 2015</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <a href="/seo/seo-para-spa" class='img' title="SEO para SPA">
-        <img src="/assets/posts/seo/seo-para-spa-big-4ae282a97ef06371bee40c43e717531e.png" alt="SEO para SPA" itemprop="image"/>
+      <a href="/git/git-fixup-com-autosquash" class='img' title="Git fixup com autosquash">
+        <img src="/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png" alt="Git fixup com autosquash" itemprop="image"/>
       </a>
     </div>
 
     <div itemprop="articleBody">
       <blockquote>
-<p>It’s going to depend on what your particular area is, what the topic is, and what kind of layout you come out with. But if it works for you and for users to have that all on one page, for the most part, it should work for Google as well.</p>
-
-<p><a href="https://www.youtube.com/watch?v=Mibrj2bOFCU#t=73">What does Google think of single-page websites?</a> - Google Webmasters</p>
+<p><strong>Dica importante:</strong> Mantenha sua árvore de commit limpa usando <code>git fixup com autosquash</code></p>
 </blockquote>
 
-<p>O surgimento de bibliotecas e frameworks Javascript trouxe um novo formato para sites e aplicações web, o Single-Page Application (SPA). </p>
+<p>Quem nunca fez algum commit com as seguinte descrições: &quot;fix bug&quot;,
+&quot;Fix a typo&quot;, &quot;Fix whatever&quot; e minutos você precisou limpar estas mensagens.</p>
 
-<p>Por conta de seus inúmeros benefícios, muitos desenvolvedores têm optado por utilizá-lo. O grande problema é que a parte de Search Engine Optimization (SEO) fica bastante comprometida.</p>
+<p>Tempos atrás eu aprendi a utilizar dois comandos muito úteis para resolver essa situação, são eles: <a href="https://git-scm.com/docs/git-commit"><code>git commit --fixup</code></a> e <a href="https://git-scm.com/docs/git-rebase"><code>git rebase --autosquash</code></a>.</p>
 
-<p>Apesar dos benefícios serem a chave principal para uma boa escolha, existe um grande problema, a parte de SEO fica bastante comprometida.</p>
+<p>Com estes dois comandos fica fácil juntar vários commits de <code>fixup</code> ao commit original e manter o seu histórico de commits limpo e organizado.</p>
 
-<h3>O problema</h3>
+<h4>Como utilizar <strong><code>--fixup</code></strong> e <strong><code>--autosquash</code></strong></h4>
 
-<p>Os Search engines se evoluem mas ainda não conseguem analisar e tampouco indexar o conteúdo que se encontra dentro de um arquivo Javascript.
-Sendo assim o conteúdo do seu site não estará visível na <a href="http://pt.wikipedia.org/wiki/Busca_org%C3%A2nica">busca orgânica</a>.</p>
+<ul>
+<li><code>git add .</code> adicina todos os arquivos a serem commitados</li>
+<li><code>git commit --fixup &lt;id-do-commit&gt;</code> indica para qual commit de <code>fixup</code> irá se direcionar</li>
+<li><code>git rebase -i -autosquash &lt;id-do-commit-anterior&gt;</code> reorganiza a arvóre de commit, associando os <code>fixup</code> com o commits originais</li>
+</ul>
 
-<h3>A Solução</h3>
+<h4>Exemplo</h4>
 
-<p>A &quot;fallback page&quot; (termo que utilizo para nomear esta técnica) é a solução para este problema. </p>
+<p>Imagine um respositório qualquer que tenha um branch nomeada como <code>dev</code>. Neste branch temos dois commits em nossa arvóre:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature1
+<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit -m <span class="s2">&quot;Feature 1 is done&quot;</span>
 
-<p>A responsabilidade disto é fornecer ao Search Engine o principal atributo - o conteúdo. Para que isto seja possível precisamos construir uma página dinâmica que tem a mesma funcionalidade e conteúdo da aplicação web via Javascript, vindo diretamente do servidor.</p>
+<span class="o">[</span>dev 1111111<span class="o">]</span> Feature <span class="m">1</span> is <span class="k">done</span>
 
-<p>Esta página não é destinada aos usuários, ela so é servida quando a &quot;request&quot; estiver vindo de um crawler.</p>
+<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature2
+<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit -m <span class="s2">&quot;Feature 2 is done&quot;</span>
 
-<p>Para desenvolver esta solução teremos que implementar uma nova aplicação utilizando, Node, PhantomJS e Nginx. Isto elimina todas as necessidades de alterações em nosso SPA. </p>
+<span class="o">[</span>dev 2222222<span class="o">]</span> Feature <span class="m">2</span> is <span class="k">done</span>
+</code></pre></div>
+<p>Ao continuar o nosso trabalho encontramos alguns erros feitos nos arquivos que foram commitados como <code>feature1</code>: então chegou a hora de usar a opção <code>--fixup</code></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature1
+<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit --fixup 1111111
 
-<p>Esta aplicação não tem limite de utilização, no entanto podemos ter vários sites se utilizando da mesma aplicação a fim de SEO.</p>
+<span class="o">[</span>dev 3333333<span class="o">]</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
+</code></pre></div>
+<p>Aqui podemos observar que o GIT recuperou a mensagem de commit do feature1 e aplicou um prefixo <code>fixup!</code></p>
 
-<h3>Finalizando</h3>
+<p>Vamos dar uma olhada no nosso histórico de commits:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git log --oneline
 
-<p>Atualmente aplico este conceito para todos os SPA que desenvolvo e o resultado é muito satisfatório.</p>
+<span class="m">3333333</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
+<span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
+<span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
+<span class="m">0000000</span> Previous commit
+</code></pre></div>
+<p>Agora precisamos juntar o commit de fixup com o commit original. Chegou a hora de usar o <code>autosquash</code>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git rebase -i --autosquash 0000000
 
-<p>Para este post não ficar extenso, irei fazer a implementação do código em um post a parte.
-Aguarde, logo terei novidades para você...</p>
+pick <span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
+pick <span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
+fixup <span class="m">333333</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
+</code></pre></div>
+<p>O comando acima abre o seu editor padrão com as linhas acima. Apenas salve e saia sem alterar nada.</p>
 
-<p>Aproveite e leia algumas dicas importantes sobre otimização de sua página para os motores de busca <a href="http://saulosantiago.js.org/seo/otimizacoes-para-motores-de-busca/">aqui</a>.</p>
+<p>Feito isto, vamos ver como a árvore de commits ficou:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git log --oneline
+
+<span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
+<span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
+<span class="m">0000000</span> Previous commit
+</code></pre></div>
+<p>Perfeito! Agora todos aqueles commits de fixup foram mesclados juntos com os commits originais, sem demandar muito esforço.</p>
+
+<p>É claro que existe outras maneiras de obter o mesmo resultado como mostrado aqui, mas de todas as maneiras que conheço este é o fluxo mais fácil e correto de se fazer.</p>
 
     </div>
 
@@ -306,12 +328,12 @@ Aguarde, logo terei novidades para você...</p>
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "SEO para SPA",
-    "alternativeHeadline": "Entenda o problema de SEO em SPA.",
-    "image": ["http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-big-4ae282a97ef06371bee40c43e717531e.png", "http://saulosantiago.js.org/assets/posts/seo/seo-para-spa-thumb-444e3d6a61abac34b7e5388b0fd9bbd6.png"],
-    "datePublished": "2015-06-11 00:00:00 +0000",
-    "description": "Entenda o problema de SEO em SPA.",
-    "articleBody": "Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente."
+    "headline": "Git fixup com autosquash",
+    "alternativeHeadline": "Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada",
+    "image": ["http://saulosantiago.js.org/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png", "http://saulosantiago.js.org/assets/posts/git/git-fixup-com-autosquash-thumb-d4a73716d0bd1f73f71c28245c3d8cc9.png"],
+    "datePublished": "2015-11-12 00:00:00 +0000",
+    "description": "Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada",
+    "articleBody": "Quem nunca fez algum commit com as descrição fix bug, Fix a typo, Fix whatever e minutos ou horas depois precisou limpar estas mensagens? A pouco tempo atrás eu aprendi a utilizar dois comandos muito úteis para resolver essa situação, são eles git fixup com autosquash"
   }
 </script>
 
@@ -319,12 +341,8 @@ Aguarde, logo terei novidades para você...</p>
 
   <b>Veja mais posts sobre:</b>
   
-    <a href="http://saulosantiago.js.org/seo" title="Categoria seo">
-      <h6> seo </h6>
-    </a>
-  
-    <a href="http://saulosantiago.js.org/javascript" title="Categoria javascript">
-      <h6> javascript </h6>
+    <a href="http://saulosantiago.js.org/git" title="Categoria git">
+      <h6> git </h6>
     </a>
   
 
@@ -336,23 +354,23 @@ Aguarde, logo terei novidades para você...</p>
     </div>
 
     <div class='social'>
-      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/seo/seo-para-spa" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/git/git-fixup-com-autosquash" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
     <div class='social'>
-      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/seo/seo-para-spa" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/git/git-fixup-com-autosquash" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=SEO para SPA&url=http://saulosantiago.js.org/seo/seo-para-spa&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=Git fixup com autosquash&url=http://saulosantiago.js.org/git/git-fixup-com-autosquash&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=SEO para SPA" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Git fixup com autosquash" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=SEO para SPA&summary=Entenda o problema de SEO em SPA.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Git fixup com autosquash&summary=Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
