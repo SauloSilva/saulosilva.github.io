@@ -4,7 +4,7 @@ layout: default
 
 <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="{{ page.url }}" class='h1'>
+    <a href="{{ page.url }}" class='h1' title="{{ page.title }}">
       <h1 itemprop="headline">{{ page.title }}</h1>
     </a>
 
@@ -21,7 +21,7 @@ layout: default
       <p>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank'>
+          <a href='http://saulosantiago.com.br/' target='_blank' title="{{ page.title }}">
             {{ page.author_name }}
           </a>
         </b>
@@ -31,7 +31,9 @@ layout: default
     </span>
 
     <div class='image-big'>
-      <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}" itemprop="image"/>
+      <a href="{{ page.url }}" class='img' title="{{ page.title }}">
+        <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}" itemprop="image"/>
+      </a>
     </div>
 
     <div itemprop="articleBody">
@@ -44,8 +46,8 @@ layout: default
 
   <b>Veja mais posts sobre:</b>
   {% for category in page.categories %}
-    <a href="{{ site.url }}/{{ category }}"
-      <h3> {{ category }} </h3>
+    <a href="{{ site.url }}/{{ category }}" title="Categoria {{ category }}">
+      <h6> {{ category }} </h6>
     </a>
   {% endfor %}
 
