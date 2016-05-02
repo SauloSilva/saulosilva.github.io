@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Ruby tem uma ótima semântica e sintaxe. Veja dicas legais que pode serem aplicadas no dia a dia.">
+    <meta name="description" content="Assine seus commits e garanta a autenticidade deles.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Ruby" property="og:title">
+    <meta content="Assinatura no seus commits" property="og:title">
   
 
   
@@ -21,28 +21,50 @@
   
 
   
-    <meta content="http://saulosantiago.js.org/ruby/" property="og:url">
+    <meta content="http://saulosantiago.js.org/git/assinatura-nos-seus-commits" property="og:url">
   
 
   
+    <meta content="2016-05-01T00:00:00+00:00" property="article:published_time">
 
-  
-    <meta content="/assets/logo-bg-10cfa529bd32704c4544e901bf45de37.png" property="og:image">
-  
-
+    <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
+  
+    <meta content="/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png" property="og:image">
+  
+
+  
+    
+      <meta content="git" property="article:section">
+    
+  
+
+  
+    
+      <meta content="git" property="article:tag">
+    
+      <meta content="signing" property="article:tag">
+    
+      <meta content="GPG" property="article:tag">
+    
+      <meta content="commits" property="article:tag">
+    
+      <meta content="tags" property="article:tag">
+    
+      <meta content="Github" property="article:tag">
+    
   
 
   <title>
     
-      Ruby &middot; Saulo Santiago
+      Assinatura no seus commits &middot; Saulo Santiago
     
   </title>
 
   
     
-      <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.ruby.xml">
+      <link rel="alternate" type="application/rss+xml" title="" href="http://saulosantiago.js.org/feed.post.xml">
     
   
 
@@ -201,103 +223,216 @@
 </nav>
 
     <main>
-      <div class="page">
-  <h1 class="page-title grey-text ruby">
-    <i class="ico ruby-ico"></i>
-    Ruby
-  </h1>
+      <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
+  <article class="markdown-body">
+    <a href="/git/assinatura-nos-seus-commits" class='h1' title="Assinatura no seus commits">
+      <h1 itemprop="headline">Assinatura no seus commits</h1>
+    </a>
 
-  <hr>
-  <div class='posts'>
+    <span class='read-time'>
+      <i class='mdi-device-access-time'></i>
+      Leia em: 4 minutos
+    </span>
+
+    <span class='author-info'>
+      <a href='http://saulosantiago.com.br/' target='_blank'>
+        <img src="//www.gravatar.com/avatar/427733403ad646d7a164918b9da1d227?s=135" alt="Saulo Santiago" width='50' height='50' class='circle responsive-img'/>
+      </a>
+
+      <p>
+        Escrito por:
+        <b>
+          <a href='http://saulosantiago.com.br/' target='_blank' title="Assinatura no seus commits">
+            Saulo Santiago
+          </a>
+        </b>
+        </br>
+        em: <b itemprop="datePublished">01 May 2016</b>.
+      </p>
+    </span>
+
+    <div class='image-big'>
+      <a href="/git/assinatura-nos-seus-commits" class='img' title="Assinatura no seus commits">
+        <img src="/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png" alt="Assinatura no seus commits" itemprop="image"/>
+      </a>
+    </div>
+
+    <div itemprop="articleBody">
+      <p>Git é seguramente criptografado, mas não é infalível. Se tu estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG.</p>
+
+<h2>O que é GPG ou GnuPG</h2>
+
+<p><a href="https://www.gnupg.org/index.html">GnuPG</a> é uma implementação completa e gratuíta do padrão OpenPGP definido por <a href="http://www.ietf.org/rfc/rfc4880.txt">RFC4880 (conhecido também como PGP)</a>.</p>
+
+<p>GnuPG permite criptografar e assinar seus dados e comunicações, possui um sistema de gerenciamento de chaves versáteis, bem como módulos de acessos para todos os tipos de diretórios de chave pública. <strong>GnuPG é conhecido também como GPG</strong> e possui uma linha de comando para facilitar a integração com outras aplicações.</p>
+
+<p><a href="https://www.gnupg.org/download/index.html">GPG possui uma GUI</a> para quem não se sente confortável utilizando linhas de comandos.</p>
+
+<h2>Gerando uma nova chave GPG</h2>
+
+<p>Irei mostrar passo a passo de como gerar uma chave GPG utilizando o terminal, isso é bem fácil, então vamos lá:</p>
+
+<ul>
+<li><p>Primeiro instale o pacote do GPG em seu sistema operacional, se estiver no OSx e utiliza o Homebrew, execute <code>brew install gpg</code>. Se estiver no Linux utilize o <code>apt-get install gnupg</code></p></li>
+<li><p>Execute <code>gpg --gen-key</code> em seu terminal para começar o processo de criação da chave GPG</p></li>
+<li><p>Depois de rodar o comando listado acima, você começará a receber várias perguntas a fim de customizar sua configuração de sua chave, recomendo deixar tudo no padrão.</p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar o padrão <code>RSA and RSA</code></p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar o padrão do tamanho da chave <code>4096</code></p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar que a chave não tenha data de expiração</p></li>
+<li><p>Coloque o nome que você utiliza em seus commits. <strong>Digite o mesmo nome que está no seu <code>~/.gitconfig</code></strong></p></li>
+<li><p>Coloque o e-mail que você utiliza em seus commits. <strong>Digite o mesmo nome que está no seu <code>~/.gitconfig</code></strong></p></li>
+<li><p>Digite uma frase de segurança ou apenas pressione <code>ENTER</code></p></li>
+<li><p>Confirme a geração da chave</p></li>
+<li><p>Com a chave gerada agora é preciso listar utilizando este comando <code>gpg --list-keys</code>. Algo parecido com o exemplo abaixo aparecerá para você. Toda chave possui um ID, e este ID é importante para requisitarmos o valor da chave. O ID pode ser identificado na linha que inicia com <code>pub</code> (que significa pública), no caso deste exemplo o ID é <strong><code>A8F99211</code></strong></p></li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/Users/hubot/.gnupg/pubring.gpg
+------------------------------------
+pub   4096R/A8F99211   2016-04-05
+uid                  Hubot
+sub   4096R/Z832QR89 2016-04-05
+</code></pre></div>
+<ul>
+<li><p>Cole o ID de sua chave no seguinte comando <code>gpg --armor --export A8F99211</code>, lembre-se que no seu computador este ID sempre será diferente. Este comando mostrará o conteúdo de sua chave</p></li>
+<li><p>Copie o valor de sua chave GPG pública que começa com <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> e termina com <code>-----END PGP PUBLIC KEY BLOCK-----</code></p></li>
+</ul>
+
+<h3>Adicionando sua chave pública GPG no Github</h3>
+
+<p>O <a href="https://github.com/">Github</a> a algum tempo suporta assinar os commits. Para que isto seja possível tu tem que adicionar o coneúdo desta chave nas configurações de seu perfil no Github.
+Isto é relativamente fácil.</p>
+
+<ul>
+<li>Na lado direito de cima da página do Github, clique em sua foto do perfil e depois clique em <a href="https://github.com/settings/profile"><code>Settings</code></a>.</li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-account-settings-14fc3ec23752306188e397fc6c6aef26.png" alt="print do menu de configurações do Github" class='lazy' height='400px'/></p>
+
+<ul>
+<li>Nas configurações de usuário na barra lateral, clique em <a href="https://github.com/settings/keys"><code>SSH and GPG keys</code></a></li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-settings-sidebar-ssh-keys-de914ccf16f082a151d6c5d7684b0f5e.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<ul>
+<li>Clique em <a href="https://github.com/settings/keys"><code>New GPG key</code></a></li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-add-gpg-key-ae3fc19ed63debb0524e09c8a1556b32.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<ul>
+<li>No campo <code>key</code> cole o valor copiado de sua chave GPG</li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-key-paste-db44d2b2caa186333444cb6ea1971214.png" alt="print do sidebar da tela de configurações do Github" class='lazy' width='500px'/></p>
+
+<ul>
+<li>Clique em <code>Add GPG key</code> e confirme sua senha so Github para finalizar a adição</li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-add-key-cef401c88826191c30a38a99048b5fde.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<h3>Configurando seu Git global</h3>
+
+<p>Agora é preciso atualizar seu <code>~/.gitconfig</code> para utilizar o ID da sua chave GPG também.</p>
+
+<p>Isto é muito simples, basta executar <code>git config --global user.signingkey &lt;seu ID&gt;</code></p>
+
+<h3>Assinando seus commits</h3>
+
+<p>Agora que tu tens sua chave GPG criado, adicionada ao Github e configurado no <code>~/.gitconfig</code>, então basta utiliza-lá na geração de seus commits ou tags.</p>
+
+<p><strong>Criando commits com assinatura</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add .
+git commit -a -S -m &#39;my commit&#39;
+git push
+</code></pre></div>
+<p>Note que é preciso apenas adicionar o parâmetro <code>-S</code> no comando de commit para isto funcionar.</p>
+
+<p><strong>Criando tags com assinatura</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git tag -s v1.5 -m &#39;my signed 1.5 tag&#39;
+</code></pre></div>
+<p>Note que é preciso apenas adicionar o parâmetro <code>-s</code> (em minúsculo) no comando para criar tags assinadas.</p>
+
+<p>Para ter certeza de que tudo funcionou basta ir no histórico de commits no seu repositório no Github e notar que seus commits agora ficaram com um indicador de que esta verificado.</p>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/commit-with-gpg-5612e9c659245efb174b0f650f01f2c9.png" alt="commit assinado no histórico do Github" class='lazy'/></p>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/commit-with-gpg-detail-93b7006f07d2c8d43b526a4645965459.png" alt="detalhe da assinatura do commit no Github" class='lazy' width='300px'/></p>
+
+    </div>
+
+    <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "headline": "Assinatura no seus commits",
+    "alternativeHeadline": "Assine seus commits e garanta a autenticidade deles.",
+    "image": ["http://saulosantiago.js.org/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png", "http://saulosantiago.js.org/assets/posts/git/assinatura-nos-seus-commits-thumb-f300911e140baa66a8a7ac314e8d0819.png"],
+    "datePublished": "2016-05-01 00:00:00 +0000",
+    "description": "Assine seus commits e garanta a autenticidade deles.",
+    "articleBody": "Git é seguramente criptografado, mas não é infalível. Se vocês estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG."
+  }
+</script>
+
+  </article>
+
+  <b>Veja mais posts sobre:</b>
   
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/ruby/operadores-em-ruby-e-seus-metodos" title="Operadores em Ruby e seus métodos">
-        <img data-original="/assets/posts/ruby/operadores-em-ruby-e-seus-metodos-thumb-de91ea4db417a198e5365178eff1ea91.png" alt="Operadores em Ruby e seus métodos" class='lazy' width='500' height='300'/>
-      </a>
+    <a href="http://saulosantiago.js.org/git" title="Categoria git">
+      <h6> git </h6>
+    </a>
+  
+
+  <div class="share-page">
+    <div class='social'>
+      <b>
+        Share this on &rarr;
+      </b>
     </div>
 
-    <div class="card-content">
-      <span class="activator">
-        18 Jul 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/ruby/operadores-em-ruby-e-seus-metodos" title="Operadores em Ruby e seus métodos">
-        <h2 class='card-title truncate'>
-          Operadores em Ruby e seus métodos
-        </h2>
-
-        <p class='description truncate'>
-          Veja como funciona os operadores no Ruby.
-        </p>
-      </a>
+    <div class='social'>
+      <a href="https://facebook.com/sharer.php?u=http://saulosantiago.js.org/git/assinatura-nos-seus-commits" rel="nofollow" target="_blank" title="Share on Facebook" class='button-facebook waves-effect waves-light btn'>Facebook</a>
     </div>
 
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/ruby/operadores-em-ruby-e-seus-metodos" class='truncate' title="Operadores em Ruby e seus métodos">
-          Operadores em Ruby e seus métodos
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.
-      </span>
+    <div class='social'>
+      <a href="https://plus.google.com/share?url=http://saulosantiago.js.org/git/assinatura-nos-seus-commits" rel="nofollow" target="_blank" title="Share on Google+" class='button-googleplus waves-effect waves-light btn'>Google+</a>
     </div>
+
+    <div class='social'>
+      <a href="https://twitter.com/intent/tweet?text=Assinatura no seus commits&url=http://saulosantiago.js.org/git/assinatura-nos-seus-commits&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Assinatura no seus commits" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+    </div>
+
+    <div class='social'>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Assinatura no seus commits&summary=Assine seus commits e garanta a autenticidade deles.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+    </div>
+</div>
+  
+  <div class='comments'>
+    <h2>Comentários:</h2>
+    <span>
+      <i class='mdi-editor-insert-comment'></i>
+      Deixe sua dúvida, sugestão ou crítica, estou ansioso para saber tudo o que você achou sobre este post:
+    </span>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'saulosantiago';
+
+        (function() {
+            var dsq = document.createElement('script');
+
+            dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
-</div>
-  
-    <div class='post'>
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <a href="/ruby/serializer-jsons-com-sinatra" title="Serializer JSONs com Sinatra">
-        <img data-original="/assets/posts/ruby/serializer-jsons-com-sinatra-thumb-abf87be2931decb96beaa94d13a74fd3.png" alt="Serializer JSONs com Sinatra" class='lazy' width='500' height='300'/>
-      </a>
-    </div>
-
-    <div class="card-content">
-      <span class="activator">
-        18 May 2015
-
-        
-          <i class="mdi-navigation-more-vert right"></i>
-        
-      </span>
-
-      <a href="/ruby/serializer-jsons-com-sinatra" title="Serializer JSONs com Sinatra">
-        <h2 class='card-title truncate'>
-          Serializer JSONs com Sinatra
-        </h2>
-
-        <p class='description truncate'>
-          Aprenda a manipular suas repostas em JSONs.
-        </p>
-      </a>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <a href="/ruby/serializer-jsons-com-sinatra" class='truncate' title="Serializer JSONs com Sinatra">
-          Serializer JSONs com Sinatra
-        </a>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-
-      <span class='truncate-clamp-12 grey-text'>
-        Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra.
-      </span>
-    </div>
-  </div>
-</div>
-  
-</div>
-
 
 </div>
     </main>
