@@ -7,6 +7,17 @@
     <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Assinatura no seus commits</title>
+        
+          <description>&lt;p&gt;Git é seguramente criptografado, mas não é infalível. Se tu estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG.&lt;/p&gt;
+</description>
+        
+        <pubDate>Sun, 01 May 2016 00:00:00 +0000</pubDate>
+        <link>http://saulosantiago.js.org/git/git-fixup-com-autosquash</link>
+        <guid isPermaLink="true">http://saulosantiago.js.org/git/git-fixup-com-autosquash</guid>
+      </item>
+    
+      <item>
         <title>Git fixup com autosquash</title>
         
           <description>&lt;blockquote&gt;

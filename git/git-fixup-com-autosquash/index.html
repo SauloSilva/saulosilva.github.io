@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada">
+    <meta name="description" content="Assine seus commits e garanta a autenticidade deles.">
   
 
   <meta content="Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Git fixup com autosquash" property="og:title">
+    <meta content="Assinatura no seus commits" property="og:title">
   
 
   
@@ -25,13 +25,13 @@
   
 
   
-    <meta content="2015-11-12T00:00:00+00:00" property="article:published_time">
+    <meta content="2016-05-01T00:00:00+00:00" property="article:published_time">
 
     <meta content="http://saulosantiago.js.org/about/" property="article:author">
   
 
   
-    <meta content="/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png" property="og:image">
+    <meta content="/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png" property="og:image">
   
 
   
@@ -44,17 +44,21 @@
     
       <meta content="git" property="article:tag">
     
-      <meta content="fixup" property="article:tag">
+      <meta content="signing" property="article:tag">
     
-      <meta content="autosquash" property="article:tag">
+      <meta content="GPG" property="article:tag">
     
-      <meta content="commit" property="article:tag">
+      <meta content="commits" property="article:tag">
+    
+      <meta content="tags" property="article:tag">
+    
+      <meta content="Github" property="article:tag">
     
   
 
   <title>
     
-      Git fixup com autosquash &middot; Saulo Santiago
+      Assinatura no seus commits &middot; Saulo Santiago
     
   </title>
 
@@ -126,7 +130,7 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-e3c6e1893d9ba34756fb71473c680db1.png" class='circle' alt='Saulo Santiago'>
+      <img src="/assets/logo-bg-50x50-fa8f0f1b5cf9459086c6550fd5a1653c.png" class='circle' alt='Saulo Santiago'>
       <h1 class='truncate'>
         Saulo Santiago
       </h1>
@@ -221,13 +225,13 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/git/git-fixup-com-autosquash" class='h1' title="Git fixup com autosquash">
-      <h1 itemprop="headline">Git fixup com autosquash</h1>
+    <a href="/git/git-fixup-com-autosquash" class='h1' title="Assinatura no seus commits">
+      <h1 itemprop="headline">Assinatura no seus commits</h1>
     </a>
 
     <span class='read-time'>
       <i class='mdi-device-access-time'></i>
-      Leia em: 1 minutos e meio
+      Leia em: 4 minutos
     </span>
 
     <span class='author-info'>
@@ -238,89 +242,122 @@
       <p>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank' title="Git fixup com autosquash">
+          <a href='http://saulosantiago.com.br/' target='_blank' title="Assinatura no seus commits">
             Saulo Santiago
           </a>
         </b>
         </br>
-        em: <b itemprop="datePublished">12 Nov 2015</b>.
+        em: <b itemprop="datePublished">01 May 2016</b>.
       </p>
     </span>
 
     <div class='image-big'>
-      <a href="/git/git-fixup-com-autosquash" class='img' title="Git fixup com autosquash">
-        <img src="/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png" alt="Git fixup com autosquash" itemprop="image"/>
+      <a href="/git/git-fixup-com-autosquash" class='img' title="Assinatura no seus commits">
+        <img src="/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png" alt="Assinatura no seus commits" itemprop="image"/>
       </a>
     </div>
 
     <div itemprop="articleBody">
-      <blockquote>
-<p><strong>Dica importante:</strong> Mantenha sua árvore de commit limpa usando <code>git fixup com autosquash</code></p>
-</blockquote>
+      <p>Git é seguramente criptografado, mas não é infalível. Se tu estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG.</p>
 
-<p>Quem nunca fez algum commit com as seguinte descrições: &quot;fix bug&quot;,
-&quot;Fix a typo&quot;, &quot;Fix whatever&quot; e minutos você precisou limpar estas mensagens.</p>
+<h2>O que é GPG ou GnuPG</h2>
 
-<p>Tempos atrás eu aprendi a utilizar dois comandos muito úteis para resolver essa situação, são eles: <a href="https://git-scm.com/docs/git-commit"><code>git commit --fixup</code></a> e <a href="https://git-scm.com/docs/git-rebase"><code>git rebase --autosquash</code></a>.</p>
+<p><a href="https://www.gnupg.org/index.html">GnuPG</a> é uma implementação completa e gratuíta do padrão OpenPGP definido por <a href="http://www.ietf.org/rfc/rfc4880.txt">RFC4880 (conhecido também como PGP)</a>.</p>
 
-<p>Com estes dois comandos fica fácil juntar vários commits de <code>fixup</code> ao commit original e manter o seu histórico de commits limpo e organizado.</p>
+<p>GnuPG permite criptografar e assinar seus dados e comunicações, possui um sistema de gerenciamento de chaves versáteis, bem como módulos de acessos para todos os tipos de diretórios de chave pública. <strong>GnuPG é conhecido também como GPG</strong> e possui uma linha de comando para facilitar a integração com outras aplicações.</p>
 
-<h4>Como utilizar <strong><code>--fixup</code></strong> e <strong><code>--autosquash</code></strong></h4>
+<p><a href="https://www.gnupg.org/download/index.html">GPG possui uma GUI</a> para quem não se sente confortável utilizando linhas de comandos.</p>
+
+<h2>Gerando uma nova chave GPG</h2>
+
+<p>Irei mostrar passo a passo de como gerar uma chave GPG utilizando o terminal, isso é bem fácil, então vamos lá:</p>
 
 <ul>
-<li><code>git add .</code> adicina todos os arquivos a serem commitados</li>
-<li><code>git commit --fixup &lt;id-do-commit&gt;</code> indica para qual commit de <code>fixup</code> irá se direcionar</li>
-<li><code>git rebase -i -autosquash &lt;id-do-commit-anterior&gt;</code> reorganiza a arvóre de commit, associando os <code>fixup</code> com o commits originais</li>
+<li><p>Primeiro instale o pacote do GPG em seu sistema operacional, se estiver no OSx e utiliza o Homebrew, execute <code>brew install gpg</code>. Se estiver no Linux utilize o <code>apt-get install gnupg</code></p></li>
+<li><p>Execute <code>gpg --gen-key</code> em seu terminal para começar o processo de criação da chave GPG</p></li>
+<li><p>Depois de rodar o comando listado acima, você começará a receber várias perguntas a fim de customizar sua configuração de sua chave, recomendo deixar tudo no padrão.</p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar o padrão <code>RSA and RSA</code></p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar o padrão do tamanho da chave <code>4096</code></p></li>
+<li><p>Pressione <code>ENTER</code> para aceitar que a chave não tenha data de expiração</p></li>
+<li><p>Coloque o nome que você utiliza em seus commits. <strong>Digite o mesmo nome que está no seu <code>~/.gitconfig</code></strong></p></li>
+<li><p>Coloque o e-mail que você utiliza em seus commits. <strong>Digite o mesmo nome que está no seu <code>~/.gitconfig</code></strong></p></li>
+<li><p>Digite uma frase de segurança ou apenas pressione <code>ENTER</code></p></li>
+<li><p>Confirme a geração da chave</p></li>
+<li><p>Com a chave gerada agora é preciso listar utilizando este comando <code>gpg --list-keys</code>. Algo parecido com o exemplo abaixo aparecerá para você. Toda chave possui um ID, e este ID é importante para requisitarmos o valor da chave. O ID pode ser identificado na linha que inicia com <code>pub</code> (que significa pública), no caso deste exemplo o ID é <strong><code>A8F99211</code></strong></p></li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/Users/hubot/.gnupg/pubring.gpg
+------------------------------------
+pub   4096R/A8F99211   2016-04-05
+uid                  Hubot
+sub   4096R/Z832QR89 2016-04-05
+</code></pre></div>
+<ul>
+<li><p>Cole o ID de sua chave no seguinte comando <code>gpg --armor --export A8F99211</code>, lembre-se que no seu computador este ID sempre será diferente. Este comando mostrará o conteúdo de sua chave</p></li>
+<li><p>Copie o valor de sua chave GPG pública que começa com <code>-----BEGIN PGP PUBLIC KEY BLOCK-----</code> e termina com <code>-----END PGP PUBLIC KEY BLOCK-----</code></p></li>
 </ul>
 
-<h4>Exemplo</h4>
+<h3>Adicionando sua chave pública GPG no Github</h3>
 
-<p>Imagine um respositório qualquer que tenha um branch nomeada como <code>dev</code>. Neste branch temos dois commits em nossa arvóre:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature1
-<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit -m <span class="s2">&quot;Feature 1 is done&quot;</span>
+<p>O <a href="https://github.com/">Github</a> a algum tempo suporta assinar os commits. Para que isto seja possível tu tem que adicionar o coneúdo desta chave nas configurações de seu perfil no Github.
+Isto é relativamente fácil.</p>
 
-<span class="o">[</span>dev 1111111<span class="o">]</span> Feature <span class="m">1</span> is <span class="k">done</span>
+<ul>
+<li>Na lado direito de cima da página do Github, clique em sua foto do perfil e depois clique em <a href="https://github.com/settings/profile"><code>Settings</code></a>.</li>
+</ul>
 
-<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature2
-<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit -m <span class="s2">&quot;Feature 2 is done&quot;</span>
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-account-settings-14fc3ec23752306188e397fc6c6aef26.png" alt="print do menu de configurações do Github" class='lazy' height='400px'/></p>
 
-<span class="o">[</span>dev 2222222<span class="o">]</span> Feature <span class="m">2</span> is <span class="k">done</span>
+<ul>
+<li>Nas configurações de usuário na barra lateral, clique em <a href="https://github.com/settings/keys"><code>SSH and GPG keys</code></a></li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-settings-sidebar-ssh-keys-de914ccf16f082a151d6c5d7684b0f5e.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<ul>
+<li>Clique em <a href="https://github.com/settings/keys"><code>New GPG key</code></a></li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-add-gpg-key-ae3fc19ed63debb0524e09c8a1556b32.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<ul>
+<li>No campo <code>key</code> cole o valor copiado de sua chave GPG</li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-key-paste-db44d2b2caa186333444cb6ea1971214.png" alt="print do sidebar da tela de configurações do Github" class='lazy' width='500px'/></p>
+
+<ul>
+<li>Clique em <code>Add GPG key</code> e confirme sua senha so Github para finalizar a adição</li>
+</ul>
+
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/github-gpg-add-key-cef401c88826191c30a38a99048b5fde.png" alt="print do sidebar da tela de configurações do Github" class='lazy'/></p>
+
+<h3>Configurando seu Git global</h3>
+
+<p>Agora é preciso atualizar seu <code>~/.gitconfig</code> para utilizar o ID da sua chave GPG também.</p>
+
+<p>Isto é muito simples, basta executar <code>git config --global user.signingkey &lt;seu ID&gt;</code></p>
+
+<h3>Assinando seus commits</h3>
+
+<p>Agora que tu tens sua chave GPG criado, adicionada ao Github e configurado no <code>~/.gitconfig</code>, então basta utiliza-lá na geração de seus commits ou tags.</p>
+
+<p><strong>Criando commits com assinatura</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add .
+git commit -a -S -m &#39;my commit&#39;
+git push
 </code></pre></div>
-<p>Ao continuar o nosso trabalho encontramos alguns erros feitos nos arquivos que foram commitados como <code>feature1</code>: então chegou a hora de usar a opção <code>--fixup</code></p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git add feature1
-<span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git commit --fixup 1111111
+<p>Note que é preciso apenas adicionar o parâmetro <code>-S</code> no comando de commit para isto funcionar.</p>
 
-<span class="o">[</span>dev 3333333<span class="o">]</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
+<p><strong>Criando tags com assinatura</strong></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git tag -s v1.5 -m &#39;my signed 1.5 tag&#39;
 </code></pre></div>
-<p>Aqui podemos observar que o GIT recuperou a mensagem de commit do feature1 e aplicou um prefixo <code>fixup!</code></p>
+<p>Note que é preciso apenas adicionar o parâmetro <code>-s</code> (em minúsculo) no comando para criar tags assinadas.</p>
 
-<p>Vamos dar uma olhada no nosso histórico de commits:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git log --oneline
+<p>Para ter certeza de que tudo funcionou basta ir no histórico de commits no seu repositório no Github e notar que seus commits agora ficaram com um indicador de que esta verificado.</p>
 
-<span class="m">3333333</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
-<span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
-<span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
-<span class="m">0000000</span> Previous commit
-</code></pre></div>
-<p>Agora precisamos juntar o commit de fixup com o commit original. Chegou a hora de usar o <code>autosquash</code>.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git rebase -i --autosquash 0000000
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/commit-with-gpg-5612e9c659245efb174b0f650f01f2c9.png" alt="commit assinado no histórico do Github" class='lazy'/></p>
 
-pick <span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
-pick <span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
-fixup <span class="m">333333</span> fixup! Feature <span class="m">1</span> is <span class="k">done</span>
-</code></pre></div>
-<p>O comando acima abre o seu editor padrão com as linhas acima. Apenas salve e saia sem alterar nada.</p>
-
-<p>Feito isto, vamos ver como a árvore de commits ficou:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="o">(</span>dev<span class="o">)</span> git log --oneline
-
-<span class="m">2222222</span> Feature <span class="m">2</span> is <span class="k">done</span>
-<span class="m">1111111</span> Feature <span class="m">1</span> is <span class="k">done</span>
-<span class="m">0000000</span> Previous commit
-</code></pre></div>
-<p>Perfeito! Agora todos aqueles commits de fixup foram mesclados juntos com os commits originais, sem demandar muito esforço.</p>
-
-<p>É claro que existe outras maneiras de obter o mesmo resultado como mostrado aqui, mas de todas as maneiras que conheço este é o fluxo mais fácil e correto de se fazer.</p>
+<p><img data-original="/assets/posts/git/assinatura-nos-seus-commits/commit-with-gpg-detail-93b7006f07d2c8d43b526a4645965459.png" alt="detalhe da assinatura do commit no Github" class='lazy' width='300px'/></p>
 
     </div>
 
@@ -328,12 +365,12 @@ fixup <span class="m">333333</span> fixup! Feature <span class="m">1</span> is <
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "Git fixup com autosquash",
-    "alternativeHeadline": "Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada",
-    "image": ["http://saulosantiago.js.org/assets/posts/git/git-fixup-com-autosquash-big-b9d15ccbf58911c6d0ccad102f23fa3f.png", "http://saulosantiago.js.org/assets/posts/git/git-fixup-com-autosquash-thumb-d4a73716d0bd1f73f71c28245c3d8cc9.png"],
-    "datePublished": "2015-11-12 00:00:00 +0000",
-    "description": "Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada",
-    "articleBody": "Quem nunca fez algum commit com as descrição fix bug, Fix a typo, Fix whatever e minutos ou horas depois precisou limpar estas mensagens? A pouco tempo atrás eu aprendi a utilizar dois comandos muito úteis para resolver essa situação, são eles git fixup com autosquash"
+    "headline": "Assinatura no seus commits",
+    "alternativeHeadline": "Assine seus commits e garanta a autenticidade deles.",
+    "image": ["http://saulosantiago.js.org/assets/posts/git/assinatura-nos-seus-commits-big-7dcc569912ee4dfbfcf5f559209d3d5d.png", "http://saulosantiago.js.org/assets/posts/git/assinatura-nos-seus-commits-thumb-f300911e140baa66a8a7ac314e8d0819.png"],
+    "datePublished": "2016-05-01 00:00:00 +0000",
+    "description": "Assine seus commits e garanta a autenticidade deles.",
+    "articleBody": "Git é seguramente criptografado, mas não é infalível. Se vocês estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG."
   }
 </script>
 
@@ -362,15 +399,15 @@ fixup <span class="m">333333</span> fixup! Feature <span class="m">1</span> is <
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=Git fixup com autosquash&url=http://saulosantiago.js.org/git/git-fixup-com-autosquash&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=Assinatura no seus commits&url=http://saulosantiago.js.org/git/git-fixup-com-autosquash&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Git fixup com autosquash" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Assinatura no seus commits" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Git fixup com autosquash&summary=Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Assinatura no seus commits&summary=Assine seus commits e garanta a autenticidade deles.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
