@@ -19,10 +19,10 @@ layout: default
         <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
       </a>
 
-      <p>
+      <p class='vcard'>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank' title="{{ page.title }}" itemprop="name">
+          <a href='http://saulosantiago.com.br/' target='_blank' title="{{ page.title }}" itemprop="name" class='url fn'>
             {{ page.author_name }}
           </a>
         </b>
