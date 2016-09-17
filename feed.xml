@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title></title>
-    <description>Desenvolvedor Ruby e Javascript. Trabalho há 6 anos com sistemas web. Meu maior combustível é a cafeína. E se aventurando em escrever posts sobre tecnologia.</description>
+    <description>Desenvolvedor Ruby e Javascript, apaixonado por fazer produtos digitais incriveis</description>
     <link>http://saulosantiago.js.org</link>
     <atom:link href="http://saulosantiago.js.org/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Assinatura no seus commits</title>
+        <title>Assinatura no seus commits - Saulo Santiago</title>
         
         
           <description>&lt;p&gt;Git é seguramente criptografado, mas não é infalível. Se tu estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG.&lt;/p&gt;
@@ -19,7 +19,7 @@
       </item>
     
       <item>
-        <title>Git fixup com autosquash</title>
+        <title>Git fixup com autosquash - Saulo Santiago</title>
         
         
           <description>&lt;blockquote&gt;
@@ -33,7 +33,7 @@
       </item>
     
       <item>
-        <title>SEO para SPA - parte 2</title>
+        <title>SEO para SPA - parte 2 - Saulo Santiago</title>
         
         
           <description>&lt;p&gt;Como falei no post (&lt;a href=&quot;/seo/seo-para-spa/&quot;&gt;SEO para SPA&lt;/a&gt;), neste irei explicar uma solução para resolver o problema de SEO em SPAs, implementando uma técnica simples sem precisar alterar nada so seu site.&lt;/p&gt;
@@ -45,7 +45,7 @@
       </item>
     
       <item>
-        <title>Git clean up</title>
+        <title>Git clean up - Saulo Santiago</title>
         
         
           <description>&lt;p&gt;Depois de um certo tempo trabalhando com &lt;code&gt;branchs&lt;/code&gt; em um repositório &lt;strong&gt;Git&lt;/strong&gt;, os &lt;code&gt;branchs&lt;/code&gt; tornam-se desatualizados e confusos. Sendo assim temos três tipos de &lt;code&gt;branchs&lt;/code&gt; para verificarmos:&lt;/p&gt;
@@ -57,7 +57,7 @@
       </item>
     
       <item>
-        <title>Operadores em Ruby e seus métodos</title>
+        <title>Operadores em Ruby e seus métodos - Saulo Santiago</title>
         
         
           <description>&lt;p&gt;Ruby esta se tornando uma línguagem popularmente conhecida na web. Neste post tentarei mostrar a fundo o que são os operadores no Ruby, e por que eles são tão diferentes de qualquer coisa que já viu antes.&lt;/p&gt;
@@ -69,10 +69,10 @@
       </item>
     
       <item>
-        <title>Git commit --amend</title>
+        <title>Git commit --amend - Saulo Santiago</title>
         
         
-          <description>&lt;p&gt;O trabalho principal do Git é garantir que nenhuma informação seja perdida.
+          <description>&lt;p&gt;O trabalho principal do &lt;strong&gt;Git&lt;/strong&gt; é garantir que nenhuma informação seja perdida.
 Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso significa que podemos ter a liberdade para definir o que queremos em nosso histórico de &lt;em&gt;commits&lt;/em&gt;.&lt;/p&gt;
 </description>
         
@@ -82,7 +82,7 @@ Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso signi
       </item>
     
       <item>
-        <title>SEO para SPA</title>
+        <title>SEO para SPA - Saulo Santiago</title>
         
         
           <description>&lt;blockquote&gt;
@@ -96,11 +96,11 @@ Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso signi
       </item>
     
       <item>
-        <title>Otimizações para motores de busca</title>
+        <title>Otimizações para motores de busca - Saulo Santiago</title>
         
         
-          <description>&lt;p&gt;Ame-os ou odeie-os. 
-Você não pode vencê-los? Então se junte a eles. 
+          <description>&lt;p&gt;Ame-os ou odeie-os.
+Você não pode vencê-los? Então se junte a eles.
 Estou, naturalmente, referindo-se a questão de SEO.&lt;/p&gt;
 </description>
         
@@ -110,10 +110,10 @@ Estou, naturalmente, referindo-se a questão de SEO.&lt;/p&gt;
       </item>
     
       <item>
-        <title>Serializer JSONs com Sinatra</title>
+        <title>Serializer JSONs com Sinatra - Saulo Santiago</title>
         
         
-          <description>&lt;p&gt;Serializar objetos em JSONs nunca foi tão fácil depois que a &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; passou a existir. &lt;/p&gt;
+          <description>&lt;p&gt;Serializar objetos em JSONs nunca foi tão fácil depois que a &lt;a href=&quot;https://github.com/rails-api/active_model_serializers&quot;&gt;&lt;code&gt;gem ActiveModel::Serializers&lt;/code&gt;&lt;/a&gt; passou a existir.&lt;/p&gt;
 </description>
         
         <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
@@ -122,10 +122,10 @@ Estou, naturalmente, referindo-se a questão de SEO.&lt;/p&gt;
       </item>
     
       <item>
-        <title>Singleton Design Patterns com Javascript</title>
+        <title>Singleton Design Patterns com Javascript - Saulo Santiago</title>
         
         
-          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;. &lt;/p&gt;
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;.&lt;/p&gt;
 </description>
         
         <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>

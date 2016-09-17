@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   
-    <meta name="description" content="Aprenda a manipular suas repostas em JSONs.">
+    <meta name="description" content="Aprenda a manipular suas repostas em JSONs usando Serializer JSONs.">
   
 
-  <meta content="Saulo Santiago" property="og:site_name">
+  <meta content="Desenvolvedor Ruby e Javascript - Saulo Santiago" property="og:site_name">
 
   
-    <meta content="Serializer JSONs com Sinatra" property="og:title">
+    <meta content="Serializer JSONs com Sinatra - Saulo Santiago" property="og:title">
   
 
   
@@ -60,7 +60,7 @@
 
   <title>
     
-      Serializer JSONs com Sinatra &middot; Saulo Santiago
+      Serializer JSONs com Sinatra - Saulo Santiago &middot; Desenvolvedor Ruby e Javascript - Saulo Santiago
     
   </title>
 
@@ -132,9 +132,9 @@
     <nav>
   <div class="nav-wrapper">
     <a href="/" title="Home" class="brand-logo truncate">
-      <img src="/assets/logo-bg-50x50-9b408566f36deffc45fe6b24f3ff9a91.png" class='circle' alt='Saulo Santiago'>
+      <img src="/assets/logo-bg-50x50-7c712e74a06b0a2323bf8024b3e489bd.png" class='circle' alt='Saulo Santiago'>
       <h1 class='truncate'>
-        Saulo Santiago
+        Desenvolvedor Ruby e Javascript - Saulo Santiago
       </h1>
     </a>
 
@@ -227,8 +227,8 @@
     <main>
       <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
   <article class="markdown-body">
-    <a href="/ruby/serializer-jsons-com-sinatra" class='h1' title="Serializer JSONs com Sinatra">
-      <h1 itemprop="headline">Serializer JSONs com Sinatra</h1>
+    <a href="/ruby/serializer-jsons-com-sinatra" class='h1' title="Serializer JSONs com Sinatra - Saulo Santiago">
+      <h1 itemprop="headline">Serializer JSONs com Sinatra - Saulo Santiago</h1>
     </a>
 
     <span class='read-time'>
@@ -244,7 +244,7 @@
       <p>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank' title="Serializer JSONs com Sinatra">
+          <a href='http://saulosantiago.com.br/' target='_blank' title="Serializer JSONs com Sinatra - Saulo Santiago">
             Saulo Santiago
           </a>
         </b>
@@ -254,13 +254,13 @@
     </span>
 
     <div class='image-big'>
-      <a href="/ruby/serializer-jsons-com-sinatra" class='img' title="Serializer JSONs com Sinatra">
-        <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-6bed1b3da977c33d0431a158f14fcd4e.png" alt="Serializer JSONs com Sinatra" itemprop="image"/>
+      <a href="/ruby/serializer-jsons-com-sinatra" class='img' title="Serializer JSONs com Sinatra - Saulo Santiago">
+        <img src="/assets/posts/ruby/serializer-jsons-com-sinatra-big-6bed1b3da977c33d0431a158f14fcd4e.png" alt="Serializer JSONs com Sinatra - Saulo Santiago" itemprop="image"/>
       </a>
     </div>
 
     <div itemprop="articleBody">
-      <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir. </p>
+      <p>Serializar objetos em JSONs nunca foi tão fácil depois que a <a href="https://github.com/rails-api/active_model_serializers"><code>gem ActiveModel::Serializers</code></a> passou a existir.</p>
 
 <p>A gem <strong>facilita a manipulação dos objetos Ruby para objetos JSONs.</strong></p>
 
@@ -285,7 +285,7 @@
 <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
-  <span class="p">}</span>  
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Perfeito, tudo funcionou como desejavamos.</p>
@@ -296,7 +296,7 @@
 
 <p>Pois bem esta magia acontece dentro da <code>gem</code>, como podemos <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48">ver aqui</a>, ele intercepta todos os <code>renders</code> do tipo <code>json</code>, depois <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71">procura pelo serializer</a> que tenha o mesmo nome do objeto e finaliza devolvendo a <a href="https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95">instância desta classe</a> no formato JSON.</p>
 
-<p>Genial, não? </p>
+<p>Genial, não?</p>
 
 <p>Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails.</p>
 
@@ -333,11 +333,11 @@
   {
     "@context": "http://schema.org",
     "@type": "NewsArticle",
-    "headline": "Serializer JSONs com Sinatra",
-    "alternativeHeadline": "Aprenda a manipular suas repostas em JSONs.",
+    "headline": "Serializer JSONs com Sinatra - Saulo Santiago",
+    "alternativeHeadline": "Aprenda a manipular suas repostas em JSONs usando Serializer JSONs.",
     "image": ["http://saulosantiago.js.org/assets/posts/ruby/serializer-jsons-com-sinatra-big-6bed1b3da977c33d0431a158f14fcd4e.png", "http://saulosantiago.js.org/assets/posts/ruby/serializer-jsons-com-sinatra-thumb-abf87be2931decb96beaa94d13a74fd3.png"],
     "datePublished": "2015-05-18 00:00:00 +0000",
-    "description": "Aprenda a manipular suas repostas em JSONs.",
+    "description": "Aprenda a manipular suas repostas em JSONs usando Serializer JSONs.",
     "articleBody": "Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra."
   }
 </script>
@@ -367,15 +367,15 @@
     </div>
 
     <div class='social'>
-      <a href="https://twitter.com/intent/tweet?text=Serializer JSONs com Sinatra&url=http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
+      <a href="https://twitter.com/intent/tweet?text=Serializer JSONs com Sinatra - Saulo Santiago&url=http://saulosantiago.js.org/ruby/serializer-jsons-com-sinatra&via=SSILVASANTIAGO&related=SSILVASANTIAGO" rel="nofollow" target="_blank" title="Share on Twitter" class='button-twitter waves-effect waves-light btn'>Twitter</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
+      <a href="http://www.reddit.com/submit?url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra - Saulo Santiago" class='button-reddit waves-effect waves-light btn' target="_blank">Reddit</a>
     </div>
 
     <div class='social'>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra&summary=Aprenda a manipular suas repostas em JSONs.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://saulosantiago.js.org&title=Serializer JSONs com Sinatra - Saulo Santiago&summary=Aprenda a manipular suas repostas em JSONs usando Serializer JSONs.&source=http://saulosantiago.js.org" class='button-linkedin waves-effect waves-light btn' target="_blank">Linkedin</a>
     </div>
 </div>
   
@@ -447,7 +447,7 @@
 
   <div class="footer-copyright z-depth-2">
     <div class="container">
-      &copy; 2016. All rights reserved for Saulo Santiago.
+      &copy; 2016. All rights reserved for Desenvolvedor Ruby e Javascript - Saulo Santiago.
     </div>
   </div>
 </footer>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Saulo Santiago - Javascript</title>
+    <title>Desenvolvedor Ruby e Javascript - Saulo Santiago - Javascript</title>
     <description>Posts categorized as 'js'</description>
     <link>http://saulosantiago.js.org</link>
     <atom:link href="http://saulosantiago.js.org/feed.category.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>SEO para SPA - parte 2</title>
+        <title>SEO para SPA - parte 2 - Saulo Santiago</title>
         
           <description>&lt;p&gt;Como falei no post (&lt;a href=&quot;/seo/seo-para-spa/&quot;&gt;SEO para SPA&lt;/a&gt;), neste irei explicar uma solução para resolver o problema de SEO em SPAs, implementando uma técnica simples sem precisar alterar nada so seu site.&lt;/p&gt;
 </description>
@@ -18,7 +18,7 @@
       </item>
     
       <item>
-        <title>SEO para SPA</title>
+        <title>SEO para SPA - Saulo Santiago</title>
         
           <description>&lt;blockquote&gt;
 &lt;p&gt;It’s going to depend on what your particular area is, what the topic is, and what kind of layout you come out with. But if it works for you and for users to have that all on one page, for the most part, it should work for Google as well.&lt;/p&gt;
@@ -31,9 +31,9 @@
       </item>
     
       <item>
-        <title>Singleton Design Patterns com Javascript</title>
+        <title>Singleton Design Patterns com Javascript - Saulo Santiago</title>
         
-          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;. &lt;/p&gt;
+          <description>&lt;p&gt;&lt;em&gt;Singleton&lt;/em&gt; é um &lt;em&gt;Design Patterns&lt;/em&gt;.&lt;/p&gt;
 </description>
         
         <pubDate>Sun, 17 May 2015 00:00:00 +0000</pubDate>
