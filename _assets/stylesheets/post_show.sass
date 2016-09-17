@@ -3,6 +3,20 @@
   font-weight: 100
   margin: 5px 0
 
+.post
+  @extend %g-b
+  @extend %g-b--sm--1of1
+  @extend %g-b--md--1of1
+  @extend %g-b--ml--3of6
+  @extend %g-b--lg--3of6
+  @extend %g-b--lg2--2of6
+  @extend %g-b--xlg--4of12
+  @extend %g-b--xlg2--3of12
+  @extend %g-b--xxlg2--1of12
+
+  +respond_to($g-md, max-width)
+    padding: 0
+
 .post-show
   background: #FFF
   padding: 20px
