@@ -6,8 +6,8 @@ redcarpet:
 highlighter: pygments
 
 title: Desenvolvedor Ruby e Javascript - Saulo Santiago
-description: Desenvolvedor Ruby e Javascript, apaixonado por fazer produtos digitais incriveis
-paginate: 10
+description: Desenvolvedor Ruby e Javascript, apaixonado por escrever códigos e fazer produtos digitais incriveis
+paginate: 9
 paginate_path: /pagina/:num/
 permalink: pretty
 url: http://saulosantiago.js.org

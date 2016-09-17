@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 1 minutos e meio
-title: Git fixup com autosquash - Saulo Santiago
+title: Git fixup com autosquash
 description: Git fixup com autosquash irá te ajudar a manter sua árvore de commit mais limpa e organizada
 long_description: Quem nunca fez algum commit com as descrição fix bug, Fix a typo, Fix whatever e minutos ou horas depois precisou limpar estas mensagens? A pouco tempo atrás eu aprendi a utilizar dois comandos muito úteis para resolver essa situação, são eles git fixup com autosquash
 has_preview: true

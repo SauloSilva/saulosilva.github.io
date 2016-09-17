@@ -3,8 +3,9 @@ layout: default
 ---
 
 <div class='post-show z-depth-1' itemscope itemtype="http://schema.org/NewsArticle">
+  <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
   <article class="markdown-body">
-    <a href="{{ page.url }}" class='h1' title="{{ page.title }}">
+    <a href="{{ page.url }}/" class='h1' title="{{ page.title }}">
       <h1 itemprop="headline">{{ page.title }}</h1>
     </a>
 
@@ -13,7 +14,7 @@ layout: default
       Leia em: {{ page.read_time }}
     </span>
 
-    <span class='author-info'>
+    <span class='author-info' itemprop="author" itemscope itemtype="https://schema.org/Person">
       <a href='http://saulosantiago.com.br/' target='_blank'>
         <img src="{{ page.author_email | to_gravatar }}" alt="{{ page.author_name }}" width='50' height='50' class='circle responsive-img'/>
       </a>
@@ -21,27 +22,38 @@ layout: default
       <p>
         Escrito por:
         <b>
-          <a href='http://saulosantiago.com.br/' target='_blank' title="{{ page.title }}">
+          <a href='http://saulosantiago.com.br/' target='_blank' title="{{ page.title }}" itemprop="name">
             {{ page.author_name }}
           </a>
         </b>
         </br>
-        em: <b itemprop="datePublished">{{ page.date | date_to_string }}</b>.
+        em: <b>{{ page.date | date_to_string }}</b>.
       </p>
     </span>
 
-    <div class='image-big'>
-      <a href="{{ page.url }}" class='img' title="{{ page.title }}">
-        <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }}" itemprop="image"/>
+    <div class='image-big' itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+      <a href="{{ page.url }}/" class='img' title="{{ page.title }}">
+        <img src="{{ page.image_big | asset_path }}" alt="{{ page.title }} - Saulo Santiago"/>
+        <meta itemprop="url" content="{{ site.url }}{{ page.image_big | asset_path }}">
+        <meta itemprop="width" content="1060">
+        <meta itemprop="height" content="236">
       </a>
     </div>
 
-    <div itemprop="articleBody">
+    <div>
       {{ content }}
     </div>
 
-    {% include rich_snippets/article.html %}
-
+    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+      <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+        <meta itemprop="url" content="{{ site.url }}{% asset_path logo-bg.png %}">
+        <meta itemprop="width" content="600">
+        <meta itemprop="height" content="60">
+      </div>
+      <meta itemprop="name" content="Saulo Santiago">
+    </div>
+    <meta itemprop="datePublished" content="{{ page.date | date_to_string }}"/>
+    <meta itemprop="dateModified" content="{{ page.date | date_to_string }}"/>
   </article>
 
   <b>Veja mais posts sobre:</b>

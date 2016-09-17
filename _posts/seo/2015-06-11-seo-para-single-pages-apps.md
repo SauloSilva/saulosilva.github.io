@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 3 minutos
-title: SEO para SPA - Saulo Santiago
+title: SEO para SPA
 description: Entenda o problema de SEO em SPA.
 
 long_description: Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente.

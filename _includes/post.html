@@ -1,8 +1,8 @@
 <div class='post'>
   <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <a href="{{ include.post.url }}" title="{{ include.post.title }}">
-        <img data-original="{{ include.post.image_thumb | asset_path }}" alt="{{ include.post.title }}" class='lazy' width='500' height='300'/>
+      <a href="{{ include.post.url }}/" title="{{ include.post.title }}">
+        <img data-original="{{ include.post.image_thumb | asset_path }}" alt="{{ include.post.title }} - Saulo Santiago" class='lazy' width='500' height='300'/>
       </a>
     </div>
 
@@ -15,7 +15,7 @@
         {% endif %}
       </span>
 
-      <a href="{{ include.post.url }}" title="{{ include.post.title }}">
+      <a href="{{ include.post.url }}/" title="{{ include.post.title }}">
         <h2 class='card-title truncate'>
           {{ include.post.title }}
         </h2>
@@ -28,9 +28,11 @@
 
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
-        <a href="{{ include.post.url }}" class='truncate' title="{{ include.post.title }}">
-          {{ include.post.title }}
-        </a>
+        <h1>
+          <a href="{{ include.post.url }}/" class='truncate' title="{{ include.post.title }}">
+            {{ include.post.title }}
+          </a>
+        </h1>
         <i class="mdi-navigation-close right"></i>
       </span>
 

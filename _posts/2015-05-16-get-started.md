@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 3 minutos
-title: Get started - Saulo Santiago
+title: Get started
 description: Sejam bem vindos ao meu blog - Saulo Santiago.
 has_preview: false
 category: []

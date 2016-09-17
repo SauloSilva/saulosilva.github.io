@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 2 minutos
-title: Git commit --amend - Saulo Santiago
+title: Git commit --amend
 description: Git commit --amend é um comando para reescrever a história de um commit
 
 long_description: É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conveniente de voltar atrás e corrigir isto sem precisar de muito esforço.

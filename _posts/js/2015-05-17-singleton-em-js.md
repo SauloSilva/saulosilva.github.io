@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 6 minutos
-title: Singleton Design Patterns com Javascript - Saulo Santiago
+title: Singleton Design Patterns com Javascript
 description: Singleton diz que você terá apenas uma instância de classe.
 
 long_description: Singleton diz que você terá apenas uma instância de classe (se estiver utilizando ES6) ou de uma função construtora (se estiver utilizando ES5).

@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 7 minutos
-title: Otimizações para motores de busca - Saulo Santiago
+title: Otimizações para motores de busca
 description: Aprenda técnicas importantes de otimização de SEO para o seu site.
 
 long_description: Quando publicamos um site na Web, na maioria das vezes, queremos que ele tenha uma grande audiência. Para conquista-la, devemos pensar em como estruturar o conteúdo para obter um bom posicionamento nas buscas orgânicas. Aprenda técnicas importantes de SEO neste post e alavanque seu número de audiência.

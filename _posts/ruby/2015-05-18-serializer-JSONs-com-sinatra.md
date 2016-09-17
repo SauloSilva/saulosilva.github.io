@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Serializer JSONs com Sinatra - Saulo Santiago
+title: Serializer JSONs com Sinatra
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 4 minutos

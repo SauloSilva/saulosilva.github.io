@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Operadores em Ruby e seus métodos - Saulo Santiago
+title: Operadores em Ruby e seus métodos
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 11 minutos
