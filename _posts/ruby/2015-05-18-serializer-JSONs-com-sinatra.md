@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Serializer JSONs com Sinatra
+title: Serializer JSONs com Sinatra - Saulo Santiago
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 4 minutos
-description: Aprenda a manipular suas repostas em JSONs.
+description: Aprenda a manipular suas repostas em JSONs usando Serializer JSONs.
 
 long_description: Aprenda a manipular suas repostas em JSONs utilizando Rails ou Sinatra ambos de maneiras automaticas. Basicamente você precisa da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/https://github.com/rails-api/active_model_serializers' target='_blank'>active-model-serializers</a> para o Rails e da gem <a href='https://github.com/SauloSilva/sinatra-active-model-serializers/' target='_blank'>sinatra-active-model-serializers.</a> para o sinatra.
 
@@ -17,7 +17,7 @@ image_thumb: posts/ruby/serializer-jsons-com-sinatra-thumb.png
 permalink: ruby/serializer-jsons-com-sinatra
 ---
 
-Serializar objetos em JSONs nunca foi tão fácil depois que a [`gem ActiveModel::Serializers`](https://github.com/rails-api/active_model_serializers) passou a existir. 
+Serializar objetos em JSONs nunca foi tão fácil depois que a [`gem ActiveModel::Serializers`](https://github.com/rails-api/active_model_serializers) passou a existir.
 
 A gem **facilita a manipulação dos objetos Ruby para objetos JSONs.**
 
@@ -53,7 +53,7 @@ e teremos este retorno:
 {
   "foo": {
     "bar": "bar"
-  }  
+  }
 }
 ```
 
@@ -65,7 +65,7 @@ Você deve ter achado esquisito (**automatico**) em fazer apenas um `render` e e
 
 Pois bem esta magia acontece dentro da `gem`, como podemos [ver aqui](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L48), ele intercepta todos os `renders` do tipo `json`, depois [procura pelo serializer](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L71) que tenha o mesmo nome do objeto e finaliza devolvendo a [instância desta classe](https://github.com/rails-api/active_model_serializers/blob/v0.9.3/lib/action_controller/serialization.rb#L95) no formato JSON.
 
-Genial, não? 
+Genial, não?
 
 Se sua resposta foi sim, concordo plenamente contigo. Mas pena que isto só funciona para o Rails.
 

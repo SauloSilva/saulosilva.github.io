@@ -3,8 +3,8 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 2 minutos
-title: Git clean up
-description: Saiba como limpar seus branchs obsoletos.
+title: Git clean up - Saulo Santiago
+description: Saiba como limpar seus branchs obsoletos usando git  clean up.
 long_description: Depois de um certo tempo trabalhando com branchs em um repositório Git, os branchs torna-se desatualizados e confusos. Sendo assim irei mostrar a vocês como manter as branchs organizadas de uma forma simples e fácil.
 
 has_preview: true

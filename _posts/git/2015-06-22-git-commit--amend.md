@@ -3,8 +3,8 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 2 minutos
-title: Git commit --amend
-description: Comando para reescrever a história de um commit
+title: Git commit --amend - Saulo Santiago
+description: Git commit --amend é um comando para reescrever a história de um commit
 
 long_description: É bem comum esquecer de adicionar alguma informação/arquivo no commit ou submeter um commit com uma mensagem errada. A flag --amend é o jeito mais conveniente de voltar atrás e corrigir isto sem precisar de muito esforço.
 
@@ -17,7 +17,7 @@ image_thumb: posts/git/git-commit--amend-thumb.png
 permalink: git/git-commit--amend
 ---
 
-O trabalho principal do Git é garantir que nenhuma informação seja perdida.
+O trabalho principal do **Git** é garantir que nenhuma informação seja perdida.
 Ele foi projetado para fornecer total liberdade no fluxo de trabalho. Isso significa que podemos ter a liberdade para definir o que queremos em nosso histórico de _commits_.
 
 Para que isto seja possível o Git oferece um comando para reescrever os _commits_ anteriores.

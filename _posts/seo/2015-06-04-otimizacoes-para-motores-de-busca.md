@@ -3,8 +3,8 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 7 minutos
-title: Otimizações para motores de busca
-description: Aprenda técnicas importantes de SEO para o seu site.
+title: Otimizações para motores de busca - Saulo Santiago
+description: Aprenda técnicas importantes de otimização de SEO para o seu site.
 
 long_description: Quando publicamos um site na Web, na maioria das vezes, queremos que ele tenha uma grande audiência. Para conquista-la, devemos pensar em como estruturar o conteúdo para obter um bom posicionamento nas buscas orgânicas. Aprenda técnicas importantes de SEO neste post e alavanque seu número de audiência.
 
@@ -17,8 +17,8 @@ image_thumb: posts/seo/otimizacoes-para-motores-de-busca-thumb.png
 permalink: seo/otimizacoes-para-motores-de-busca
 ---
 
-Ame-os ou odeie-os. 
-Você não pode vencê-los? Então se junte a eles. 
+Ame-os ou odeie-os.
+Você não pode vencê-los? Então se junte a eles.
 Estou, naturalmente, referindo-se a questão de SEO.
 
 Quando publicamos um site na Web, na maioria das vezes, queremos que ele tenha uma grande audiência. Para conquista-la, devemos pensar em como estruturar o conteúdo para obter um bom posicionamento nas buscas orgânicas.
@@ -76,15 +76,15 @@ Mas não se esqueça de tornar padrão a ligação de volta para a página anter
     <li>
       <a href='/foo/'>foo</a>
     </li>
-    
+
     <li class='separator'> > </li>
-    
+
     <li>
       <a href='/foo/bar/'>bar</a>
     </li>
-    
+
     <li class='separator'> > </li>
-    
+
     <li>
       <a href='/foo/bar/baz/'>baz</a>
     </li>
@@ -97,9 +97,9 @@ Mas não se esqueça de tornar padrão a ligação de volta para a página anter
 Disponibilize um sitemap, isso facilita o trabalho do crawler na busca por urls há serem indexadas.
 
 ```xml
-<urlset 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+<urlset
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://saulosantiago.js.org/foo/</loc>
@@ -114,7 +114,7 @@ Disponibilize um sitemap, isso facilita o trabalho do crawler na busca por urls 
 
 ### URLs amigáveis
 
-Ao invés de utilizar números, combinações de letras que não fazem sentido ou carregar todo o conteúdo em uma única URL. 
+Ao invés de utilizar números, combinações de letras que não fazem sentido ou carregar todo o conteúdo em uma única URL.
 Faça uma URL que tenha o mesmo nome da tag `title` (remova os caractéres especiais e substitua espaço por hífen) para cada tipo de conteúdo. Assim você estará mostrando para o usuário e para os motores de busca, que para cada tipo de conteúdo existe um identificador, isso possibilita o compartilhamento de conteúdos separadamente.
 
 ```html

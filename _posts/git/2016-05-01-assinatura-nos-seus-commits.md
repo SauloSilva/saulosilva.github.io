@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 4 minutos
-title: Assinatura no seus commits
+title: Assinatura no seus commits - Saulo Santiago
 description: Assine seus commits e garanta a autenticidade deles.
 long_description: Git é seguramente criptografado, mas não é infalível. Se vocês estiver submetendo seus commits de uma rede de internet não confiável e quer ter a certeza de que seus commits esta vindo de uma fonte confiável, o Git tem a opção de assinar e verificar seus commits utilizando-se de chave GPG.
 has_preview: true

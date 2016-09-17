@@ -3,10 +3,10 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 3 minutos
-title: SEO para SPA
+title: SEO para SPA - Saulo Santiago
 description: Entenda o problema de SEO em SPA.
 
-long_description: Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente. 
+long_description: Single-page Application (SPA), trouxe muitos benefícios, no quisito experiência do usuário podemos destacar a rapidez e o carregamento do conteúdo por demanda, mas existe um grande problema, a parte de SEO fica bastante comprometida. Para resolver este problema, existe uma técnica chamada de "fallback page". Este paradigma é totalmente modular, podendo ser utilizado em várias aplicações diferente.
 
 has_preview: true
 category: [seo, javascript]
@@ -21,7 +21,7 @@ permalink: seo/seo-para-spa
 
 > [What does Google think of single-page websites?](https://www.youtube.com/watch?v=Mibrj2bOFCU#t=73) - Google Webmasters
 
-O surgimento de bibliotecas e frameworks Javascript trouxe um novo formato para sites e aplicações web, o Single-Page Application (SPA). 
+O surgimento de bibliotecas e frameworks Javascript trouxe um novo formato para sites e aplicações web, o Single-Page Application (SPA).
 
 Por conta de seus inúmeros benefícios, muitos desenvolvedores têm optado por utilizá-lo. O grande problema é que a parte de Search Engine Optimization (SEO) fica bastante comprometida.
 
@@ -34,17 +34,17 @@ Sendo assim o conteúdo do seu site não estará visível na [busca orgânica](h
 
 ### A Solução
 
-A "fallback page" (termo que utilizo para nomear esta técnica) é a solução para este problema. 
+A "fallback page" (termo que utilizo para nomear esta técnica) é a solução para este problema.
 
 A responsabilidade disto é fornecer ao Search Engine o principal atributo - o conteúdo. Para que isto seja possível precisamos construir uma página dinâmica que tem a mesma funcionalidade e conteúdo da aplicação web via Javascript, vindo diretamente do servidor.
 
 Esta página não é destinada aos usuários, ela so é servida quando a "request" estiver vindo de um crawler.
 
-Para desenvolver esta solução teremos que implementar uma nova aplicação utilizando, Node, PhantomJS e Nginx. Isto elimina todas as necessidades de alterações em nosso SPA. 
+Para desenvolver esta solução teremos que implementar uma nova aplicação utilizando, Node, PhantomJS e Nginx. Isto elimina todas as necessidades de alterações em nosso SPA.
 
 Esta aplicação não tem limite de utilização, no entanto podemos ter vários sites se utilizando da mesma aplicação a fim de SEO.
 
-### Finalizando 
+### Finalizando
 
 Atualmente aplico este conceito para todos os SPA que desenvolvo e o resultado é muito satisfatório.
 

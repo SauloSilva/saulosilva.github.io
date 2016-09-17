@@ -3,7 +3,7 @@ layout: post
 author_name: Saulo Santiago
 author_email: saulodasilvasantiago@gmail.com
 read_time: 6 minutos
-title: Singleton Design Patterns com Javascript
+title: Singleton Design Patterns com Javascript - Saulo Santiago
 description: Singleton diz que você terá apenas uma instância de classe.
 
 long_description: Singleton diz que você terá apenas uma instância de classe (se estiver utilizando ES6) ou de uma função construtora (se estiver utilizando ES5).
@@ -17,9 +17,9 @@ image_thumb: posts/javascript/sigleton-design-patterns-com-javascript-thumb.png
 permalink: javascript/sigleton-design-patterns-com-javascript
 ---
 
-_Singleton_ é um _Design Patterns_. 
+_Singleton_ é um _Design Patterns_.
 
-Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe ou função construtora. 
+Este padrão fica responsável por criar um objeto e garantir uma única instância de sua classe ou função construtora.
 
 Para implementação de um objeto _Singleton_, precisamos pensar em uma forma de disponibilizarmos uma propriedade no objeto, de maneira que possamos acessá-lo direto sem a necessidade de uma instância.
 
@@ -50,9 +50,9 @@ De início declarei uma variável interna chamada de `_instance`. A função des
 
 Logo após foi definido uma propriedade chamada de `getInstance` dentro do objeto `Foo`, essa função implementa nossa regra de _Singleton_.
 
-A primeira e única instrução que encontramos dentro da nossa propriedade `getInstance` é um ternário que verifica o estado da variável `_instance`. 
+A primeira e única instrução que encontramos dentro da nossa propriedade `getInstance` é um ternário que verifica o estado da variável `_instance`.
 
-Quando a variável for nula, significa que estamos passando ali pela primeira vez, então o seguinte trecho de código é executado: `_instance = new Foo()`. 
+Quando a variável for nula, significa que estamos passando ali pela primeira vez, então o seguinte trecho de código é executado: `_instance = new Foo()`.
 
 Das próximas **n vezes** já teremos a instância do objeto armazenada na variável `_instance` então apenas o retorno é feito.
 
@@ -87,13 +87,13 @@ Foo.getInstance // => return object instantied
 
 Esta lógica é quase parecida com a anterior.
 
-Neste caso criei duas variável fora do escopo da classe, com o nome de `_instance` e uma outra chamada de `_singletonEnforcer` ambas definidas como símbolo. 
+Neste caso criei duas variável fora do escopo da classe, com o nome de `_instance` e uma outra chamada de `_singletonEnforcer` ambas definidas como símbolo.
 
 Ao criar a classe `Foo` defini um método estático chamado `getInstance` que será acessado através da class `Foo` sem necessidade de instância.
 
 Quando o método `getInstance` é chamado pela primeira vez, ele verifica se existe uma propriedade definida que não esteja nula `!this[_instance]`. Caso a propriedade ainda não esteja definida ele criar e atribui a instância como valor: `this[_instance] = new Foo(_singletonEnforcer);`, caso haja a propriedade ele apenas retorna `return this[_instance]`.
 
-Para finalizar, na função construtora da classe eu envio `_singletonEnforcer` como uma forma de garantir que a nova instância esteja sendo chamada sempre de dentro da função `getInstance`, caso o valor seja diferente uma excessão é lançada `throw('Cannot constructor singleton')`, impedindo que a classe seja inicializada. 
+Para finalizar, na função construtora da classe eu envio `_singletonEnforcer` como uma forma de garantir que a nova instância esteja sendo chamada sempre de dentro da função `getInstance`, caso o valor seja diferente uma excessão é lançada `throw('Cannot constructor singleton')`, impedindo que a classe seja inicializada.
 
 #### Finalizando
 
